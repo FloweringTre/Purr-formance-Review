@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbo4d3yslerjt"]
+
+[ext_resource type="Texture2D" uid="uid://blc7qv40koxaq" path="res://assets/ui/largeButtons/largeButtons_new_game.png" id="1_magig"]
+[ext_resource type="Texture2D" uid="uid://bh8e8oynjed11" path="res://assets/ui/largeButtons/largeButtons_exit.png" id="2_v4st1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf7q6"]
+atlas = ExtResource("1_magig")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vihn4"]
+atlas = ExtResource("1_magig")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjcki"]
+atlas = ExtResource("1_magig")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76qjv"]
+atlas = ExtResource("1_magig")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j5a8"]
+atlas = ExtResource("2_v4st1")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m86oa"]
+atlas = ExtResource("2_v4st1")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd820"]
+atlas = ExtResource("2_v4st1")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7iab"]
+atlas = ExtResource("2_v4st1")
+region = Rect2(0, 32, 64, 32)
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -20.0
+offset_right = 49.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Working Kitty"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_kf7q6")
+texture_pressed = SubResource("AtlasTexture_vihn4")
+texture_hover = SubResource("AtlasTexture_tjcki")
+texture_disabled = SubResource("AtlasTexture_76qjv")
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2j5a8")
+texture_pressed = SubResource("AtlasTexture_m86oa")
+texture_hover = SubResource("AtlasTexture_wd820")
+texture_disabled = SubResource("AtlasTexture_e7iab")
