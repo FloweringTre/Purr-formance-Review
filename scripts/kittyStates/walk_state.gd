@@ -38,6 +38,9 @@ func _on_next_transitions() -> void:
 	
 	elif GameInputEvents.is_sprinting():
 		transition.emit("run")
+	
+	elif Input.is_action_just_pressed("jump"):
+		transition.emit("jump")
 
 
 func _on_enter() -> void:

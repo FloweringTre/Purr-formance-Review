@@ -26,6 +26,9 @@ func _on_next_transitions() -> void:
 	
 	if GameInputEvents.is_movement_input():
 		transition.emit("walk")
+	
+	elif Input.is_action_just_pressed("jump"):
+		transition.emit("jump")
 
 
 func _on_enter() -> void:

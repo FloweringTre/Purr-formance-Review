@@ -38,7 +38,9 @@ func _on_next_transitions() -> void:
 	
 	elif !GameInputEvents.is_sprinting():
 		transition.emit("walk")
-
+	
+	elif Input.is_action_just_pressed("jump"):
+		transition.emit("jump")
 
 func _on_enter() -> void:
 	player.movement_state = true #entering a movement state
