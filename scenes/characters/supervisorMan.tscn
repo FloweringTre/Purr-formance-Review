@@ -1,27 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc3k7dij4dkyd"]
+[gd_scene load_steps=15 format=3 uid="uid://bc3k7dij4dkyd"]
 
 [ext_resource type="Texture2D" uid="uid://dd1uv7dc52dck" path="res://assets/1_assets_from_others/Modern tiles_Free/Characters_free/Bob_16x16.png" id="1_fy2hv"]
+[ext_resource type="Script" path="res://scripts/supervisor_man.gd" id="1_l0wv1"]
 [ext_resource type="Script" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="2_ctrtj"]
 [ext_resource type="Script" path="res://scripts/npcStates/supervisor/idle_state.gd" id="3_c6syh"]
 [ext_resource type="Script" path="res://scripts/npcStates/supervisor/distracted_state.gd" id="4_q46r7"]
 [ext_resource type="Script" path="res://scripts/npcStates/supervisor/walk_state.gd" id="5_jm3ga"]
-
-[sub_resource type="Animation" id="Animation_wkwb7"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [42, 43, 44, 45, 46, 47, 42]
-}
+[ext_resource type="Script" path="res://scripts/npcStates/supervisor/run_state.gd" id="7_cjfey"]
 
 [sub_resource type="Animation" id="Animation_7ggap"]
 length = 0.001
@@ -36,6 +21,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [42]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seekingArea/seeking_zone:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seekingArea/seeking_zone:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("seekingArea/seeking_zone:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("seekingArea/seeking_zone:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_64m48"]
@@ -53,10 +86,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [144, 145, 146, 147, 149, 150, 151, 152, 151, 150, 149, 146, 145, 144, 42]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seekingArea/seeking_zone:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 2.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seekingArea/seeking_zone:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 2.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
-[sub_resource type="Animation" id="Animation_a7mc8"]
-resource_name = "walk"
-length = 0.8
+[sub_resource type="Animation" id="Animation_wkwb7"]
+resource_name = "idle"
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -65,10 +122,58 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [48, 50, 51, 53]
+"values": [42, 43, 44, 45, 46, 47, 42]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seekingArea/seeking_zone:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seekingArea/seeking_zone:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("seekingArea/seeking_zone:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("seekingArea/seeking_zone:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0sj4d"]
@@ -88,6 +193,23 @@ tracks/0/keys = {
 "values": [48, 49, 50, 51, 52, 53]
 }
 
+[sub_resource type="Animation" id="Animation_a7mc8"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 50, 51, 53]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ld5oi"]
 _data = {
 "RESET": SubResource("Animation_7ggap"),
@@ -102,6 +224,8 @@ size = Vector2(12, 4)
 
 [node name="SupervisorMan" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_mask = 17
+script = ExtResource("1_l0wv1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -143,8 +267,43 @@ character = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 navigation_agent = NodePath("../../NavigationAgent2D")
 
+[node name="run" type="Node" parent="NodeStateMachine" node_paths=PackedStringArray("character", "animation_player", "navigation_agent")]
+script = ExtResource("7_cjfey")
+character = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+navigation_agent = NodePath("../../NavigationAgent2D")
+
 [node name="distractionTimer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
 
+[node name="seekingTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="seekingArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="seeking_zone" type="CollisionPolygon2D" parent="seekingArea"]
+position = Vector2(0, -18)
+polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
+
+[node name="seeking_zone_left" type="CollisionPolygon2D" parent="seekingArea"]
+visible = false
+position = Vector2(9, -9)
+rotation = 1.5708
+polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
+disabled = true
+
+[node name="seeking_zone_right" type="CollisionPolygon2D" parent="seekingArea"]
+visible = false
+position = Vector2(-9, -9)
+rotation = -1.5708
+polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
+disabled = true
+
 [connection signal="timeout" from="distractionTimer" to="NodeStateMachine/idle" method="_on_distraction_timer_timeout"]
+[connection signal="timeout" from="seekingTimer" to="." method="_on_seeking_timer_timeout"]
+[connection signal="body_entered" from="seekingArea" to="." method="_on_seeking_area_body_entered"]
+[connection signal="body_exited" from="seekingArea" to="." method="_on_seeking_area_body_exited"]

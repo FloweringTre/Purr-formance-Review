@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cnjrlb1mvmof6"]
+[gd_scene load_steps=26 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
 [ext_resource type="Script" path="res://scripts/kitty_lord.gd" id="1_8xtop"]
@@ -90,6 +90,23 @@ tracks/0/keys = {
 "values": [72, 73, 74, 75, 74, 75, 74, 78, 73]
 }
 
+[sub_resource type="Animation" id="Animation_jr85i"]
+resource_name = "idle_1"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 5, 5.2, 5.4, 5.6, 7, 7.2, 7.4, 7.6, 7.8, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 16, 17, 18, 19, 16, 17, 18, 19, 16, 0, 1, 2, 3, 0, 24, 25, 26, 27, 24, 0]
+}
+
 [sub_resource type="Animation" id="Animation_531jj"]
 resource_name = "idle_2"
 length = 8.5
@@ -174,23 +191,6 @@ tracks/0/keys = {
 "values": [32, 33, 34, 35, 36, 37, 38, 39]
 }
 
-[sub_resource type="Animation" id="Animation_jr85i"]
-resource_name = "idle_1"
-length = 9.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 5, 5.2, 5.4, 5.6, 7, 7.2, 7.4, 7.6, 7.8, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 0, 16, 17, 18, 19, 16, 17, 18, 19, 16, 0, 1, 2, 3, 0, 24, 25, 26, 27, 24, 0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6c3y"]
 _data = {
 "RESET": SubResource("Animation_rv7qj"),
@@ -221,10 +221,15 @@ region = Rect2(144, 140, 16, 4)
 atlas = ExtResource("8_kn2qq")
 region = Rect2(144, 130, 16, 4)
 
-[node name="kittyLord" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nmack"]
+
+[node name="kittyLord" type="CharacterBody2D" groups=["PlayerKitty"]]
 y_sort_enabled = true
+collision_layer = 3
 collision_mask = 17
 script = ExtResource("1_8xtop")
+run_speed = 75
+walk_speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -276,3 +281,15 @@ value = 180.0
 texture_under = SubResource("AtlasTexture_0c0j7")
 texture_over = SubResource("AtlasTexture_2j0uy")
 texture_progress = SubResource("AtlasTexture_ub8kf")
+
+[node name="monitoringArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="monitoringArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_nmack")
+debug_color = Color(0.737961, 0.384726, 0.692947, 0.42)
+
+[connection signal="body_entered" from="monitoringArea" to="." method="_on_monitoring_area_body_entered"]
+[connection signal="body_exited" from="monitoringArea" to="." method="_on_monitoring_area_body_exited"]
