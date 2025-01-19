@@ -17,11 +17,19 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/ui/boot_screen.png"
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalTrackingValues="*res://scripts/globals/global_tracking_values.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+PlayerKitty=""
 
 [gui]
 
@@ -73,6 +81,7 @@ jump={
 
 2d_physics/layer_1="standard collision"
 2d_navigation/layer_1="Supervisor Navigation"
+2d_physics/layer_2="kitty seeking"
 2d_physics/layer_5="perm borders"
 
 [rendering]
