@@ -2,7 +2,6 @@ class_name NodeStateMachine
 extends Node
 
 @export var initial_node_state : NodeState
-@export var player: Player
 
 var node_states : Dictionary = {}
 var current_node_state : NodeState
