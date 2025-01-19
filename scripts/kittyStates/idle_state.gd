@@ -2,7 +2,6 @@ extends NodeState
 
 @export var player: Player
 @export var animation_player: AnimationPlayer
-var next_action : String
 var idle_animation : String
 
 func _ready() -> void:

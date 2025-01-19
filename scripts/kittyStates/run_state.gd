@@ -50,6 +50,7 @@ func _on_enter() -> void:
 	player.movement_state = true #entering a movement state
 	player.running = true #entering a running state
 	progress_bar.visible = true
+	progress_bar.modulate.a = 1.0
 
 
 func _on_exit() -> void:
@@ -57,3 +58,4 @@ func _on_exit() -> void:
 	player.movement_state = false #exiting a movement state
 	player.running = false #exiting a running state
 	player.velocity = Vector2.ZERO
+	progress_bar.modulate.a = 0.75

@@ -242,10 +242,9 @@ libraries = {
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_3635q")
 
-[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state", "player")]
+[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_qlcgv")
 initial_node_state = NodePath("idle")
-player = NodePath("..")
 
 [node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("player", "animation_player")]
 script = ExtResource("4_b6j6m")
