@@ -23,6 +23,7 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	player.movement_state = true #entering a movement state
+	player.jumping = true
 	player.set_collision_mask_value(1, false)
 	#Plays Animations
 	if player.player_direction == Vector2.LEFT or player.player_direction == Vector2.UP:
@@ -36,6 +37,7 @@ func _on_enter() -> void:
 		$"../../Sprite2D".flip_h = false
 
 func _on_exit() -> void:
+	player.jumping = false
 	animation_player.stop()
 	player.set_collision_mask_value(1, true)
 	player.movement_state = false #exiting a movement state
