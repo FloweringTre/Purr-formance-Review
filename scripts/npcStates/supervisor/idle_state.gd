@@ -24,6 +24,9 @@ func _on_next_transitions() -> void:
 	if idle_state_timeout:
 		print("supervisor is on the move!")
 		transition.emit("walk")
+	
+	if character.tracking_kitty:
+		transition.emit("run")
 
 
 func _on_enter() -> void:
@@ -49,7 +52,7 @@ func _on_distraction_timer_timeout() -> void:
 		$"../../distractionTimer".start()
 
 func on_idle_state_timeout() -> void:
-	var random = randi_range(0,3)
+	var random = randi_range(2,3)
 	if random == 3:
 		idle_state_timeout = true
 	else:

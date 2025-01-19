@@ -3,7 +3,7 @@ extends NodeState
 @export var character: CharacterBody2D
 @export var animation_player: AnimationPlayer
 @export var navigation_agent: NavigationAgent2D
-@export var speed : float = 25.0
+@export var speed : float = 50.0
 
 var location
 var counter : int = 1
@@ -25,12 +25,9 @@ func character_setup() -> void:
 	set_movement_target()
 
 func set_movement_target() -> void:
-	var target_position : Vector2 = NavigationServer2D.map_get_random_point(navigation_agent.get_navigation_map(), navigation_agent.navigation_layers, false)
-	navigation_agent.target_position = target_position
-
-func set_kitty_target() -> void:
 	var target_position : Vector2 = GlobalTrackingValues.last_reported_kitty_location
 	navigation_agent.target_position = target_position
+
 
 func _on_process(_delta : float) -> void:
 	pass
@@ -83,19 +80,16 @@ func tracking_location() -> void:
 	location = character.global_position
 
 func _on_next_transitions() -> void:	
-	if navigation_agent.is_navigation_finished():
+	if !character.tracking_kitty:
+		navigation_agent.navigation_finished.emit()
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
-	
-	if character.tracking_kitty:
-		set_kitty_target()
-		navigation_agent.navigation_finished.emit()
-		transition.emit("run")
 
 func _on_enter() -> void:
+	set_movement_target()
 	location = character.global_position
 	counter = 1
-	animation_player.play("walk")
+	animation_player.play("run")
 	sprite_2d.flip_h = false
 	seeking_zone.disabled = true
 	seeking_zone.visible = false
