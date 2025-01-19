@@ -2,6 +2,7 @@ extends NodeState
 
 @export var player: Player
 @export var animation_player: AnimationPlayer
+@onready var progress_bar: TextureProgressBar = $"../../ProgressBar"
 
 
 func _on_process(_delta : float) -> void:
@@ -33,6 +34,9 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func _on_next_transitions() -> void:	
+	if !player.can_sprint:
+		transition.emit("walk")
+	
 	if !GameInputEvents.is_movement_input():
 		transition.emit("idle")
 	
@@ -44,9 +48,12 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	player.movement_state = true #entering a movement state
+	player.running = true #entering a running state
+	progress_bar.visible = true
 
 
 func _on_exit() -> void:
 	animation_player.stop()
 	player.movement_state = false #exiting a movement state
+	player.running = false #exiting a running state
 	player.velocity = Vector2.ZERO

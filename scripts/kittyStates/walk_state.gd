@@ -36,7 +36,7 @@ func _on_next_transitions() -> void:
 	if !GameInputEvents.is_movement_input():
 		transition.emit("idle")
 	
-	elif GameInputEvents.is_sprinting():
+	elif GameInputEvents.is_sprinting() && player.can_sprint:
 		transition.emit("run")
 	
 	elif Input.is_action_just_pressed("jump"):
