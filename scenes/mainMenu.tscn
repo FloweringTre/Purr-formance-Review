@@ -137,6 +137,7 @@ texture_disabled = SubResource("AtlasTexture_76qjv")
 
 [node name="exitButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 texture_normal = SubResource("AtlasTexture_2j5a8")
 texture_pressed = SubResource("AtlasTexture_m86oa")
 texture_hover = SubResource("AtlasTexture_wd820")
