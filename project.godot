@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Working Kitty"
+config/name="Purr-formance Review"
 config/description="Kitty is destined for OFFICE DOMINATION"
 run/main_scene="res://scenes/mainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
@@ -82,6 +82,7 @@ jump={
 2d_physics/layer_1="standard collision"
 2d_navigation/layer_1="Supervisor Navigation"
 2d_physics/layer_2="kitty seeking"
+2d_physics/layer_3="kitty capture"
 2d_physics/layer_5="perm borders"
 
 [rendering]

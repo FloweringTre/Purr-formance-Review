@@ -1,9 +1,14 @@
 extends Control
 
+@onready var splash_timer: Timer = $splashTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$TextureRect.visible = true
+	if !GlobalTrackingValues.game_was_played:
+		$TextureRect.visible = true
+		splash_timer.start()
+	else:
+		$TextureRect.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

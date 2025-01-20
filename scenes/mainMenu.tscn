@@ -114,11 +114,14 @@ offset_bottom = 360.0
 scale = Vector2(2, 2)
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.510402, 0.792609, 0.901532, 1)
 theme_override_font_sizes/font_size = 48
-text = "Working Kitty"
+text = "Purr-formance Review"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -139,6 +142,94 @@ texture_pressed = SubResource("AtlasTexture_m86oa")
 texture_hover = SubResource("AtlasTexture_wd820")
 texture_disabled = SubResource("AtlasTexture_e7iab")
 
+[node name="controls" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.443766, 0.621271, 0.452168, 1)
+theme_override_font_sizes/font_size = 32
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="action" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="move" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+text = "Move the kitty"
+horizontal_alignment = 2
+
+[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "jump"
+horizontal_alignment = 2
+
+[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "sprint"
+horizontal_alignment = 2
+
+[node name="dashes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="move" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="moveK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "W/A/S/D or Arrow Keys"
+
+[node name="jumpK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "space bar"
+
+[node name="sprintK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "shift"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -9
+
+[node name="goal" type="Label" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.874395, 0.682565, 0.851918, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 32
+text = "Goal"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="controls3" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 32
+text = "Don't get caught by the supervisors!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -150,11 +241,10 @@ libraries = {
 "": SubResource("AnimationLibrary_kr7ke")
 }
 
-[node name="Timer" type="Timer" parent="."]
+[node name="splashTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-autostart = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="splashTimer" to="." method="_on_timer_timeout"]
