@@ -1,15 +1,58 @@
-[gd_scene load_steps=7 format=4 uid="uid://f2gp8e478ej2"]
+[gd_scene load_steps=20 format=4 uid="uid://f2gp8e478ej2"]
 
 [ext_resource type="Script" path="res://scripts/office_space.gd" id="1_2kpr1"]
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://rooms_tile_set.tres" id="1_hiqov"]
 [ext_resource type="TileSet" uid="uid://bj20fap8d0cqh" path="res://new_tile_set.tres" id="1_lym04"]
 [ext_resource type="PackedScene" uid="uid://cnjrlb1mvmof6" path="res://scenes/characters/kitty_lord.tscn" id="2_qk15s"]
 [ext_resource type="PackedScene" uid="uid://bc3k7dij4dkyd" path="res://scenes/characters/supervisorMan.tscn" id="3_eylrt"]
+[ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="6_2clff"]
+[ext_resource type="Texture2D" uid="uid://blc7qv40koxaq" path="res://assets/ui/largeButtons/largeButtons_new_game.png" id="7_cy5sg"]
+[ext_resource type="Texture2D" uid="uid://bh8e8oynjed11" path="res://assets/ui/largeButtons/largeButtons_exit.png" id="8_m5t7n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sajbj"]
 vertices = PackedVector2Array(476.203, 149.188, 479.391, 200.852, 353.18, 203.18, 281.18, 201.148, 350.867, 146.828, 744.078, 331.719, 807, 342, 704.141, 342, 704.32, 341.078, 705.742, 334.602, 540.898, 198.672, 565, 202.523, 565, 282.07, 483.977, 268.461, 796.148, 183.047, 807, 184.078, 772.594, 186, 742.922, 187, 602.844, 185.047, 649.078, 187, 534.313, 139.352, 474.813, 78.3516, 564.172, 48, 565.141, 103.328, 283.406, 144, 344.078, 73.5938, 280.648, 75, 650.609, 46, 650.406, 41, 805.367, 41, 690.172, 46, 693.93, 89.2422, 763.367, 76.2188, 69.5938, 144, 62.9609, 197.859, 565.594, 294, 567.508, 342.008, 73.9766, 343, 351.797, 277.742, 601.297, 281.813, 647.922, 330.273, 602.211, 294, 806.633, 75.2266, 761.609, 122, 279.82, 277, 25.0391, 343, 26, 78.8984, 63.1719, 277, 770.203, 146, 602, 146, 602, 118, 600.438, 109.938, 601.523, 87.2109, 784.641, 122, 785.023, 127.672, 785.641, 140.203, 706.133, 332.781, 601.211, 341.906, 61.9922, 208.641, 65.3672, 75, 25.25, 48, 574.508, 118)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13, 1), PackedInt32Array(14, 15, 6, 5, 16), PackedInt32Array(16, 5, 17), PackedInt32Array(18, 16, 17, 19), PackedInt32Array(20, 1, 0, 21, 22, 23), PackedInt32Array(24, 25, 4, 3), PackedInt32Array(25, 24, 26), PackedInt32Array(20, 10, 1), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 30, 29, 32), PackedInt32Array(33, 24, 3, 34), PackedInt32Array(13, 12, 35, 36, 37, 38), PackedInt32Array(39, 18, 19, 40, 41), PackedInt32Array(29, 42, 32), PackedInt32Array(31, 32, 43), PackedInt32Array(44, 3, 2, 38), PackedInt32Array(37, 45, 46, 47), PackedInt32Array(48, 49, 50, 31, 43), PackedInt32Array(51, 52, 31, 50), PackedInt32Array(48, 43, 53, 54, 55), PackedInt32Array(9, 56, 5), PackedInt32Array(40, 9, 8, 57), PackedInt32Array(40, 57, 41), PackedInt32Array(39, 41, 35, 12), PackedInt32Array(44, 38, 37, 47), PackedInt32Array(58, 47, 46), PackedInt32Array(34, 58, 46), PackedInt32Array(59, 33, 34, 46, 60), PackedInt32Array(26, 59, 60, 22, 25), PackedInt32Array(21, 25, 22), PackedInt32Array(61, 20, 23), PackedInt32Array(61, 23, 51, 50)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(640, 31, 641, 56, 681, 56, 683, 79, 592, 77, 591, 98, 575, 95, 574, 38, 15, 38, 16, 79, 15, 353, 74, 353, 576, 352, 476, 259, 362, 267, 270, 267, 73, 267, 72, 209, 79, 134, 76, 85, 272, 85, 355, 84, 465, 88, 466, 139, 360, 137, 355, 83, 271, 84, 273, 134, 79, 134, 72, 208, 271, 211, 270, 267, 362, 267, 363, 213, 471, 211, 550, 190, 545, 145, 577, 128, 592, 128, 592, 156, 772, 156, 796, 147, 796, 173, 772, 176, 593, 175, 591.462, 271.874, 575, 272, 575, 194, 550, 190, 470, 210, 474, 269, 578, 354, 576, 304, 592, 304, 591, 352, 715, 351, 698, 324, 658, 321, 659, 197, 733, 197, 734, 322, 698, 323, 692, 352, 817, 352, 817, 175, 796, 173, 796, 147, 795, 127, 794, 112, 772, 112, 773, 86, 817, 85, 815, 31)])
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqcrv"]
+atlas = ExtResource("6_2clff")
+region = Rect2(58, 10, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bci3c"]
+atlas = ExtResource("6_2clff")
+region = Rect2(10, 58, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypw7y"]
+atlas = ExtResource("7_cy5sg")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uot2j"]
+atlas = ExtResource("7_cy5sg")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg3yg"]
+atlas = ExtResource("7_cy5sg")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twtod"]
+atlas = ExtResource("7_cy5sg")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mshsm"]
+atlas = ExtResource("8_m5t7n")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iatn"]
+atlas = ExtResource("8_m5t7n")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e16xl"]
+atlas = ExtResource("8_m5t7n")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6thmc"]
+atlas = ExtResource("8_m5t7n")
+region = Rect2(0, 32, 64, 32)
 
 [node name="OfficeSpace" type="Node2D"]
 y_sort_enabled = true
@@ -84,23 +127,196 @@ position = Vector2(374, 298)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="levelTimeDisplay" type="Label" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 8.0
-offset_right = 20.0
-offset_bottom = 63.0
-grow_horizontal = 2
+[node name="timer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/timer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -69.0
+offset_right = 145.0
+offset_bottom = -5.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_yqcrv")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/timer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -69.0
+offset_right = 145.0
+offset_bottom = -5.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_bci3c")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="levelTimeDisplay" type="Label" parent="CanvasLayer/timer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -65.0
+offset_right = 137.0
+offset_bottom = -10.0
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 64
+text = "180"
+horizontal_alignment = 1
+
+[node name="endLevelPopUp" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/endLevelPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -126.0
+offset_right = 212.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_yqcrv")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/endLevelPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -126.5
+offset_right = 213.0
+offset_bottom = 126.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bci3c")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="textConditions" type="VBoxContainer" parent="CanvasLayer/endLevelPopUp"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -118.5
+offset_right = 205.5
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="title" type="Label" parent="CanvasLayer/endLevelPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "Congrats!!"
+horizontal_alignment = 1
+
+[node name="aboutText" type="Label" parent="CanvasLayer/endLevelPopUp/textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 32
+text = "You have gotten through the workday without being caught by the supervisor!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer" type="Label" parent="CanvasLayer/endLevelPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="aboutText2" type="Label" parent="CanvasLayer/endLevelPopUp"]
+layout_mode = 2
+offset_left = -185.5
+offset_top = 48.5
+offset_right = 225.5
+offset_bottom = 76.5
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 32
+text = "What do you want to do now?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/endLevelPopUp"]
+layout_mode = 0
+offset_left = -185.0
+offset_top = 85.0
+offset_right = 89.0
+offset_bottom = 117.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="newGameButton" type="TextureButton" parent="CanvasLayer/endLevelPopUp/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ypw7y")
+texture_pressed = SubResource("AtlasTexture_uot2j")
+texture_hover = SubResource("AtlasTexture_pg3yg")
+texture_disabled = SubResource("AtlasTexture_twtod")
+
+[node name="exitButton" type="TextureButton" parent="CanvasLayer/endLevelPopUp/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_mshsm")
+texture_pressed = SubResource("AtlasTexture_0iatn")
+texture_hover = SubResource("AtlasTexture_e16xl")
+texture_disabled = SubResource("AtlasTexture_6thmc")
 
 [node name="levelTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 
+[connection signal="pressed" from="CanvasLayer/endLevelPopUp/HBoxContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/endLevelPopUp/HBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="timeout" from="levelTimer" to="." method="_on_level_timer_timeout"]
