@@ -22,13 +22,14 @@ func _on_action() -> void:
 	pass
 
 func _on_next_transitions() -> void:
-	GameInputEvents.movement_input()
-	
-	if GameInputEvents.is_movement_input():
-		transition.emit("walk")
-	
-	elif Input.is_action_just_pressed("jump"):
-		transition.emit("jump")
+	if !GlobalTrackingValues.game_over:
+		GameInputEvents.movement_input()
+		
+		if GameInputEvents.is_movement_input():
+			transition.emit("walk")
+		
+		elif Input.is_action_just_pressed("jump"):
+			transition.emit("jump")
 
 
 func _on_enter() -> void:

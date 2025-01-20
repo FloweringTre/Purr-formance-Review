@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc3k7dij4dkyd"]
+[gd_scene load_steps=16 format=3 uid="uid://bc3k7dij4dkyd"]
 
 [ext_resource type="Texture2D" uid="uid://dd1uv7dc52dck" path="res://assets/1_assets_from_others/Modern tiles_Free/Characters_free/Bob_16x16.png" id="1_fy2hv"]
 [ext_resource type="Script" path="res://scripts/supervisor_man.gd" id="1_l0wv1"]
@@ -222,6 +222,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7be1y"]
 size = Vector2(12, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cm4h"]
+size = Vector2(16, 18)
+
 [node name="SupervisorMan" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_mask = 17
@@ -245,7 +248,6 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_7be1y")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="NodeStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("2_ctrtj")
@@ -278,7 +280,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="seekingTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [node name="seekingArea" type="Area2D" parent="."]
@@ -302,6 +304,15 @@ position = Vector2(-9, -9)
 rotation = -1.5708
 polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
 disabled = true
+
+[node name="captureArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="captureArea"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_5cm4h")
+debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
 
 [connection signal="timeout" from="distractionTimer" to="NodeStateMachine/idle" method="_on_distraction_timer_timeout"]
 [connection signal="timeout" from="seekingTimer" to="." method="_on_seeking_timer_timeout"]

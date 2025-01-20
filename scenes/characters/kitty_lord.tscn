@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cnjrlb1mvmof6"]
+[gd_scene load_steps=27 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
 [ext_resource type="Script" path="res://scripts/kitty_lord.gd" id="1_8xtop"]
@@ -222,6 +222,10 @@ atlas = ExtResource("8_kn2qq")
 region = Rect2(144, 130, 16, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmack"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5hn02"]
+radius = 6.08276
 
 [node name="kittyLord" type="CharacterBody2D" groups=["PlayerKitty"]]
 y_sort_enabled = true
@@ -276,20 +280,30 @@ offset_left = -8.0
 offset_top = -18.0
 offset_right = 8.0
 offset_bottom = -14.0
-max_value = 180.0
+max_value = 210.0
 value = 180.0
 texture_under = SubResource("AtlasTexture_0c0j7")
 texture_over = SubResource("AtlasTexture_2j0uy")
 texture_progress = SubResource("AtlasTexture_ub8kf")
 
-[node name="monitoringArea" type="Area2D" parent="."]
+[node name="seekingArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="monitoringArea"]
-position = Vector2(0, -7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="seekingArea"]
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_nmack")
-debug_color = Color(0.737961, 0.384726, 0.692947, 0.42)
+debug_color = Color(0.758078, 0.122571, 0.320078, 0.42)
 
-[connection signal="body_entered" from="monitoringArea" to="." method="_on_monitoring_area_body_entered"]
-[connection signal="body_exited" from="monitoringArea" to="." method="_on_monitoring_area_body_exited"]
+[node name="captureArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="captureArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_5hn02")
+debug_color = Color(0.781857, 0.256015, 0.870392, 0.42)
+
+[connection signal="body_entered" from="seekingArea" to="." method="_on_seeking_area_body_entered"]
+[connection signal="body_exited" from="seekingArea" to="." method="_on_seeking_area_body_exited"]
+[connection signal="area_entered" from="captureArea" to="." method="_on_capture_area_area_entered"]

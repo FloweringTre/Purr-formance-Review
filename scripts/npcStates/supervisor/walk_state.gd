@@ -83,6 +83,11 @@ func tracking_location() -> void:
 	location = character.global_position
 
 func _on_next_transitions() -> void:	
+	if GlobalTrackingValues.game_over:
+		navigation_agent.navigation_finished.emit()
+		character.velocity = Vector2.ZERO
+		transition.emit("idle")
+	
 	if navigation_agent.is_navigation_finished():
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")

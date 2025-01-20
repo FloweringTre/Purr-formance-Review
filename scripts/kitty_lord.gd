@@ -52,8 +52,8 @@ func _physics_process(_delta) -> void:
 		if !running:
 			sprint_value += 1
 			$ProgressBar.value = sprint_value
-			if sprint_value > 180:
-				sprint_value = 180
+			if sprint_value > 210:
+				sprint_value = 210
 				$ProgressBar.visible = false
 	else:
 		slow_sprint_increase()
@@ -69,13 +69,17 @@ func slow_sprint_increase() -> void:
 		counter = 1
 		sprint_value += 1
 		$ProgressBar.value = sprint_value
-		if sprint_value == 180:
+		if sprint_value == 210:
 			sprint_locked = false
 			can_sprint = true
 
 
-func _on_monitoring_area_body_entered(body: Node2D) -> void:
+func _on_seeking_area_body_entered(body: Node2D) -> void:
 	being_tracked = true
 
-func _on_monitoring_area_body_exited(body: Node2D) -> void:
+func _on_seeking_area_body_exited(body: Node2D) -> void:
 	being_tracked = false
+
+func _on_capture_area_area_entered(area: Area2D) -> void:
+	print("I have been caught O.O")
+	GlobalTrackingValues.kitty_caught = true

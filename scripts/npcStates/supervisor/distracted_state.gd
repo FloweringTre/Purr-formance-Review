@@ -11,7 +11,7 @@ func _on_physics_process(_delta : float) -> void:
 	pass
 
 func _on_next_transitions() -> void:
-	if !animation_player.is_playing():
+	if !animation_player.is_playing() or GlobalTrackingValues.game_over:
 		transition.emit("idle")
 
 func _on_enter() -> void:

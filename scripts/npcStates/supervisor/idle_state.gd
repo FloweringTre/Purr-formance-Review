@@ -17,16 +17,19 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	pass
+	if GlobalTrackingValues.game_over:
+		$"../../distractionTimer".stop()
+		idle_state_timer.stop()
 
 
 func _on_next_transitions() -> void:
-	if idle_state_timeout:
-		print("supervisor is on the move!")
-		transition.emit("walk")
-	
-	if character.tracking_kitty:
-		transition.emit("run")
+	if !GlobalTrackingValues.game_over:
+		if idle_state_timeout:
+			print("supervisor is on the move!")
+			transition.emit("walk")
+		
+		if character.tracking_kitty:
+			transition.emit("run")
 
 
 func _on_enter() -> void:
