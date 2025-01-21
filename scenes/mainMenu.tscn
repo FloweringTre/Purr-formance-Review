@@ -159,6 +159,7 @@ alignment = 1
 
 [node name="action" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="move" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
 custom_minimum_size = Vector2(123, 0)
@@ -168,16 +169,27 @@ horizontal_alignment = 2
 
 [node name="jump" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
-text = "jump"
+text = "Jump"
 horizontal_alignment = 2
 
 [node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
-text = "sprint"
+text = "Sprint"
+horizontal_alignment = 2
+
+[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Pause"
 horizontal_alignment = 2
 
 [node name="dashes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="move" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
@@ -194,8 +206,19 @@ layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
+[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
 [node name="key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="moveK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
@@ -203,11 +226,19 @@ text = "W/A/S/D or Arrow Keys"
 
 [node name="jumpK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
-text = "space bar"
+text = "Space Bar"
 
 [node name="sprintK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
-text = "shift"
+text = "Left Shift"
+
+[node name="interactK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "E"
+
+[node name="pauseK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "Escape Key"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
