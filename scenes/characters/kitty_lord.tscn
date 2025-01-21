@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnjrlb1mvmof6"]
+[gd_scene load_steps=29 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
 [ext_resource type="Script" path="res://scripts/kitty_lord.gd" id="1_8xtop"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/kittyStates/run_state.gd" id="6_a3gjt"]
 [ext_resource type="Script" path="res://scripts/kittyStates/jump_state.gd" id="7_ndftk"]
 [ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="8_kn2qq"]
+[ext_resource type="Script" path="res://scripts/kittyStates/sleeping_state.gd" id="8_wr22t"]
+[ext_resource type="Script" path="res://scripts/kittyStates/bap_state.gd" id="9_7s42f"]
 
 [sub_resource type="Animation" id="Animation_rv7qj"]
 length = 0.001
@@ -207,7 +209,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3635q"]
-size = Vector2(16, 5)
+size = Vector2(11, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0c0j7"]
 atlas = ExtResource("8_kn2qq")
@@ -248,7 +250,7 @@ libraries = {
 }
 
 [node name="standardCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.5)
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_3635q")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -275,6 +277,16 @@ script = ExtResource("7_ndftk")
 player = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
+[node name="sleeping" type="Node" parent="stateMachine" node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("8_wr22t")
+player = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="bap" type="Node" parent="stateMachine" node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("9_7s42f")
+player = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -8.0
 offset_top = -18.0
@@ -295,15 +307,15 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_nmack")
 debug_color = Color(0.758078, 0.122571, 0.320078, 0.42)
 
-[node name="captureArea" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+[node name="interactionArea" type="Area2D" parent="."]
+collision_layer = 12
+collision_mask = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="captureArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_5hn02")
 debug_color = Color(0.781857, 0.256015, 0.870392, 0.42)
 
 [connection signal="body_entered" from="seekingArea" to="." method="_on_seeking_area_body_entered"]
 [connection signal="body_exited" from="seekingArea" to="." method="_on_seeking_area_body_exited"]
-[connection signal="area_entered" from="captureArea" to="." method="_on_capture_area_area_entered"]
+[connection signal="area_entered" from="interactionArea" to="." method="_on_interaction_area_area_entered"]

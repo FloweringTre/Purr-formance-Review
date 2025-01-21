@@ -22,7 +22,7 @@ func _on_action() -> void:
 	pass
 
 func _on_next_transitions() -> void:
-	if !GlobalTrackingValues.game_over:
+	if !GlobalTrackingValues.game_over or !GlobalTrackingValues.game_paused:
 		GameInputEvents.movement_input()
 		
 		if GameInputEvents.is_movement_input():
@@ -30,6 +30,12 @@ func _on_next_transitions() -> void:
 		
 		elif Input.is_action_just_pressed("jump"):
 			transition.emit("jump")
+		
+		elif Input.is_action_just_pressed("interact") && GlobalTrackingValues.kitty_in_bed:
+			transition.emit("sleeping")
+		
+		elif Input.is_action_just_pressed("interact"):
+			transition.emit("bap")
 
 
 func _on_enter() -> void:

@@ -17,9 +17,10 @@ var sprint_value : int = 180
 var sprint_locked : bool = false
 var counter: int = 1
 var being_tracked : bool #is the player being tracked by the supervisor?
+var last_chase_tracking : bool
 
 func _ready() -> void:
-	pass
+	GlobalTrackingValues.last_chase.connect(on_last_chase)
 
 func _physics_process(_delta) -> void:
 	if movement_state: #is true
@@ -37,10 +38,13 @@ func _physics_process(_delta) -> void:
 		velocity.y = move_toward(velocity.y, speed * direction.y, accel)
 		move_and_slide()
 	
-	if being_tracked:
+	if being_tracked or last_chase_tracking:
 		GlobalTrackingValues.last_reported_kitty_location = $".".global_position
 	
 	if !sprint_locked:
+		if Input.is_action_just_pressed("sprint"):
+			sprint_value -= 5
+		
 		if running:
 			sprint_value -= 1
 			$ProgressBar.value = sprint_value
@@ -80,6 +84,8 @@ func _on_seeking_area_body_entered(body: Node2D) -> void:
 func _on_seeking_area_body_exited(body: Node2D) -> void:
 	being_tracked = false
 
-func _on_capture_area_area_entered(area: Area2D) -> void:
-	print("I have been caught O.O")
-	GlobalTrackingValues.kitty_caught = true
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
+func on_last_chase() -> void:
+	last_chase_tracking = true
