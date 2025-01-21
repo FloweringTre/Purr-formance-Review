@@ -33,6 +33,15 @@ func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
+	if GlobalTrackingValues.game_paused:
+		character.velocity = Vector2.ZERO
+		return
+	 
+	if GlobalTrackingValues.game_over:
+		character.velocity = Vector2.ZERO
+		transition.emit("idle")
+		return
+	
 	if navigation_agent.is_navigation_finished():
 		set_movement_target()
 		return
@@ -80,15 +89,20 @@ func tracking_location() -> void:
 	location = character.global_position
 
 func _on_next_transitions() -> void:	
+	if GlobalTrackingValues.game_paused:
+		return
+	
 	if GlobalTrackingValues.game_over:
 		navigation_agent.navigation_finished.emit()
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
+		return
 	
-	if !character.tracking_kitty:
+	if !character.tracking_kitty && !character.last_chase_tracking && !GlobalTrackingValues.game_over:
 		navigation_agent.navigation_finished.emit()
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
+		return
 
 func _on_enter() -> void:
 	set_movement_target()
@@ -106,6 +120,7 @@ func _on_enter() -> void:
 
 func _on_exit() -> void:
 	animation_player.stop()
+	$"../../emotionAnimation".play("bounce")
 	seeking_zone.disabled = false
 	seeking_zone.visible = true
 	seeking_zone_left.disabled = true

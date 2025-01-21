@@ -27,6 +27,11 @@ func character_setup() -> void:
 func set_movement_target() -> void:
 	var target_position : Vector2 = NavigationServer2D.map_get_random_point(navigation_agent.get_navigation_map(), navigation_agent.navigation_layers, false)
 	navigation_agent.target_position = target_position
+	
+	#var target_distance = navigation_agent.distance_to_target()
+	#if target_distance > 100:
+		#print("navigation target was ", target_distance, " units away... rerolling target.")
+		#set_movement_target()
 
 func set_kitty_target() -> void:
 	var target_position : Vector2 = GlobalTrackingValues.last_reported_kitty_location
@@ -83,7 +88,7 @@ func tracking_location() -> void:
 	location = character.global_position
 
 func _on_next_transitions() -> void:	
-	if GlobalTrackingValues.game_over:
+	if GlobalTrackingValues.game_over or GlobalTrackingValues.game_paused:
 		navigation_agent.navigation_finished.emit()
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
@@ -92,12 +97,13 @@ func _on_next_transitions() -> void:
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
 	
-	if character.tracking_kitty:
+	if character.tracking_kitty or character.last_chase_tracking:
 		set_kitty_target()
 		navigation_agent.navigation_finished.emit()
 		transition.emit("run")
 
 func _on_enter() -> void:
+	set_movement_target()
 	location = character.global_position
 	counter = 1
 	animation_player.play("walk")
