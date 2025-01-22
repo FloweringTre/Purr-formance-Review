@@ -11,6 +11,7 @@ var time_left
 @onready var interaction_message: Label = $gameUI/topBar/interactionMessage
 @onready var task_list: Control = $gameUI/topBar/taskList
 @onready var trash_count: Label = $gameUI/topBar/taskList/VBoxContainer/HBoxContainer/trashCount
+@onready var score_count: Label = $gameUI/endLevelPopUp/textConditions/scoreCount
 
 
 func _ready() -> void:
@@ -29,7 +30,7 @@ func _process(delta: float) -> void:
 	else:
 		level_time_display.text = str(round(time_left))
 	
-	if GlobalTrackingValues.kitty_caught:
+	if GlobalTrackingValues.kitty_caught_from_sup:
 		GlobalTrackingValues.game_over = true
 		game_loss()
 		level_timer.stop()
@@ -50,29 +51,32 @@ func on_game_won() -> void:
 	GlobalTrackingValues.send_message("")
 	GlobalTrackingValues.game_over = true
 	end_level_pop_up.visible = true
+	time_left = roundi(level_timer.time_left)
+	level_timer.stop()
 	if GlobalTrackingValues.successful_day():
 		title.text = "Congraduations"
 		about_text.text = "You have gotten through the workday without being caught by the supervisor!"
 	else:
 		title.text = "Oh no..."
 		about_text.text = "You didn't complete your kitty tasks today."
+	score_count.text = str(GlobalTrackingValues.score_calculate(time_left))
 
 func game_loss() -> void:
 	GlobalTrackingValues.send_message("")
 	end_level_pop_up.visible = true
 	title.text = "You've been caught!"
 	about_text.text = "Your office reign of terror has come to an end. :("
-
+	time_left = level_timer.time_left
+	level_timer.stop()
+	score_count.text = str(GlobalTrackingValues.score_calculate(0))
 
 func _on_new_game_button_pressed() -> void:
 	get_tree().reload_current_scene()
 	GlobalTrackingValues.game_reset()
 
-
 func _on_exit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 	GlobalTrackingValues.game_reset()
-
 
 func _on_continue_button_pressed() -> void:
 	GlobalTrackingValues.game_paused = false
@@ -80,7 +84,6 @@ func _on_continue_button_pressed() -> void:
 	escape_menu.visible = false
 	level_timer.start(time_left)
 	music_player.stream_paused = false
-
 
 func set_message() -> void:
 	interaction_message.text = GlobalTrackingValues.message
