@@ -13,14 +13,14 @@ func _process(delta: float) -> void:
 		GlobalTrackingValues.send_message("Press E to sleep")
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	print("kitty in the bed")
+	#print("kitty in the bed")
 	GlobalTrackingValues.kitty_in_bed = true
 	GlobalTrackingValues.send_message("Press E to sleep")
 	kitty_can_sleep = true
 
 
 func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	print("kitty out of the bed")
+	#print("kitty out of the bed")
 	GlobalTrackingValues.kitty_in_bed = false
 	kitty_can_sleep = false
 	GlobalTrackingValues.send_message("")

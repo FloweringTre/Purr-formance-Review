@@ -172,6 +172,7 @@ visible = false
 position = Vector2(1, -2)
 
 [node name="Sprite2D2" type="Sprite2D" parent="pillowsglow"]
+self_modulate = Color(0.156863, 0.611765, 1, 1)
 position = Vector2(-4, -4)
 rotation = -0.644027
 texture = ExtResource("2_fipun")
@@ -179,12 +180,14 @@ hframes = 3
 frame = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="pillowsglow"]
-position = Vector2(2, -2)
+self_modulate = Color(0.156863, 0.611765, 1, 1)
+position = Vector2(3, -1.5)
 rotation = -0.760964
 texture = ExtResource("2_fipun")
 hframes = 3
 
 [node name="Sprite2D3" type="Sprite2D" parent="pillowsglow"]
+self_modulate = Color(0.156863, 0.611765, 1, 1)
 position = Vector2(-1, 2)
 texture = ExtResource("2_fipun")
 hframes = 3
@@ -210,8 +213,8 @@ texture = SubResource("AtlasTexture_tex5r")
 [node name="sleepingArea2D" type="Area2D" parent="."]
 visible = false
 position = Vector2(0, -6)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sleepingArea2D"]
 position = Vector2(-1, -1)
@@ -219,6 +222,7 @@ shape = SubResource("CircleShape2D_w571w")
 debug_color = Color(0.596995, 0.539834, 0.20988, 0.42)
 
 [node name="arrow" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.85, 0.34, 0.34, 1)
 position = Vector2(-1, -35)
 scale = Vector2(2, 2)
