@@ -220,54 +220,16 @@ _data = {
 "walk": SubResource("Animation_a7mc8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7be1y"]
-size = Vector2(12, 4)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7erqd"]
+radius = 3.0
+height = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cm4h"]
-size = Vector2(16, 18)
+size = Vector2(13, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3klgd"]
 atlas = ExtResource("8_mcsbk")
 region = Rect2(192, 136, 16, 16)
-
-[sub_resource type="Animation" id="Animation_yebj0"]
-resource_name = "bounce"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("emotionSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(8, -28), Vector2(8, -31), Vector2(8, -28), Vector2(8, -31), Vector2(8, -28)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("emotionSprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("emotionSprite:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_0dnxf"]
 length = 0.001
@@ -308,6 +270,45 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_yebj0"]
+resource_name = "bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("emotionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -28), Vector2(8, -31), Vector2(8, -28), Vector2(8, -31), Vector2(8, -28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("emotionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("emotionSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh4fe"]
 _data = {
 "RESET": SubResource("Animation_0dnxf"),
@@ -333,8 +334,9 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_7be1y")
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7erqd")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
@@ -374,7 +376,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="seekingArea" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 
 [node name="seeking_zone" type="CollisionPolygon2D" parent="seekingArea"]
@@ -400,7 +402,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="captureArea"]
-position = Vector2(0, -7)
+position = Vector2(-0.5, -8)
 shape = SubResource("RectangleShape2D_5cm4h")
 debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
 
@@ -419,3 +421,4 @@ libraries = {
 [connection signal="body_entered" from="seekingArea" to="." method="_on_seeking_area_body_entered"]
 [connection signal="body_exited" from="seekingArea" to="." method="_on_seeking_area_body_exited"]
 [connection signal="area_entered" from="captureArea" to="." method="_on_capture_area_area_entered"]
+[connection signal="area_exited" from="captureArea" to="." method="_on_capture_area_area_exited"]

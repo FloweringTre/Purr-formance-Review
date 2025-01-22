@@ -77,7 +77,8 @@ func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 func tracking_location() -> void:
 	if location == character.global_position:
 		counter += 1
-		print ("Supervisor in same location for: ", counter , " frames")
+		if counter > 1:
+			print ("Supervisor in same location for: ", counter , " frames")
 		if counter == 10:
 			set_movement_target()
 			navigation_agent.navigation_finished.emit()
@@ -105,7 +106,7 @@ func _on_next_transitions() -> void:
 func _on_enter() -> void:
 	set_movement_target()
 	location = character.global_position
-	counter = 1
+	counter = 0
 	animation_player.play("walk")
 	sprite_2d.flip_h = false
 	seeking_zone.disabled = true

@@ -5,10 +5,13 @@ var last_chase_tracking : bool = false
 var can_see_kitty : bool = false
 @onready var seeking_timer: Timer = $seekingTimer
 var time_left
+var sup_name
 
 func _ready() -> void:
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	GlobalTrackingValues.game_resumed.connect(on_game_resumed)
+	sup_name = $".".name
+	print(sup_name)
 
 func _process(delta: float) -> void:
 	if GlobalTrackingValues.game_paused:
@@ -16,14 +19,14 @@ func _process(delta: float) -> void:
 		seeking_timer.stop()
 
 func _on_seeking_area_body_entered(body: Node2D) -> void:
-	print("I can see the kitty!")
+	print(sup_name, " I can see the kitty!")
 	tracking_kitty = true
 	can_see_kitty = true
 	seeking_timer.start()
 	
 
 func _on_seeking_area_body_exited(body: Node2D) -> void:
-	print("I lost sight of the kitty :(")
+	print(sup_name, " I lost sight of the kitty :(")
 	can_see_kitty = false
 
 
@@ -34,8 +37,12 @@ func _on_seeking_timer_timeout() -> void:
 		tracking_kitty = false
 
 func _on_capture_area_area_entered(area: Area2D) -> void:
-	GlobalTrackingValues.kitty_caught = true
+	GlobalTrackingValues.kitty_caught_from_sup = true
+	print(sup_name, " I have caught the kitty!")
 
+func _on_capture_area_area_exited(area: Area2D) -> void:
+	GlobalTrackingValues.kitty_caught_from_sup = false
+	print(sup_name, " The kitty escaped me :(")
 
 func on_last_chase() -> void:
 	last_chase_tracking = true

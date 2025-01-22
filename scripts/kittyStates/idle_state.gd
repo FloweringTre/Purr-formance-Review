@@ -42,10 +42,10 @@ func _on_enter() -> void:
 	var random = randi_range(1, 2)
 	if random == 1:
 		idle_animation = "idle_1"
-		print(idle_animation)
+		#print(idle_animation)
 	else:
 		idle_animation = "idle_2"
-		print(idle_animation)
+		#print(idle_animation)
 
 func _on_exit() -> void:
 	animation_player.stop()

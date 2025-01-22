@@ -26,7 +26,7 @@ func _on_physics_process(_delta : float) -> void:
 func _on_next_transitions() -> void:
 	if !GlobalTrackingValues.game_over or !GlobalTrackingValues.game_paused:
 		if idle_state_timeout:
-			print("supervisor is on the move!")
+			#print("supervisor is on the move!")
 			transition.emit("walk")
 		
 		if character.tracking_kitty or character.last_chase_tracking:
@@ -51,10 +51,10 @@ func _on_exit() -> void:
 func _on_distraction_timer_timeout() -> void:
 	var random = randi_range(0,3)
 	if random == 3:
-		print("sup is on his phone....oooooo...")
+		#print("sup is on his phone....oooooo...")
 		transition.emit("distracted")
 	else:
-		print("PHONE - Random chance failed.")
+		#print("PHONE - Random chance failed.")
 		$"../../distractionTimer".start()
 
 func on_idle_state_timeout() -> void:
@@ -62,5 +62,5 @@ func on_idle_state_timeout() -> void:
 	if random == 3:
 		idle_state_timeout = true
 	else:
-		print("WALK- Random chance failed.")
+		#print("WALK- Random chance failed.")
 		idle_state_timer.start()

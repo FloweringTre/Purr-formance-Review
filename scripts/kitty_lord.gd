@@ -84,8 +84,13 @@ func _on_seeking_area_body_entered(body: Node2D) -> void:
 func _on_seeking_area_body_exited(body: Node2D) -> void:
 	being_tracked = false
 
-func _on_interaction_area_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+func _on_caught_area_area_entered(area: Area2D) -> void:
+	GlobalTrackingValues.kitty_caught_from_kitty = true
+	print("I have been caught")
+
+func _on_caught_area_area_exited(area: Area2D) -> void:
+	GlobalTrackingValues.kitty_caught_from_kitty = false
+	print("I have escaped!")
 
 func on_last_chase() -> void:
 	last_chase_tracking = true

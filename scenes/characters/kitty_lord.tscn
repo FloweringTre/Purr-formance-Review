@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cnjrlb1mvmof6"]
+[gd_scene load_steps=30 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
 [ext_resource type="Script" path="res://scripts/kitty_lord.gd" id="1_8xtop"]
@@ -208,8 +208,9 @@ _data = {
 "walk": SubResource("Animation_wmi3i")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3635q"]
-size = Vector2(11, 5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uj1w0"]
+radius = 2.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0c0j7"]
 atlas = ExtResource("8_kn2qq")
@@ -226,8 +227,11 @@ region = Rect2(144, 130, 16, 4)
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmack"]
 radius = 9.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd7le"]
+radius = 7.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5hn02"]
-radius = 6.08276
+radius = 5.0
 
 [node name="kittyLord" type="CharacterBody2D" groups=["PlayerKitty"]]
 y_sort_enabled = true
@@ -250,8 +254,9 @@ libraries = {
 }
 
 [node name="standardCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -2.5)
-shape = SubResource("RectangleShape2D_3635q")
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uj1w0")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_qlcgv")
@@ -308,14 +313,24 @@ shape = SubResource("CircleShape2D_nmack")
 debug_color = Color(0.758078, 0.122571, 0.320078, 0.42)
 
 [node name="interactionArea" type="Area2D" parent="."]
-collision_layer = 12
-collision_mask = 12
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_sd7le")
+debug_color = Color(0.644755, 0.515976, 0.234216, 0.42)
+
+[node name="caughtArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="caughtArea"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_5hn02")
 debug_color = Color(0.781857, 0.256015, 0.870392, 0.42)
 
 [connection signal="body_entered" from="seekingArea" to="." method="_on_seeking_area_body_entered"]
 [connection signal="body_exited" from="seekingArea" to="." method="_on_seeking_area_body_exited"]
-[connection signal="area_entered" from="interactionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_entered" from="caughtArea" to="." method="_on_caught_area_area_entered"]
+[connection signal="area_exited" from="caughtArea" to="." method="_on_caught_area_area_exited"]
