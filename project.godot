@@ -88,6 +88,7 @@ pause={
 2d_physics/layer_1="standard collision"
 2d_navigation/layer_1="Supervisor Navigation"
 2d_physics/layer_2="kitty seeking"
+2d_navigation/layer_2="Worker Navigation"
 2d_physics/layer_3="kitty capture"
 2d_physics/layer_4="kitty interaction"
 2d_physics/layer_5="perm borders"

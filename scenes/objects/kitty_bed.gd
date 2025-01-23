@@ -2,7 +2,7 @@ extends Node2D
 var kitty_can_sleep : bool = false
 
 func _ready() -> void:
-	GlobalTrackingValues.bed_location = $".".global_position
+	GlobalTrackingValues.bed_location = $pillows2/Sprite2D3.global_position
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	GlobalTrackingValues.game_has_been_won.connect(on_game_won)
 	$arrow.visible = false
