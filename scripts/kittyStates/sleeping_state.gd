@@ -26,7 +26,11 @@ func _on_enter() -> void:
 	GlobalTrackingValues.send_message("Press E to wake up")
 	player.velocity = Vector2.ZERO
 	player.global_position = GlobalTrackingValues.bed_location
+	$"../../seekingArea/CollisionShape2D".disabled = true
+	$"../../caughtArea/CollisionShape2D".disabled = true
 
 func _on_exit() -> void:
 	GlobalTrackingValues.send_message("")
 	animation_player.stop()
+	$"../../seekingArea/CollisionShape2D".disabled = false
+	$"../../caughtArea/CollisionShape2D".disabled = false

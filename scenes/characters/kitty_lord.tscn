@@ -260,7 +260,7 @@ shape = SubResource("CapsuleShape2D_uj1w0")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_qlcgv")
-initial_node_state = NodePath("idle")
+initial_node_state = NodePath("sleeping")
 
 [node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("player", "animation_player")]
 script = ExtResource("4_b6j6m")
