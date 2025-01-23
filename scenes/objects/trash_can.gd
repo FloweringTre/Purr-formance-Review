@@ -37,6 +37,7 @@ func been_fixed() -> void:
 	trash_spilled = false
 	GlobalTrackingValues.trash_spilled -= 1
 	$AnimationPlayer.play("glow")
+	GlobalTrackingValues.send_message("")
 
 func on_item_fixed(item : StaticBody2D) -> void:
 	if item == trash_can:

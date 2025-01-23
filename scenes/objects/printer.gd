@@ -1,8 +1,12 @@
 extends Node2D
 var zone_active : bool = false
+@onready var printer: StaticBody2D = $"."
+@onready var fix_timer: Timer = $fixTimer
+
 
 func _ready() -> void:
 	GlobalTrackingValues.kitty_bappin.connect(on_kitty_bappin)
+	GlobalTrackingValues.item_fixed.connect(on_item_fixed)
 	$AnimationPlayer.play("glow")
 	particle_loading()
 
@@ -23,9 +27,20 @@ func on_kitty_bappin() -> void:
 		$GPUParticles2D.emitting = true
 		GlobalTrackingValues.printer_broken = true
 		GlobalTrackingValues.send_message("")
+		GlobalTrackingValues.item_broken.emit(printer)
 		$AnimationPlayer.stop()
 
 func particle_loading() -> void:
 	$GPUParticles2D.one_shot = true
 	$GPUParticles2D.emitting = true
 	$GPUParticles2D.modulate.a = 0.0
+
+func on_item_fixed(item : StaticBody2D) -> void:
+	if item == printer:
+		fix_timer.start()
+
+func _on_fix_timer_timeout() -> void:
+	GlobalTrackingValues.printer_broken = false
+	$AnimationPlayer.play("glow")
+	$GPUParticles2D.emitting = false
+	GlobalTrackingValues.send_message("")

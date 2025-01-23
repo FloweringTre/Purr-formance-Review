@@ -184,5 +184,9 @@ position = Vector2(5.5, 1.5)
 shape = SubResource("RectangleShape2D_b5dj2")
 debug_color = Color(0.759858, 0.442863, 0.259692, 0.42)
 
+[node name="fixTimer" type="Timer" parent="."]
+wait_time = 2.6
+
 [connection signal="area_shape_entered" from="interactionArea2D" to="." method="_on_interaction_area_2d_area_shape_entered"]
 [connection signal="area_shape_exited" from="interactionArea2D" to="." method="_on_interaction_area_2d_area_shape_exited"]
+[connection signal="timeout" from="fixTimer" to="." method="_on_fix_timer_timeout"]
