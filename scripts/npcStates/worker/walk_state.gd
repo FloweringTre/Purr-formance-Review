@@ -3,14 +3,17 @@ extends NodeState
 @export var character: CharacterBody2D
 @export var animation_player: AnimationPlayer
 @export var navigation_agent: NavigationAgent2D
-@export var speed : float = 15.0
+var speed : int
 
 var location
 var counter : int = 1
+var moving_to_desk : bool = false
+var fixing_right_now : bool
 
 @onready var sprite_2d: Sprite2D = $"../../Sprite2D"
 
 func _ready() -> void:
+	speed = character.walk_speed
 	navigation_agent.velocity_computed.connect(on_safe_velocity_computed)
 	call_deferred("character_setup")
 
@@ -20,15 +23,18 @@ func character_setup() -> void:
 	set_movement_target()
 
 func set_movement_target() -> void:
-	if !character.fixing_needed:
-		if character.global_position == character.starting_location:
+	if !fixing_right_now:
+		if character.global_position == character.desk_location:
 			var target_position : Vector2 = NavigationServer2D.map_get_random_point(navigation_agent.get_navigation_map(), navigation_agent.navigation_layers, false)
 			navigation_agent.target_position = target_position
+			moving_to_desk = false
 		else:
-			navigation_agent.target_position = character.starting_location
+			navigation_agent.target_position = character.desk_location
+			moving_to_desk = true
 	
 	else:
 		navigation_agent.target_position = character.fix_location
+		moving_to_desk = false
 
 func set_kitty_target() -> void:
 	var target_position : Vector2 = GlobalTrackingValues.last_reported_kitty_location
@@ -83,12 +89,19 @@ func _on_next_transitions() -> void:
 	
 	if navigation_agent.is_navigation_finished():
 		character.velocity = Vector2.ZERO
-		if character.fixing_needed:
+		if fixing_right_now:
 			transition.emit("fixing")
 		else:
+			if moving_to_desk:
+				character.global_position = character.desk_location
+			
 			transition.emit("idle")
 
 func _on_enter() -> void:
+	if character.fixing_needed:
+		fixing_right_now = true
+	else:
+		fixing_right_now = false
 	set_movement_target()
 	location = character.global_position
 	counter = 0

@@ -2,13 +2,12 @@ extends NodeState
 
 @export var character: CharacterBody2D
 @export var animation_player: AnimationPlayer
-@export var idle_state_time_interval: float = 5.0
 
 @onready var idle_state_timer: Timer = Timer.new()
 var idle_state_timeout : bool = false
 
 func _ready() -> void:
-	idle_state_timer.wait_time = idle_state_time_interval
+	idle_state_timer.wait_time = character.idle_time
 	idle_state_timer.timeout.connect(on_idle_state_timeout)
 	add_child(idle_state_timer)
 
@@ -33,8 +32,12 @@ func _on_next_transitions() -> void:
 
 
 func _on_enter() -> void:
-	animation_player.play("idle")
-	$"../../distractionTimer".start()
+	if character.global_position == character.desk_location:
+		var desk_animation : String = str("desk_", character.desk_direction)
+		animation_player.play(desk_animation)
+	else:
+		animation_player.play("idle")
+		$"../../distractionTimer".start()
 	idle_state_timer.start()
 	idle_state_timeout = false
 
