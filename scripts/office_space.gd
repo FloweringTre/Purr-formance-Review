@@ -25,15 +25,17 @@ func _ready() -> void:
 	on_list_active(true)
 
 func _process(delta: float) -> void:
-	if !GlobalTrackingValues.game_paused:
-		level_time_display.text = str(round(level_timer.time_left))
-	else:
+	if GlobalTrackingValues.game_paused or GlobalTrackingValues.game_over:
 		level_time_display.text = str(round(time_left))
+	else:
+		level_time_display.text = str(round(level_timer.time_left))
 	
 	if GlobalTrackingValues.kitty_caught_from_sup:
 		GlobalTrackingValues.game_over = true
-		game_loss()
+		time_left = level_timer.time_left
+		level_time_display.text = str(round(time_left))
 		level_timer.stop()
+		game_loss()
 		music_player.stop()
 	
 	if Input.is_action_just_pressed("pause"):
@@ -51,7 +53,8 @@ func on_game_won() -> void:
 	GlobalTrackingValues.send_message("")
 	GlobalTrackingValues.game_over = true
 	end_level_pop_up.visible = true
-	time_left = roundi(level_timer.time_left)
+	time_left = round(level_timer.time_left)
+	level_time_display.text = str(round(time_left))
 	level_timer.stop()
 	if GlobalTrackingValues.successful_day():
 		title.text = "Congraduations"
@@ -66,8 +69,6 @@ func game_loss() -> void:
 	end_level_pop_up.visible = true
 	title.text = "You've been caught!"
 	about_text.text = "Your office reign of terror has come to an end. :("
-	time_left = level_timer.time_left
-	level_timer.stop()
 	score_count.text = str(GlobalTrackingValues.score_calculate(0))
 
 func _on_new_game_button_pressed() -> void:
@@ -95,3 +96,5 @@ func on_list_active(is_active : bool) -> void:
 	$gameUI/topBar/taskList/strikes/printerLine.visible = GlobalTrackingValues.printer_broken
 	if GlobalTrackingValues.trash_spilled == 3:
 		$gameUI/topBar/taskList/strikes/trashLine.visible = true
+	else:
+		$gameUI/topBar/taskList/strikes/trashLine.visible = false
