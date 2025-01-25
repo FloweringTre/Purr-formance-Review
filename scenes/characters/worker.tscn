@@ -24,6 +24,74 @@ tracks/0/keys = {
 "values": [42]
 }
 
+[sub_resource type="Animation" id="Animation_ca17k"]
+resource_name = "desk_down"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [74, 75, 76, 77, 78, 79]
+}
+
+[sub_resource type="Animation" id="Animation_b4sh8"]
+resource_name = "desk_left"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [230, 231, 232, 233, 234, 235]
+}
+
+[sub_resource type="Animation" id="Animation_ubap0"]
+resource_name = "desk_right"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [224, 225, 226, 227, 228, 229]
+}
+
+[sub_resource type="Animation" id="Animation_xrtwo"]
+resource_name = "desk_up"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [62, 63, 64, 65, 66, 67]
+}
+
 [sub_resource type="Animation" id="Animation_64m48"]
 resource_name = "distracted"
 length = 3.0
@@ -40,27 +108,9 @@ tracks/0/keys = {
 "values": [336, 337, 338, 339, 340, 343, 342, 343, 344, 345, 346, 347, 3]
 }
 
-[sub_resource type="Animation" id="Animation_wkwb7"]
-resource_name = "idle"
-length = 2.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [74, 75, 76, 77, 78, 79]
-}
-
-[sub_resource type="Animation" id="Animation_a7mc8"]
-resource_name = "walk"
-length = 0.8
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_ptea6"]
+resource_name = "fixing_down"
+length = 3.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -69,10 +119,27 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [117, 112, 114, 115]
+"values": [540, 541, 542, 543, 544, 545, 546, 547, 548, 541, 542, 543, 544, 545, 546, 547, 548, 549, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551]
+}
+
+[sub_resource type="Animation" id="Animation_isctl"]
+resource_name = "fixing_left"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 529, 530, 531, 532, 533, 534, 535, 536, 537, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539]
 }
 
 [sub_resource type="Animation" id="Animation_bi1ob"]
@@ -108,42 +175,8 @@ tracks/0/keys = {
 "values": [516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 516, 517, 518, 519, 520, 521, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527]
 }
 
-[sub_resource type="Animation" id="Animation_isctl"]
-resource_name = "fixing_left"
-length = 3.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 529, 530, 531, 532, 533, 534, 535, 536, 537, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539]
-}
-
-[sub_resource type="Animation" id="Animation_ptea6"]
-resource_name = "fixing_down"
-length = 3.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [540, 541, 542, 543, 544, 545, 546, 547, 548, 541, 542, 543, 544, 545, 546, 547, 548, 549, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551]
-}
-
-[sub_resource type="Animation" id="Animation_ca17k"]
-resource_name = "desk_down"
+[sub_resource type="Animation" id="Animation_wkwb7"]
+resource_name = "idle"
 length = 2.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -159,10 +192,11 @@ tracks/0/keys = {
 "values": [74, 75, 76, 77, 78, 79]
 }
 
-[sub_resource type="Animation" id="Animation_xrtwo"]
-resource_name = "desk_up"
-length = 2.1
+[sub_resource type="Animation" id="Animation_a7mc8"]
+resource_name = "walk"
+length = 0.8
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -170,44 +204,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [62, 63, 64, 65, 66, 67]
-}
-
-[sub_resource type="Animation" id="Animation_ubap0"]
-resource_name = "desk_right"
-length = 2.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [224, 225, 226, 227, 228, 229]
-}
-
-[sub_resource type="Animation" id="Animation_b4sh8"]
-resource_name = "desk_left"
-length = 2.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [230, 231, 232, 233, 234, 235]
+"values": [117, 112, 114, 115]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ld5oi"]
@@ -399,5 +399,4 @@ libraries = {
 "": SubResource("AnimationLibrary_bh4fe")
 }
 
-[connection signal="time_to_fix" from="." to="NodeStateMachine/walk" method="_on_worker_time_to_fix"]
 [connection signal="timeout" from="distractionTimer" to="NodeStateMachine/idle" method="_on_distraction_timer_timeout"]

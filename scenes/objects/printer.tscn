@@ -186,6 +186,7 @@ debug_color = Color(0.759858, 0.442863, 0.259692, 0.42)
 
 [node name="fixTimer" type="Timer" parent="."]
 wait_time = 2.6
+one_shot = true
 
 [connection signal="area_shape_entered" from="interactionArea2D" to="." method="_on_interaction_area_2d_area_shape_entered"]
 [connection signal="area_shape_exited" from="interactionArea2D" to="." method="_on_interaction_area_2d_area_shape_exited"]

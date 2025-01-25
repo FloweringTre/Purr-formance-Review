@@ -15,13 +15,16 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	#print("kitty in the bed")
 	GlobalTrackingValues.kitty_in_bed = true
+	GlobalTrackingValues.kitty_can_sleep = true
 	GlobalTrackingValues.send_message("Press E to sleep")
 	kitty_can_sleep = true
+	GlobalTrackingValues.bed_location = $pillows2/Sprite2D3.global_position
 
 
 func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	#print("kitty out of the bed")
 	GlobalTrackingValues.kitty_in_bed = false
+	GlobalTrackingValues.kitty_can_sleep = false
 	kitty_can_sleep = false
 	GlobalTrackingValues.send_message("")
 

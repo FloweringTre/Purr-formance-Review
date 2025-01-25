@@ -383,6 +383,12 @@ collision_mask = 2
 position = Vector2(0, -18)
 polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
 
+[node name="Polygon2D" type="Polygon2D" parent="seekingArea/seeking_zone"]
+z_index = 2
+z_as_relative = false
+color = Color(0.965644, 0.585302, 0.677413, 0.486275)
+polygon = PackedVector2Array(-30, 61, 0, 74, 32, 62, 0, 11)
+
 [node name="seeking_zone_left" type="CollisionPolygon2D" parent="seekingArea"]
 visible = false
 position = Vector2(9, -9)
@@ -390,12 +396,24 @@ rotation = 1.5708
 polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
 disabled = true
 
+[node name="Polygon2D2" type="Polygon2D" parent="seekingArea/seeking_zone_left"]
+z_index = 2
+z_as_relative = false
+color = Color(0.965644, 0.585302, 0.677413, 0.486275)
+polygon = PackedVector2Array(-30, 61, 0, 74, 32, 62, 0, 11)
+
 [node name="seeking_zone_right" type="CollisionPolygon2D" parent="seekingArea"]
 visible = false
 position = Vector2(-9, -9)
 rotation = -1.5708
 polygon = PackedVector2Array(0, 11, -30, 61, 0, 74, 32, 62)
 disabled = true
+
+[node name="Polygon2D3" type="Polygon2D" parent="seekingArea/seeking_zone_right"]
+z_index = 2
+z_as_relative = false
+color = Color(0.965644, 0.585302, 0.677413, 0.486275)
+polygon = PackedVector2Array(-30, 61, 0, 74, 32, 62, 0, 11)
 
 [node name="captureArea" type="Area2D" parent="."]
 collision_layer = 0
