@@ -2,16 +2,17 @@ extends Node2D
 @onready var level_time_display: Label = $gameUI/topBar/timer/levelTimeDisplay
 @onready var level_timer: Timer = $levelTimer
 var time_left 
+var music_playing : bool = true
 @onready var end_level_pop_up: Control = $gameUI/endLevelPopUp
 @onready var title: Label = $gameUI/endLevelPopUp/textConditions/title
 @onready var about_text: Label = $gameUI/endLevelPopUp/textConditions/aboutText
 @onready var game_ui: CanvasLayer = $gameUI
 @onready var escape_menu: Control = $gameUI/escapeMenu
-@onready var music_player: AudioStreamPlayer = $gameUI/musicPlayer
 @onready var interaction_message: Label = $gameUI/topBar/interactionMessage
 @onready var task_list: Control = $gameUI/topBar/taskList
 @onready var trash_count: Label = $gameUI/topBar/taskList/VBoxContainer/HBoxContainer/trashCount
 @onready var score_count: Label = $gameUI/endLevelPopUp/textConditions/scoreCount
+@onready var progress_bar: TextureProgressBar = $gameUI/topBar/taskList/ProgressBar
 
 
 func _ready() -> void:
@@ -21,7 +22,7 @@ func _ready() -> void:
 	GlobalTrackingValues.game_was_played = true
 	end_level_pop_up.visible = false
 	game_ui.visible = true
-	music_player.play()
+	
 	on_list_active(true)
 
 func _process(delta: float) -> void:
@@ -34,16 +35,17 @@ func _process(delta: float) -> void:
 		GlobalTrackingValues.game_over = true
 		time_left = level_timer.time_left
 		level_time_display.text = str(round(time_left))
-		level_timer.stop()
+		level_timer.paused = true
 		game_loss()
-		music_player.stop()
+		MusicPlayer.pause_music()
 	
 	if Input.is_action_just_pressed("pause"):
 		GlobalTrackingValues.game_paused = true
 		escape_menu.visible = true
-		music_player.stream_paused = true
+		MusicPlayer.pause_music()
 		time_left = level_timer.time_left
 		level_timer.stop()
+
 
 func _on_level_timer_timeout() -> void:
 	GlobalTrackingValues.last_chase.emit()
@@ -55,7 +57,7 @@ func on_game_won() -> void:
 	end_level_pop_up.visible = true
 	time_left = round(level_timer.time_left)
 	level_time_display.text = str(round(time_left))
-	level_timer.stop()
+	level_timer.paused = true
 	if GlobalTrackingValues.successful_day():
 		title.text = "Congraduations"
 		about_text.text = "You have gotten through the workday without being caught by the supervisor!"
@@ -84,15 +86,16 @@ func _on_continue_button_pressed() -> void:
 	GlobalTrackingValues.game_resumed.emit()
 	escape_menu.visible = false
 	level_timer.start(time_left)
-	music_player.stream_paused = false
+	MusicPlayer.resume_music()
 
 func set_message() -> void:
 	interaction_message.text = GlobalTrackingValues.message
 
 func on_list_active(is_active : bool) -> void:
 	task_list.visible = is_active
+	progress_bar.value = GlobalTrackingValues.productivity_level()
 	trash_count.text = str(GlobalTrackingValues.trash_spilled, "/3")
-	$gameUI/topBar/taskList/strikes/safeLine.visible = GlobalTrackingValues.money_spilled
+	$gameUI/topBar/taskList/strikes/sinkLine.visible = GlobalTrackingValues.sink_broken
 	$gameUI/topBar/taskList/strikes/printerLine.visible = GlobalTrackingValues.printer_broken
 	if GlobalTrackingValues.trash_spilled == 3:
 		$gameUI/topBar/taskList/strikes/trashLine.visible = true
