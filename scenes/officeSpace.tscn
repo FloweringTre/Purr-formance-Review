@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://f2gp8e478ej2"]
+[gd_scene load_steps=45 format=4 uid="uid://f2gp8e478ej2"]
 
 [ext_resource type="Script" path="res://scripts/office_space.gd" id="1_2kpr1"]
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://rooms_tile_set.tres" id="1_hiqov"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://sn66bogke44f" path="res://scenes/objects/sleep_zone.tscn" id="8_46vh5"]
 [ext_resource type="Texture2D" uid="uid://bh8e8oynjed11" path="res://assets/ui/largeButtons/largeButtons_exit.png" id="8_m5t7n"]
 [ext_resource type="PackedScene" uid="uid://emlixvyeuhbo" path="res://scenes/characters/worker.tscn" id="9_ghwth"]
-[ext_resource type="AudioStream" uid="uid://da0jicn58tmng" path="res://assets/1_assets_from_others/Patron Saint of Heists by Bryan Tech.mp3" id="9_wejmg"]
 [ext_resource type="Texture2D" uid="uid://ek24d00mnop4" path="res://assets/1_assets_from_others/characters/worker_11.png" id="10_82s6s"]
 [ext_resource type="Texture2D" uid="uid://bvfrvj4vnfjut" path="res://assets/1_assets_from_others/characters/worker_2.png" id="11_gh3w3"]
 [ext_resource type="Texture2D" uid="uid://lgu5vd561prv" path="res://assets/1_assets_from_others/characters/worker_4.png" id="12_mk8m3"]
@@ -394,11 +393,6 @@ position = Vector2(700, 87)
 
 [node name="gameUI" type="CanvasLayer" parent="."]
 visible = false
-
-[node name="musicPlayer" type="AudioStreamPlayer" parent="gameUI"]
-stream = ExtResource("9_wejmg")
-volume_db = -10.0
-autoplay = true
 
 [node name="topBar" type="Control" parent="gameUI"]
 layout_mode = 3
