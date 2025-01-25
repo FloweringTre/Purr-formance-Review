@@ -11,7 +11,6 @@ extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-signal time_to_fix
 var fixing_needed : bool = false
 var fix_location : Vector2
 var desk_location : Vector2
@@ -19,6 +18,7 @@ var desk_location : Vector2
 func _ready() -> void:
 	sprite_2d.texture = character_texture
 	GlobalTrackingValues.item_broken.connect(on_item_broken)
+	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	if !desk_marker:
 		desk_location = sprite_2d.global_position
 	else:
@@ -31,4 +31,6 @@ func _process(delta: float) -> void:
 func on_item_broken(item : StaticBody2D) -> void:
 	if item == item_to_fix:
 		fixing_needed = true
-		time_to_fix.emit()
+
+func on_last_chase() -> void:
+	fixing_needed = false

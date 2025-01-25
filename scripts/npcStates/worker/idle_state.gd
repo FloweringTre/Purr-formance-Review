@@ -49,7 +49,7 @@ func _on_exit() -> void:
 
 
 func _on_distraction_timer_timeout() -> void:
-	var random = randi_range(0,3)
+	var random = randi_range(0,5)
 	if random == 3:
 		#print("sup is on his phone....oooooo...")
 		transition.emit("distracted")

@@ -41,34 +41,36 @@ func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
-	if navigation_agent.is_navigation_finished():
-		set_movement_target()
-		return
-	
-	tracking_location()
-	
-	var target_position : Vector2 = navigation_agent.get_next_path_position()
-	var target_direction : Vector2 = character.global_position.direction_to(target_position)
-	sprite_2d.flip_h = target_direction.x < 0
-	if target_direction.x < 0:
-		seeking_zone_left.disabled = false
-		seeking_zone_left.visible = true
-		seeking_zone_right.disabled = true
-		seeking_zone_right.visible = false
+	if !GlobalTrackingValues.game_paused && !GlobalTrackingValues.game_over:
+		if navigation_agent.is_navigation_finished():
+			set_movement_target()
+			return
+		
+		tracking_location()
+		
+		var target_position : Vector2 = navigation_agent.get_next_path_position()
+		var target_direction : Vector2 = character.global_position.direction_to(target_position)
+		sprite_2d.flip_h = target_direction.x < 0
+		if target_direction.x < 0:
+			seeking_zone_left.disabled = false
+			seeking_zone_left.visible = true
+			seeking_zone_right.disabled = true
+			seeking_zone_right.visible = false
+		else:
+			seeking_zone_left.disabled = true
+			seeking_zone_left.visible = false
+			seeking_zone_right.disabled = false
+			seeking_zone_right.visible = true
+		
+		var velocity: Vector2 = target_direction * speed
+		
+		if navigation_agent.avoidance_enabled:
+			navigation_agent.velocity = velocity
+		else:
+			character.velocity = velocity
+			character.move_and_slide()
 	else:
-		seeking_zone_left.disabled = true
-		seeking_zone_left.visible = false
-		seeking_zone_right.disabled = false
-		seeking_zone_right.visible = true
-	
-	var velocity: Vector2 = target_direction * speed
-	
-	if navigation_agent.avoidance_enabled:
-		navigation_agent.velocity = velocity
-	else:
-		character.velocity = velocity
-		character.move_and_slide()
-
+		character.velocity = Vector2.ZERO
 
 func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 	character.velocity = safe_velocity
@@ -89,7 +91,7 @@ func tracking_location() -> void:
 	location = character.global_position
 
 func _on_next_transitions() -> void:	
-	if GlobalTrackingValues.game_over or GlobalTrackingValues.game_paused:
+	if GlobalTrackingValues.game_over:
 		navigation_agent.navigation_finished.emit()
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
