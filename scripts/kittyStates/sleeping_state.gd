@@ -10,7 +10,7 @@ func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
-	if player.last_chase_tracking:
+	if player.last_chase_tracking && GlobalTrackingValues.kitty_in_bed:
 		GlobalTrackingValues.send_message("")
 		GlobalTrackingValues.game_has_been_won.emit()
 		GlobalTrackingValues.game_won.emit()
