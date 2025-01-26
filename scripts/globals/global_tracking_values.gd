@@ -39,7 +39,7 @@ signal list_active
 
 var score : int = 0
 var total_score : int = 0
-var workday : int = 4
+var workday : int = 0
 
 var ratings : Array = [" fishies", " naps", " snuggles", " pets", " treats", " munchies", " sniffs", " feathers", " cuddles", " fuzzies", "catnip"]
 
