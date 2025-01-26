@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalTrackingValues="*res://scripts/globals/global_tracking_values.gd"
-MusicPlayer="*res://scenes/music_player.tscn"
+MusicPlayer="*res://scripts/globals/music_player.tscn"
 
 [display]
 
