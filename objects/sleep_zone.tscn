@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://sn66bogke44f"]
+
+[ext_resource type="Script" path="res://objects/sleep_zone.gd" id="1_k7ene"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w571w"]
+radius = 6.0
+
+[node name="sleep_zone" type="Node2D"]
+script = ExtResource("1_k7ene")
+
+[node name="sleepingArea2D" type="Area2D" parent="."]
+position = Vector2(0, -6)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleepingArea2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_w571w")
+debug_color = Color(0.596995, 0.539834, 0.20988, 0.42)
+
+[connection signal="area_shape_entered" from="sleepingArea2D" to="." method="_on_sleeping_area_2d_area_shape_entered"]
+[connection signal="area_shape_exited" from="sleepingArea2D" to="." method="_on_sleeping_area_2d_area_shape_exited"]
