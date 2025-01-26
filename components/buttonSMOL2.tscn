@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://s4coqphlup24"]
+
+[ext_resource type="Script" path="res://components/button_SMOL.gd" id="1_1sgwk"]
+[ext_resource type="Texture2D" uid="uid://bbnfhm6le5hbh" path="res://assets/ui/smolButtons.png" id="2_1ycun"]
+[ext_resource type="Theme" path="res://assets/UI_theme_dark.tres" id="3_ploux"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd1ur"]
+atlas = ExtResource("2_1ycun")
+region = Rect2(0, 0, 64, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skx2f"]
+atlas = ExtResource("2_1ycun")
+region = Rect2(0, 66, 64, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6oo8"]
+atlas = ExtResource("2_1ycun")
+region = Rect2(0, 44, 64, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qyx5"]
+atlas = ExtResource("2_1ycun")
+region = Rect2(0, 22, 64, 22)
+
+[node name="buttonSMOL" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 22)
+offset_right = 64.0
+offset_bottom = 22.0
+script = ExtResource("1_1sgwk")
+button_text = "Select"
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 22.0
+texture_normal = SubResource("AtlasTexture_bd1ur")
+texture_pressed = SubResource("AtlasTexture_skx2f")
+texture_hover = SubResource("AtlasTexture_v6oo8")
+texture_disabled = SubResource("AtlasTexture_6qyx5")
+
+[node name="textContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(58, 9)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 61.0
+offset_bottom = 17.0
+mouse_filter = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="buttonLabel" type="Label" parent="textContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_ploux")
+theme_override_constants/line_spacing = -5
+text = "Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
