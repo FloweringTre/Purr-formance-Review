@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj6r28g886xnu"]
+
+[ext_resource type="AudioStream" uid="uid://eap8r1l0rdui" path="res://assets/1_assets_from_others/City Sunshine by Kevin MacLeod.mp3" id="1_bdoa0"]
+[ext_resource type="Script" path="res://scripts/globals/music_player.gd" id="1_bu86n"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_bu86n")
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_bdoa0")
+volume_db = -10.0
+autoplay = true

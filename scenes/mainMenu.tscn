@@ -1,9 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbo4d3yslerjt"]
+[gd_scene load_steps=45 format=3 uid="uid://cbo4d3yslerjt"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_120gn"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_120gn"]
 [ext_resource type="Texture2D" uid="uid://blc7qv40koxaq" path="res://assets/ui/largeButtons/largeButtons_new_game.png" id="1_magig"]
 [ext_resource type="Texture2D" uid="uid://bh8e8oynjed11" path="res://assets/ui/largeButtons/largeButtons_exit.png" id="2_v4st1"]
 [ext_resource type="Texture2D" uid="uid://cnxkb4v007iol" path="res://assets/ui/boot_screen.png" id="4_1sw5p"]
+[ext_resource type="Texture2D" uid="uid://dd1uv7dc52dck" path="res://assets/1_assets_from_others/Modern tiles_Free/Characters_free/Bob_16x16.png" id="4_2ryj8"]
+[ext_resource type="Texture2D" uid="uid://bf76qwq2m7q5" path="res://assets/1_assets_from_others/moderninteriors-win/UI_16x16.png" id="5_3fk6m"]
+[ext_resource type="Texture2D" uid="uid://dvbav4thm8opf" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/Modern_Office_16x16.png" id="5_f5535"]
+[ext_resource type="Texture2D" uid="uid://bv2mw00a2yh6s" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/Theme_Sorter_Black_Shadow/16_Grocery_store_Black_Shadow_16x16.png" id="6_62482"]
+[ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="7_nr24r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf7q6"]
 atlas = ExtResource("1_magig")
@@ -98,6 +103,360 @@ _data = {
 "fade": SubResource("Animation_hbbw2")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtvka"]
+atlas = ExtResource("5_3fk6m")
+region = Rect2(192, 136, 16, 16)
+
+[sub_resource type="Animation" id="Animation_0dnxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("emotionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("emotionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("emotionSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yebj0"]
+resource_name = "bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("emotionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -28), Vector2(8, -31), Vector2(8, -28), Vector2(8, -31), Vector2(8, -28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("emotionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("emotionSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x4bsh"]
+resource_name = "bounce_loop"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("emotionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -28), Vector2(8, -31), Vector2(8, -28), Vector2(8, -31), Vector2(8, -28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("emotionSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("emotionSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bh4fe"]
+_data = {
+"RESET": SubResource("Animation_0dnxf"),
+"bounce": SubResource("Animation_yebj0"),
+"bounce_loop": SubResource("Animation_x4bsh")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqn00"]
+atlas = ExtResource("5_f5535")
+region = Rect2(0, 544, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ksil"]
+atlas = ExtResource("5_f5535")
+region = Rect2(48, 560, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62n2b"]
+atlas = ExtResource("5_f5535")
+region = Rect2(144, 576, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ggji"]
+atlas = ExtResource("5_f5535")
+region = Rect2(176, 560, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4106w"]
+atlas = ExtResource("5_f5535")
+region = Rect2(80, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oxdo"]
+atlas = ExtResource("6_62482")
+region = Rect2(160, 1088, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8bn4"]
+atlas = ExtResource("5_f5535")
+region = Rect2(208, 424, 16, 16)
+
+[sub_resource type="Animation" id="Animation_rv7qj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tlhis"]
+resource_name = "bap"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59, 60, 59, 60, 61]
+}
+
+[sub_resource type="Animation" id="Animation_jjar4"]
+resource_name = "clean"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_aikl5"]
+resource_name = "clean_2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_eoksp"]
+resource_name = "hiss"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.333333, 0.466667, 0.6, 0.733333, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [72, 73, 74, 75, 74, 75, 74, 78, 73]
+}
+
+[sub_resource type="Animation" id="Animation_jr85i"]
+resource_name = "idle_1"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 5, 5.2, 5.4, 5.6, 7, 7.2, 7.4, 7.6, 7.8, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 16, 17, 18, 19, 16, 17, 18, 19, 16, 0, 1, 2, 3, 0, 24, 25, 26, 27, 24, 0]
+}
+
+[sub_resource type="Animation" id="Animation_531jj"]
+resource_name = "idle_2"
+length = 8.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 4, 4.2, 4.4, 4.6, 4.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 7.2, 7.4, 7.6, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 8, 24, 25, 26, 27, 24, 8, 8, 9, 10, 11, 8, 16, 17, 18, 19, 16, 17, 18, 19, 16, 8]
+}
+
+[sub_resource type="Animation" id="Animation_en0cu"]
+resource_name = "jump"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [64, 65, 66, 67, 68, 69, 70]
+}
+
+[sub_resource type="Animation" id="Animation_rvauq"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_dr4m3"]
+resource_name = "sleep"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
+}
+
+[sub_resource type="Animation" id="Animation_wmi3i"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6c3y"]
+_data = {
+"RESET": SubResource("Animation_rv7qj"),
+"bap": SubResource("Animation_tlhis"),
+"clean": SubResource("Animation_jjar4"),
+"clean_2": SubResource("Animation_aikl5"),
+"hiss": SubResource("Animation_eoksp"),
+"idle_1": SubResource("Animation_jr85i"),
+"idle_2": SubResource("Animation_531jj"),
+"jump": SubResource("Animation_en0cu"),
+"run": SubResource("Animation_rvauq"),
+"sleep": SubResource("Animation_dr4m3"),
+"walk": SubResource("Animation_wmi3i")
+}
+
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
@@ -119,7 +478,7 @@ custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.510402, 0.792609, 0.901532, 1)
 theme_override_font_sizes/font_size = 48
-text = "Purr-formance Review"
+text = "~~ Purr-formance Review ~~"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -143,117 +502,6 @@ texture_pressed = SubResource("AtlasTexture_m86oa")
 texture_hover = SubResource("AtlasTexture_wd820")
 texture_disabled = SubResource("AtlasTexture_e7iab")
 
-[node name="controls" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.443766, 0.621271, 0.452168, 1)
-theme_override_font_sizes/font_size = 32
-text = "Controls"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="action" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="move" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
-custom_minimum_size = Vector2(123, 0)
-layout_mode = 2
-text = "Move the kitty"
-horizontal_alignment = 2
-
-[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
-layout_mode = 2
-text = "Jump"
-horizontal_alignment = 2
-
-[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
-layout_mode = 2
-text = "Sprint"
-horizontal_alignment = 2
-
-[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
-layout_mode = 2
-text = "Interact"
-horizontal_alignment = 2
-
-[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
-layout_mode = 2
-text = "Pause"
-horizontal_alignment = 2
-
-[node name="pause_music" type="Label" parent="VBoxContainer/HBoxContainer2/action"]
-layout_mode = 2
-text = "Pause the Music"
-horizontal_alignment = 2
-
-[node name="dashes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="move" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
-layout_mode = 2
-text = "-"
-horizontal_alignment = 1
-
-[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
-layout_mode = 2
-text = "-"
-horizontal_alignment = 1
-
-[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
-layout_mode = 2
-text = "-"
-horizontal_alignment = 1
-
-[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
-layout_mode = 2
-text = "-"
-horizontal_alignment = 1
-
-[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
-layout_mode = 2
-text = "-"
-horizontal_alignment = 1
-
-[node name="pause_music" type="Label" parent="VBoxContainer/HBoxContainer2/dashes"]
-layout_mode = 2
-text = "-"
-horizontal_alignment = 1
-
-[node name="key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="moveK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
-layout_mode = 2
-text = "W/A/S/D or Arrow Keys"
-
-[node name="jumpK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
-layout_mode = 2
-text = "Space Bar"
-
-[node name="sprintK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
-layout_mode = 2
-text = "Left Shift"
-
-[node name="interactK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
-layout_mode = 2
-text = "E"
-
-[node name="pauseK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
-layout_mode = 2
-text = "Escape Key"
-
-[node name="pause_musicK" type="Label" parent="VBoxContainer/HBoxContainer2/key"]
-layout_mode = 2
-text = "P"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -9
@@ -264,7 +512,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.874395, 0.682565, 0.851918, 1)
 theme_override_constants/line_spacing = -8
 theme_override_font_sizes/font_size = 32
-text = "Goal"
+text = "Kitty Key Purr-formance Indicators (KKPI)"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -272,16 +520,130 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_constants/line_spacing = -8
 theme_override_font_sizes/font_size = 32
-text = "Disrupt the office and 
-don't get caught by the supervisors!"
+text = "- Destroy the office
+- Don't get caught by the supervisors
+
+Kitties that complete a full week get promoted!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_1sw5p")
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="controls" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.443766, 0.621271, 0.452168, 1)
+theme_override_font_sizes/font_size = 32
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="action" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+text = "Move the kitty"
+horizontal_alignment = 2
+
+[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Jump"
+horizontal_alignment = 2
+
+[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Sprint"
+horizontal_alignment = 2
+
+[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Pause"
+horizontal_alignment = 2
+
+[node name="pause_music" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Pause the Music"
+horizontal_alignment = 2
+
+[node name="dashes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="pause_music" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="moveK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "W/A/S/D or Arrow Keys"
+
+[node name="jumpK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "Space Bar"
+
+[node name="sprintK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "Left Shift"
+
+[node name="interactK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "E"
+
+[node name="pauseK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "Escape Key"
+
+[node name="pause_musicK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "P"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -291,6 +653,110 @@ libraries = {
 [node name="splashTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Control2" type="Control" parent="."]
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1076.0
+offset_top = 532.0
+offset_right = 1116.0
+offset_bottom = 572.0
+scale = Vector2(5, 5)
+
+[node name="sup" type="Node2D" parent="Control2"]
+position = Vector2(-8, 26.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control2/sup"]
+y_sort_enabled = true
+texture = ExtResource("4_2ryj8")
+offset = Vector2(0, -16)
+hframes = 24
+vframes = 7
+frame = 42
+
+[node name="emotionSprite" type="Sprite2D" parent="Control2/sup"]
+visible = false
+position = Vector2(8, -28)
+texture = SubResource("AtlasTexture_qtvka")
+
+[node name="emotionAnimation" type="AnimationPlayer" parent="Control2/sup"]
+libraries = {
+"": SubResource("AnimationLibrary_bh4fe")
+}
+autoplay = "bounce_loop"
+
+[node name="Control" type="Control" parent="."]
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 271.0
+offset_top = 489.0
+offset_right = 311.0
+offset_bottom = 529.0
+scale = Vector2(5, 5)
+
+[node name="desk" type="Node2D" parent="Control"]
+position = Vector2(1, 5)
+
+[node name="desk" type="Sprite2D" parent="Control/desk"]
+position = Vector2(-6.33333, 2.66667)
+texture = SubResource("AtlasTexture_mqn00")
+
+[node name="desk2" type="Sprite2D" parent="Control/desk"]
+position = Vector2(2, 23.3333)
+texture = SubResource("AtlasTexture_0ksil")
+
+[node name="comp2" type="Sprite2D" parent="Control/desk"]
+position = Vector2(-2, 18)
+texture = SubResource("AtlasTexture_62n2b")
+
+[node name="comp" type="Sprite2D" parent="Control/desk"]
+z_index = 1
+position = Vector2(2.66667, 16)
+texture = SubResource("AtlasTexture_5ggji")
+
+[node name="chair" type="Sprite2D" parent="Control/desk"]
+z_index = 1
+position = Vector2(-12.3333, 16.3333)
+texture = SubResource("AtlasTexture_4106w")
+
+[node name="decor" type="Node2D" parent="Control"]
+position = Vector2(0, 0.333333)
+
+[node name="flowers" type="Sprite2D" parent="Control/decor"]
+z_index = 1
+position = Vector2(2.99999, 0.666664)
+texture = SubResource("AtlasTexture_6oxdo")
+
+[node name="phone" type="Sprite2D" parent="Control/decor"]
+z_index = 1
+position = Vector2(-14.4, 3.06666)
+texture = SubResource("AtlasTexture_u8bn4")
+
+[node name="kitty" type="Node2D" parent="Control"]
+z_index = 5
+position = Vector2(-10.3333, 25.3333)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/kitty"]
+y_sort_enabled = true
+texture = ExtResource("7_nr24r")
+offset = Vector2(0, -16)
+hframes = 8
+vframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/kitty"]
+libraries = {
+"": SubResource("AnimationLibrary_t6c3y")
+}
+autoplay = "idle_2"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 20
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_1sw5p")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
