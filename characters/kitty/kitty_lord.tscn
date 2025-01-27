@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cnjrlb1mvmof6"]
+[gd_scene load_steps=32 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
 [ext_resource type="Script" path="res://characters/kitty/kitty_lord.gd" id="1_8xtop"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="8_kn2qq"]
 [ext_resource type="Script" path="res://characters/kitty/sleeping_state.gd" id="8_wr22t"]
 [ext_resource type="Script" path="res://characters/kitty/bap_state.gd" id="9_7s42f"]
+[ext_resource type="Script" path="res://characters/kitty/hiss_state.gd" id="10_yy5xl"]
 [ext_resource type="Texture2D" uid="uid://bgi5w8r3xkuq4" path="res://characters/kitty/blue_progress_bar.tres" id="11_tlvaq"]
 [ext_resource type="Texture2D" uid="uid://nbncib14bn35" path="res://characters/kitty/red_progress_bar.tres" id="11_yyv23"]
 
@@ -81,6 +82,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_eoksp"]
 resource_name = "hiss"
 length = 1.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -290,7 +292,13 @@ script = ExtResource("9_7s42f")
 player = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
+[node name="hiss" type="Node" parent="stateMachine" node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("10_yy5xl")
+player = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
 [node name="redProgressBar" type="TextureProgressBar" parent="."]
+visible = false
 z_index = 3
 offset_left = -8.0
 offset_top = -18.0

@@ -36,6 +36,9 @@ func _on_next_transitions() -> void:
 		
 		elif Input.is_action_just_pressed("interact"):
 			transition.emit("bap")
+		
+	if GlobalTrackingValues.game_over:
+		transition.emit("hiss")
 
 
 func _on_enter() -> void:

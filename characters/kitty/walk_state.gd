@@ -33,14 +33,17 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func _on_next_transitions() -> void:	
-	if !GameInputEvents.is_movement_input() or GlobalTrackingValues.game_over or GlobalTrackingValues.game_paused:
+	if !GameInputEvents.is_movement_input() or GlobalTrackingValues.game_paused:
 		transition.emit("idle")
 	
-	elif GameInputEvents.is_sprinting() && player.can_sprint:
+	if GameInputEvents.is_sprinting() && player.can_sprint:
 		transition.emit("run")
 	
-	elif Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		transition.emit("jump")
+	
+	if GlobalTrackingValues.game_over:
+		transition.emit("hiss")
 
 
 func _on_enter() -> void:

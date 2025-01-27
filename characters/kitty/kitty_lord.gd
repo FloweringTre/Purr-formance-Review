@@ -13,13 +13,16 @@ var movement_state: bool #is player in a moving state?
 var jumping : bool #is player jumping?
 var running : bool #is player running?
 var can_sprint : bool = true #can the player sprint?
-var sprint_value : int = 180
+var sprint_value : int
+var max_sprint_value : int
 var sprint_locked : bool = false
 var counter: int = 1
 var being_tracked : bool #is the player being tracked by the supervisor?
 var last_chase_tracking : bool
 
 func _ready() -> void:
+	set_max_sprint()
+	print("Max sprint value: ", max_sprint_value)
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
 
 func _physics_process(_delta) -> void:
@@ -41,29 +44,30 @@ func _physics_process(_delta) -> void:
 	if being_tracked or last_chase_tracking:
 		GlobalTrackingValues.last_reported_kitty_location = $".".global_position
 	
-	if !sprint_locked:
-		if Input.is_action_just_pressed("sprint"):
-			sprint_value -= 5
-		
-		if running:
-			sprint_value -= 1
-			$blueProgressBar.value = sprint_value
-			$redProgressBar.value = sprint_value
-		
-		if sprint_value == 0:
-			can_sprint = false
-			on_sprint_depleted()
-		
-		if !running:
-			sprint_value += 1
-			$blueProgressBar.value = sprint_value
-			$redProgressBar.value = sprint_value
-			if sprint_value > 240:
-				sprint_value = 240
-				$blueProgressBar.visible = false
-				$redProgressBar.visible = false
-	else:
-		slow_sprint_increase()
+	if !GlobalTrackingValues.game_paused:
+		if !sprint_locked:
+			if Input.is_action_just_pressed("sprint"):
+				sprint_value -= 5
+			
+			if running:
+				sprint_value -= 1
+				$blueProgressBar.value = sprint_value
+				$redProgressBar.value = sprint_value
+			
+			if sprint_value == 0:
+				can_sprint = false
+				on_sprint_depleted()
+			
+			if !running:
+				sprint_value += 1
+				$blueProgressBar.value = sprint_value
+				$redProgressBar.value = sprint_value
+				if sprint_value > max_sprint_value:
+					sprint_value = max_sprint_value
+					$blueProgressBar.visible = false
+					$redProgressBar.visible = false
+		else:
+			slow_sprint_increase()
 
 func on_sprint_depleted() -> void:
 	can_sprint = false
@@ -79,7 +83,7 @@ func slow_sprint_increase() -> void:
 		sprint_value += 1
 		$blueProgressBar.value = sprint_value
 		$redProgressBar.value = sprint_value
-		if sprint_value == 240:
+		if sprint_value == max_sprint_value:
 			$blueProgressBar.visible = false
 			$redProgressBar.visible = false
 			sprint_locked = false
@@ -102,3 +106,22 @@ func _on_caught_area_area_exited(area: Area2D) -> void:
 
 func on_last_chase() -> void:
 	last_chase_tracking = true
+
+func set_max_sprint() -> void:
+	match GlobalTrackingValues.workday:
+		0: #monday
+			max_sprint_value = 240
+		1: #tues
+			max_sprint_value = 250
+		2: #wed
+			max_sprint_value = 260
+		3: #thurs
+			max_sprint_value = 270
+		4: #fri
+			max_sprint_value = 280
+	
+	$redProgressBar.max_value = max_sprint_value
+	$blueProgressBar.max_value = max_sprint_value
+	sprint_value = max_sprint_value
+	$redProgressBar.value = sprint_value
+	$blueProgressBar.value = sprint_value
