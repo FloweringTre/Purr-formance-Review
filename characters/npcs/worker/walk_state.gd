@@ -13,13 +13,13 @@ var fixing_right_now : bool
 @onready var sprite_2d: Sprite2D = $"../../Sprite2D"
 
 func _ready() -> void:
-	speed = character.walk_speed
 	navigation_agent.velocity_computed.connect(on_safe_velocity_computed)
 	call_deferred("character_setup")
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
 
 func character_setup() -> void:
 	await get_tree().physics_frame
+	speed = character.walk_speed
 	
 	set_movement_target()
 
@@ -80,7 +80,7 @@ func tracking_location() -> void:
 		counter += 1
 		if counter > 1:
 			print ("Worker is in same location for: ", counter , " frames")
-		if counter == 10:
+		if counter == 3:
 			set_movement_target()
 			navigation_agent.navigation_finished.emit()
 			print("Worker is stuck, moving to idle")
@@ -107,7 +107,12 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	if character.fixing_needed:
-		fixing_right_now = true
+		if GlobalTrackingValues.difficulty_level == 0:
+			fixing_right_now = false
+		if GlobalTrackingValues.difficulty_level == 1 && character.has_fixed_before:
+			fixing_right_now = false
+		else:
+			fixing_right_now = true
 	else:
 		fixing_right_now = false
 	set_movement_target()

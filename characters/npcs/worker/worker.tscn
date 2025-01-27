@@ -345,6 +345,12 @@ position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7erqd")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(0, -3)
+radius = 4.0
+affect_navigation_mesh = true
+avoidance_layers = 3
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 3
 debug_enabled = true

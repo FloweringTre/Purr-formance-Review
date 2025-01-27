@@ -32,6 +32,7 @@ func _on_next_transitions() -> void:
 
 
 func _on_enter() -> void:
+	idle_state_timer.wait_time = character.idle_time
 	if character.global_position == character.desk_location:
 		var desk_animation : String = str("desk_", character.desk_direction)
 		animation_player.play(desk_animation)
