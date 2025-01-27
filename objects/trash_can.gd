@@ -2,11 +2,12 @@ extends Node2D
 var trash_spilled : bool = false
 var zone_active : bool = false
 @onready var trash_can: StaticBody2D = $"."
-
+var last_chase_active : bool = false
 
 func _ready() -> void:
 	GlobalTrackingValues.kitty_bappin.connect(on_kitty_bappin)
 	GlobalTrackingValues.item_fixed.connect(on_item_fixed)
+	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	$AnimationPlayer.play("glow")
 	particle_loading()
 
@@ -34,11 +35,16 @@ func particle_loading() -> void:
 	$GPUParticles2D.emitting = true
 
 func been_fixed() -> void:
-	trash_spilled = false
-	GlobalTrackingValues.trash_spilled -= 1
-	$AnimationPlayer.play("glow")
-	GlobalTrackingValues.send_message("")
+	if !last_chase_active:
+		trash_spilled = false
+		GlobalTrackingValues.trash_spilled -= 1
+		$AnimationPlayer.play("glow")
+		GlobalTrackingValues.send_message("")
 
 func on_item_fixed(item : StaticBody2D) -> void:
-	if item == trash_can:
-		$AnimationPlayer.play("trash_fixed")
+	if !last_chase_active:
+		if item == trash_can:
+			$AnimationPlayer.play("trash_fixed")
+
+func on_last_chase() -> void:
+	last_chase_active = true

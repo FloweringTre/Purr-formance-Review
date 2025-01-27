@@ -2,11 +2,12 @@ extends Node2D
 var zone_active : bool = false
 @onready var printer: StaticBody2D = $"."
 @onready var fix_timer: Timer = $fixTimer
-
+var last_chase_active : bool = false
 
 func _ready() -> void:
 	GlobalTrackingValues.kitty_bappin.connect(on_kitty_bappin)
 	GlobalTrackingValues.item_fixed.connect(on_item_fixed)
+	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	if GlobalTrackingValues.workday > 0:
 		$AnimationPlayer.play("glow")
 		particle_loading()
@@ -40,11 +41,16 @@ func particle_loading() -> void:
 	$GPUParticles2D.modulate.a = 0.0
 
 func on_item_fixed(item : StaticBody2D) -> void:
-	if item == printer:
-		fix_timer.start()
+	if !last_chase_active:
+		if item == printer:
+			fix_timer.start()
 
 func _on_fix_timer_timeout() -> void:
-	GlobalTrackingValues.printer_broken = false
-	$AnimationPlayer.play("glow")
-	$GPUParticles2D.emitting = false
-	GlobalTrackingValues.send_message("")
+	if !last_chase_active:
+		GlobalTrackingValues.printer_broken = false
+		$AnimationPlayer.play("glow")
+		$GPUParticles2D.emitting = false
+		GlobalTrackingValues.send_message("")
+
+func on_last_chase() -> void:
+	last_chase_active = true

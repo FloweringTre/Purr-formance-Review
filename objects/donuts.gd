@@ -2,11 +2,12 @@ extends Node2D
 var donut_spilled : bool = false
 var zone_active : bool = false
 @onready var donut: StaticBody2D = $"."
-
+var last_chase_active : bool = false
 
 func _ready() -> void:
 	GlobalTrackingValues.kitty_bappin.connect(on_kitty_bappin)
 	GlobalTrackingValues.item_fixed.connect(on_item_fixed)
+	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	if GlobalTrackingValues.workday > 2:
 		$AnimationPlayer.play("glow")
 		$interactionArea2D/CollisionShape2D.disabled = false
@@ -32,11 +33,16 @@ func on_kitty_bappin() -> void:
 		GlobalTrackingValues.item_broken.emit(donut)
 
 func been_fixed() -> void:
-	donut_spilled = false
-	GlobalTrackingValues.donuts_spilled -= 1
-	$AnimationPlayer.play("glow")
-	GlobalTrackingValues.send_message("")
+	if !last_chase_active:
+		donut_spilled = false
+		GlobalTrackingValues.donuts_spilled -= 1
+		$AnimationPlayer.play("glow")
+		GlobalTrackingValues.send_message("")
 
 func on_item_fixed(item : StaticBody2D) -> void:
-	if item == donut:
-		$AnimationPlayer.play("plate_fixed")
+	if !last_chase_active:
+		if item == donut:
+			$AnimationPlayer.play("plate_fixed")
+
+func on_last_chase() -> void:
+	last_chase_active = true
