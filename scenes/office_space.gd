@@ -20,6 +20,7 @@ var day_successful : bool
 @onready var diff_text: Label = $gameUI/endLevelPopUp/diffText
 @onready var diff_text_2: Label = $gameUI/escapeMenu/diffText2
 @onready var progress_percent: Label = $gameUI/topBar/taskList/progress/progressPercent
+@onready var score_title: Label = $gameUI/endLevelPopUp/textConditions/scoreTitle
 
 
 func _ready() -> void:
@@ -76,6 +77,7 @@ func _on_level_timer_timeout() -> void:
 		redo_button.visible = true
 		continue_button.visible = false
 	else:
+		score_title.text = "Your final purr-formance rating"
 		redo_button.visible = false
 		continue_button.visible = false
 	score_count.text = GlobalTrackingValues.score_calculate(0)
@@ -98,6 +100,7 @@ func on_game_won() -> void:
 	elif GlobalTrackingValues.successful_day() && GlobalTrackingValues.workday == 4:
 		title.text = "Well done!"
 		about_text.text = "You have completed a full week with amazing KKPIs! You have been promoted to Official Office Destroyer! There is no stopping you!"
+		score_title.text = "Your final purr-formance rating"
 		day_successful = true
 		redo_button.visible = false
 		continue_button.visible = false
@@ -116,6 +119,7 @@ func game_loss() -> void:
 		redo_button.visible = true
 		continue_button.visible = false
 	else:
+		score_title.text = "Your final purr-formance rating"
 		redo_button.visible = false
 		continue_button.visible = false
 
