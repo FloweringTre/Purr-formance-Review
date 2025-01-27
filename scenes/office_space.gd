@@ -2,7 +2,6 @@ extends Node2D
 @onready var level_time_display: Label = $gameUI/topBar/timer/levelTimeDisplay
 @onready var level_timer: Timer = $levelTimer
 var time_left 
-var music_playing : bool = true
 var day_successful : bool
 @onready var end_level_pop_up: Control = $gameUI/endLevelPopUp
 @onready var title: Label = $gameUI/endLevelPopUp/textConditions/title
@@ -14,13 +13,17 @@ var day_successful : bool
 @onready var trash_count: Label = $gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/trashCount
 @onready var donut_count: Label = $gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/donutCount
 @onready var score_count: Label = $gameUI/endLevelPopUp/textConditions/scoreCount
-@onready var progress_bar: TextureProgressBar = $gameUI/topBar/taskList/ProgressBar
+@onready var progress_bar: TextureProgressBar = $gameUI/topBar/taskList/progress/ProgressBar
 @onready var workday: Label = $gameUI/topBar/taskList/dayBoxContainer/workday
 @onready var continue_button: Panel = $gameUI/endLevelPopUp/HBoxContainer/continueButton
 @onready var redo_button: Panel = $gameUI/endLevelPopUp/HBoxContainer/redoButton
+@onready var diff_text: Label = $gameUI/endLevelPopUp/diffText
+@onready var diff_text_2: Label = $gameUI/escapeMenu/diffText2
+@onready var progress_percent: Label = $gameUI/topBar/taskList/progress/progressPercent
 
 
 func _ready() -> void:
+	MusicPlayer.set_track(GlobalTrackingValues.workday)
 	GlobalTrackingValues.game_won.connect(on_game_won)
 	GlobalTrackingValues.set_message.connect(set_message)
 	GlobalTrackingValues.list_active.connect(on_list_active)
@@ -28,9 +31,12 @@ func _ready() -> void:
 	GlobalTrackingValues.game_was_played = true
 	end_level_pop_up.visible = false
 	game_ui.visible = true
+	diff_text.text = str("Difficulty: ", GlobalTrackingValues.diffLevels[GlobalTrackingValues.difficulty_level])
+	diff_text_2.text = str("Difficulty: ", GlobalTrackingValues.diffLevels[GlobalTrackingValues.difficulty_level])
 	
 	on_list_active(true)
 	set_work_day()
+	print("Difficulty Level: ", GlobalTrackingValues.difficulty_level)
 
 func _process(delta: float) -> void:
 	if GlobalTrackingValues.game_paused or GlobalTrackingValues.game_over:
@@ -44,7 +50,6 @@ func _process(delta: float) -> void:
 		level_time_display.text = str(round(time_left))
 		level_timer.paused = true
 		game_loss()
-		MusicPlayer.pause_music()
 	
 	if Input.is_action_just_pressed("pause"):
 		if GlobalTrackingValues.game_over:
@@ -59,6 +64,7 @@ func _process(delta: float) -> void:
 func _on_level_timer_timeout() -> void:
 	GlobalTrackingValues.send_message("")
 	GlobalTrackingValues.game_over = true
+	MusicPlayer.set_track(6)
 	end_level_pop_up.visible = true
 	time_left = round(level_timer.time_left)
 	level_time_display.text = str(round(time_left))
@@ -66,12 +72,17 @@ func _on_level_timer_timeout() -> void:
 	title.text = "Oh no..."
 	about_text.text = "You didn't complete your kitty tasks today."
 	day_successful = false
-	redo_button.visible = true
-	continue_button.visible = false
+	if GlobalTrackingValues.difficulty_level != 3:
+		redo_button.visible = true
+		continue_button.visible = false
+	else:
+		redo_button.visible = false
+		continue_button.visible = false
 	score_count.text = GlobalTrackingValues.score_calculate(0)
 
 func on_game_won() -> void:
 	GlobalTrackingValues.send_message("")
+	MusicPlayer.set_track(5)
 	GlobalTrackingValues.game_over = true
 	end_level_pop_up.visible = true
 	time_left = round(level_timer.time_left)
@@ -95,12 +106,18 @@ func on_game_won() -> void:
 
 func game_loss() -> void:
 	GlobalTrackingValues.send_message("")
+	MusicPlayer.set_track(6)
 	GlobalTrackingValues.kitty_caught_from_sup = false
 	end_level_pop_up.visible = true
 	title.text = "You've been caught!"
 	about_text.text = "Your office reign of terror has come to an end. :("
 	score_count.text = GlobalTrackingValues.score_calculate(0)
-	continue_button.visible = false
+	if GlobalTrackingValues.difficulty_level != 3:
+		redo_button.visible = true
+		continue_button.visible = false
+	else:
+		redo_button.visible = false
+		continue_button.visible = false
 
 func _on_new_game_button_pressed() -> void:
 	get_tree().reload_current_scene()
@@ -123,6 +140,7 @@ func set_message() -> void:
 func on_list_active(is_active : bool) -> void:
 	task_list.visible = is_active
 	progress_bar.value = GlobalTrackingValues.productivity_level()
+	progress_percent.text = str(GlobalTrackingValues.productivity_level(), "%")
 	trash_count.text = str(GlobalTrackingValues.trash_spilled, "/3")
 	donut_count.text = str(GlobalTrackingValues.donuts_spilled, "/3")
 	$gameUI/topBar/taskList/strikes/sinkLine.visible = GlobalTrackingValues.sink_broken
@@ -138,22 +156,23 @@ func on_list_active(is_active : bool) -> void:
 		$gameUI/topBar/taskList/strikes/donutLine.visible = false
 
 func set_work_day() -> void:
+	var time : int
 	match GlobalTrackingValues.workday:
 		0: #monday
 			workday.text = "Monday"
-			level_timer.start(100)
+			time = 100
 		1: #tuesday
 			workday.text = "Tuesday"
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider2.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/printer.visible = true
-			level_timer.start(120)
+			time = 120
 		2: #wednesday
 			workday.text = "Wednesday"
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider2.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/printer.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/sink.visible = true
-			level_timer.start(140)
+			time = 140
 		3: #thursday
 			workday.text = "Thursday"
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider2.visible = true
@@ -163,10 +182,9 @@ func set_work_day() -> void:
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider3.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/donuts.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/donutCount.visible = true
-			level_timer.start(160)
+			time = 160
 		4: #friday
 			workday.text = "Friday"
-			$supervisor/SupervisorMan3.active = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider2.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/printer.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider.visible = true
@@ -174,7 +192,28 @@ func set_work_day() -> void:
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider3.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/donuts.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/donutCount.visible = true
-			level_timer.start(180)
+			time = 180
+			
+	match GlobalTrackingValues.difficulty_level:
+		0:
+			$supervisor/SupervisorMan.active = true
+			$supervisor/SupervisorMan2.active = false
+			$supervisor/SupervisorMan3.active = false
+		1:
+			$supervisor/SupervisorMan.active = true
+			$supervisor/SupervisorMan2.active = true
+			$supervisor/SupervisorMan3.active = false
+		2:
+			$supervisor/SupervisorMan.active = true
+			$supervisor/SupervisorMan2.active = true
+			$supervisor/SupervisorMan3.active = true
+		3:
+			$supervisor/SupervisorMan.active = true
+			$supervisor/SupervisorMan2.active = true
+			$supervisor/SupervisorMan3.active = true
+			time += 10
+	
+	level_timer.start(time)
 
 func on_ready_last_chase() -> void:
 	$waitTimer.start()
@@ -185,3 +224,9 @@ func _on_wait_timer_timeout() -> void:
 func _on_continue_game_button_pressed() -> void:
 	GlobalTrackingValues.day_reset(day_successful)
 	get_tree().reload_current_scene()
+
+func _on_help_back_button_button_pressed() -> void:
+	$gameUI/helpPopUp.visible = false
+
+func _on_helpbutton_button_pressed() -> void:
+	$gameUI/helpPopUp.visible = true

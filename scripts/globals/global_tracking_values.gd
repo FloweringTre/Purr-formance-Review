@@ -1,10 +1,12 @@
 extends Node
 
 var music_playing : bool = true
+var difficulty_level : int = 1
+# 0 - Easy // 1 - Normal // 2 - Hard // 3 - Impossible
 
 var last_reported_kitty_location : Vector2
 var kitty_caught_from_sup : bool = false
-var kitty_caught_from_kitty : bool = false
+#var kitty_caught_from_kitty : bool = false
 
 signal last_chase
 signal ready_last_chase
@@ -30,6 +32,7 @@ var sink_broken : bool
 var donuts_spilled : int = 0
 var money_spilled : bool
 var secret_sleep : bool
+var tipped_glasses : int = 0
 
 var message : String
 var last_message_sent : bool = false
@@ -42,10 +45,16 @@ var total_score : int = 0
 var workday : int = 0
 
 var ratings : Array = [" fishies", " naps", " snuggles", " pets", " treats", " munchies", " sniffs", " feathers", " cuddles", " fuzzies", "catnip"]
+var diffLevels : Array = ["Kitten - Easy", "House Cat - Medium", "Stray - Hard", "Last Strike - Impossible"]
+var aboutLevels : Array = [
+	"The office workers won't fix your messes. The office will stay destroyed. \n There is only one supervisor looking for you.",
+	"Office workers are slow to fix your messes and they will only clean them once. \n There are two supervisors looking for you.",
+	"Office workers will clean your messes repeatedly and they are quick! \n There are three supervisors looking for you.",
+	"This is your last chance, if you are caught, YOU'RE FIRED! \n If you don't complete your KKPIs each day, YOU'RE FIRED!"
+]
 
 func game_reset() -> void:
 	last_reported_kitty_location = Vector2(0, 0)
-	kitty_caught_from_kitty = false
 	kitty_caught_from_sup = false
 	game_over= false
 	game_paused= false
@@ -62,6 +71,7 @@ func game_reset() -> void:
 	printer_broken = false
 	secret_sleep = false
 	sink_broken = false
+	tipped_glasses = 0
 	
 	workday = 0
 	score = 0
@@ -69,7 +79,6 @@ func game_reset() -> void:
 
 func day_reset(day_successful : bool) -> void:
 	last_reported_kitty_location = Vector2(0, 0)
-	kitty_caught_from_kitty = false
 	kitty_caught_from_sup = false
 	game_over= false
 	game_paused= false
@@ -86,6 +95,7 @@ func day_reset(day_successful : bool) -> void:
 	printer_broken = false
 	secret_sleep = false
 	sink_broken = false
+	tipped_glasses = 0
 	
 	if day_successful:
 		workday += 1
@@ -185,22 +195,26 @@ func productivity_level():
 			if sink_broken:
 				value += 12.5
 			value += (donuts_spilled * 12.5)
+	if value == 1:
+		value = 0
 	
 	return value
 
 func score_calculate(time_left : int):
 	var value = 0
 	value += (trash_spilled * 20)
+	value += (donuts_spilled * 20)
+	value += (tipped_glasses * 30)
 	
 	if money_spilled:
-		value += 20
+		value += 30
 	if secret_sleep:
-		value += 20
+		value += 30
 	if printer_broken:
 		value += 20
 	if sink_broken:
 		value += 20
-	if !kitty_caught_from_kitty && !kitty_caught_from_sup:
+	if !kitty_caught_from_sup && time_left > 0:
 		value += 20
 	
 	value += time_left

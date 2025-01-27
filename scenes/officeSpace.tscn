@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://f2gp8e478ej2"]
+[gd_scene load_steps=35 format=4 uid="uid://f2gp8e478ej2"]
 
 [ext_resource type="Script" path="res://scenes/office_space.gd" id="1_2kpr1"]
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://assets/tilesets/rooms_tile_set.tres" id="1_hiqov"]
@@ -12,10 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dgji124pxajuv" path="res://objects/printer.tscn" id="5_p3eh3"]
 [ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="6_2clff"]
 [ext_resource type="PackedScene" uid="uid://cfjqs73h12t0y" path="res://objects/donuts.tscn" id="7_33gjx"]
-[ext_resource type="Texture2D" uid="uid://b4h4qrp38u8ol" path="res://assets/ui/largeButtons/largeButtons_continue.png" id="7_pu6ks"]
 [ext_resource type="PackedScene" uid="uid://sn66bogke44f" path="res://objects/sleep_zone.tscn" id="8_46vh5"]
-[ext_resource type="Texture2D" uid="uid://bh8e8oynjed11" path="res://assets/ui/largeButtons/largeButtons_exit.png" id="8_m5t7n"]
 [ext_resource type="PackedScene" uid="uid://emlixvyeuhbo" path="res://characters/npcs/worker/worker.tscn" id="9_ghwth"]
+[ext_resource type="PackedScene" uid="uid://dcpg4oprdl21d" path="res://objects/water_glass.tscn" id="10_80cg4"]
 [ext_resource type="Texture2D" uid="uid://ek24d00mnop4" path="res://assets/1_assets_from_others/characters/worker_11.png" id="10_82s6s"]
 [ext_resource type="Texture2D" uid="uid://bvfrvj4vnfjut" path="res://assets/1_assets_from_others/characters/worker_2.png" id="11_gh3w3"]
 [ext_resource type="Texture2D" uid="uid://lgu5vd561prv" path="res://assets/1_assets_from_others/characters/worker_4.png" id="12_mk8m3"]
@@ -31,9 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://components/buttonSMOL2.tscn" id="26_14x5w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sajbj"]
-vertices = PackedVector2Array(283, 154.047, 343.117, 152.961, 460, 154.102, 450.031, 182.961, 335.797, 185.203, 731, 330.172, 807, 342, 704.172, 342, 704.352, 341.094, 705.578, 335.641, 327.18, 138.609, 460, 89, 563, 115.492, 563, 193.063, 475.367, 194.219, 283, 88, 325.82, 104.648, 278.68, 250, 284.922, 239.531, 337.094, 249.758, 322, 266, 294.227, 266, 283.789, 187.047, 476.852, 209.07, 564.117, 285, 541.961, 297.656, 510, 264, 796.148, 183.047, 807, 184.078, 772.594, 186, 731, 188, 623.313, 185.172, 662, 188, 78.2969, 185.992, 66.2813, 152.977, 46.5625, 265, 47.5391, 287.68, 25.4531, 287.047, 25.9766, 75.0625, 144.773, 332.906, 180.313, 329.859, 180.688, 342.852, 126.867, 342.133, 125.867, 265, 146.211, 264.828, 371.32, 331, 371.672, 341.852, 322, 341.141, 336.781, 331, 338.219, 266, 542.148, 342.242, 533, 342.117, 533, 305.078, 56.8906, 193.617, 61.2109, 140.648, 506.133, 85, 565, 85, 565, 109, 693.617, 106.789, 694.852, 76, 763, 76, 763, 86, 761.609, 122, 468, 332.883, 468, 341, 415, 341, 433.969, 332.492, 415, 266, 432.828, 264, 784.641, 122, 785, 127.367, 785, 134.039, 603.453, 134.953, 602.492, 117.461, 592.109, 109, 510, 304.891, 468.141, 75, 495.133, 75, 458.07, 85.0781, 353.141, 89, 406.047, 84.1406, 114.563, 79, 403.641, 79, 343.688, 88.8672, 605.109, 203.07, 662, 327.258, 607.273, 285, 34.2578, 69, 111.563, 69, 65.4297, 88, 706.273, 332.313, 604, 341.906, 604, 290.539, 566.75, 292.219, 56.0234, 201.211, 566.391, 293.211, 473.242, 250.031, 446.406, 253.023, 285.242, 281.547, 272.641, 285, 239.227, 285, 228.43, 282.297, 218.719, 266.102, 77.3828, 250, 62.5234, 245.047, 54.9063, 226.789, 63.1797, 138.672)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 1, 0), PackedInt32Array(2, 11, 12, 13, 14), PackedInt32Array(10, 0, 15, 16), PackedInt32Array(17, 18, 4, 19, 20, 21), PackedInt32Array(4, 18, 22), PackedInt32Array(23, 14, 13, 24, 25, 26), PackedInt32Array(27, 28, 6, 5, 29), PackedInt32Array(29, 5, 30), PackedInt32Array(31, 29, 30, 32), PackedInt32Array(2, 14, 3), PackedInt32Array(0, 4, 22, 33, 34), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(39, 42, 43, 44), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(49, 48, 47, 20, 19), PackedInt32Array(25, 50, 51, 52), PackedInt32Array(34, 33, 53, 54), PackedInt32Array(11, 55, 56, 57, 12), PackedInt32Array(58, 59, 60, 61, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(66, 65, 67, 68), PackedInt32Array(69, 70, 71, 72, 62), PackedInt32Array(58, 62, 72, 73), PackedInt32Array(74, 58, 73, 12), PackedInt32Array(57, 74, 12), PackedInt32Array(52, 75, 26, 25), PackedInt32Array(76, 77, 55, 11, 78), PackedInt32Array(78, 11, 79, 80), PackedInt32Array(81, 82, 80, 79, 83, 15), PackedInt32Array(84, 31, 32, 85, 86), PackedInt32Array(87, 88, 81, 89, 38), PackedInt32Array(9, 90, 5), PackedInt32Array(85, 9, 8, 91), PackedInt32Array(86, 85, 91, 92), PackedInt32Array(24, 86, 92, 93), PackedInt32Array(83, 16, 15), PackedInt32Array(81, 15, 89), PackedInt32Array(35, 38, 89, 54, 53, 94), PackedInt32Array(93, 95, 25, 24), PackedInt32Array(96, 23, 26), PackedInt32Array(96, 26, 68, 97), PackedInt32Array(19, 97, 68, 67, 49), PackedInt32Array(17, 21, 98, 99, 100, 101, 102), PackedInt32Array(103, 17, 102, 44), PackedInt32Array(103, 44, 43, 35), PackedInt32Array(104, 103, 35), PackedInt32Array(105, 104, 35), PackedInt32Array(89, 106, 54), PackedInt32Array(35, 94, 105)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(685, 72, 684, 97, 592, 99, 575, 99, 575, 75, 510, 75, 499, 65, 464, 65, 454, 75, 412.462, 74.2493, 410, 69, 122, 69, 119, 59, 31, 59, 16, 70, 15.4309, 296.767, 58, 298, 57, 275, 116, 275, 117, 352, 191, 353, 190, 319, 155, 322, 156, 275, 213, 276, 222, 291, 238, 295, 274, 295, 291.847, 290.116, 300, 276, 312, 276, 312, 351, 382, 352, 381, 321, 347, 321, 348, 276, 405, 276, 405, 351, 478, 351, 478, 323, 443.813, 322.598, 443, 274, 500, 274, 500, 314.814, 523, 315, 523, 352, 552.205, 352.374, 552, 306, 574, 302, 467, 207, 464, 241, 446, 243, 345, 240, 276, 235, 273, 240, 79, 240, 70, 237, 65, 225, 66, 202, 73, 143, 75, 98, 274, 98, 353, 99, 450, 99, 450, 144, 347, 143, 337, 134, 336, 109, 353, 94, 273, 94, 273, 144, 71, 143, 66, 201, 80, 196, 274, 197, 275, 243, 347, 245, 346, 195, 448, 193, 466, 201, 468, 221, 573, 197, 573, 126, 593, 127, 594, 145, 795, 144, 796, 173, 772, 176, 619.25, 175.147, 595, 199, 597, 275, 574, 275, 573, 193, 468, 218, 572, 302, 594, 301, 594, 352, 715, 351, 698, 324, 672, 319, 672, 198, 721, 198, 721, 321, 698, 323, 692, 352, 817, 352, 817, 175, 796, 173, 795, 144, 795, 127, 794, 112, 772, 112, 773, 86, 773, 66, 690, 66)])
+vertices = PackedVector2Array(608, 118.609, 586.133, 111.883, 593.742, 109.023, 681.102, 110.039, 785, 134.102, 698.773, 97.6719, 695.656, 75.9219, 758, 75.1172, 758, 85.2266, 759.211, 111.781, 608, 135.891, 769.773, 120.828, 785, 132.047, 565, 106.211, 582.961, 112.188, 559.219, 118.141, 286.422, 149.602, 282.859, 91.5469, 327.148, 137.828, 343.359, 157, 348.523, 179.891, 335.906, 190.391, 792.953, 183.453, 807, 195.063, 807, 332.906, 796.141, 342, 736.031, 320.719, 734.969, 201.531, 772.594, 186, 275.68, 254.969, 285, 239.43, 337.133, 251.82, 322, 266, 294.227, 266, 285, 194.508, 556.641, 207.203, 559, 206.641, 559, 277.93, 704.617, 342, 704.828, 341.094, 723.906, 334.578, 325.82, 104.648, 364.117, 333.992, 364.867, 341, 322, 341, 350.961, 335.383, 334.281, 322.031, 331.789, 279.688, 345.117, 252.742, 346.344, 261.898, 457.422, 157, 464.109, 118.227, 506.133, 85, 475.367, 194.219, 48, 262.82, 48, 287.703, 25.4531, 287.047, 25.9766, 75.0625, 34.2578, 69, 541.961, 297.656, 542.148, 342.242, 533, 342.117, 533, 305.078, 565, 85, 495.133, 75, 461.281, 95.6406, 468.141, 75, 458.07, 85.0781, 441.469, 84.9688, 406.047, 84.1406, 352.844, 86, 114.563, 79, 403.641, 79, 346.781, 86.1328, 269.656, 84, 431, 322.313, 431, 341, 420.711, 341, 418.898, 279.359, 428.852, 280.32, 156.203, 335, 172, 335, 172, 342.156, 133, 342.82, 140.852, 321.359, 133, 285.344, 142.07, 283.68, 476.852, 209.07, 473.313, 249.258, 513, 273.258, 493.703, 262, 450.273, 183.07, 722.891, 186, 623.313, 185.172, 668.758, 186, 655, 205.883, 608, 200.188, 608, 275.969, 655, 314.93, 610.938, 341.859, 111.563, 69, 72.9766, 84, 120.859, 264.102, 150.609, 264.883, 269.781, 180.977, 262.93, 159, 74.6406, 182.023, 80.6406, 159, 62.0625, 149.711, 56.7031, 195.469, 697.977, 337.047, 673.242, 334.57, 604.219, 333.781, 606.406, 298.789, 585.742, 287.961, 583.891, 288.398, 565.68, 293.344, 440.508, 262, 405.883, 263.102, 514.703, 304.93, 513, 302.156, 446.102, 254.992, 351.688, 256.031, 285.242, 281.547, 272.641, 285, 239.227, 285, 228.43, 282.297, 218.719, 266.102, 77.8594, 256.008, 61.2109, 248.438, 52.7578, 227.32, 56.0781, 200.758, 62.9297, 142.844, 59.7578, 108.961)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(5, 8, 9), PackedInt32Array(4, 10, 0), PackedInt32Array(4, 3, 5, 9, 11), PackedInt32Array(4, 11, 12), PackedInt32Array(13, 14, 15), PackedInt32Array(16, 17, 18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25, 26, 27, 28), PackedInt32Array(29, 30, 21, 31, 32, 33), PackedInt32Array(21, 30, 34, 16), PackedInt32Array(35, 36, 37), PackedInt32Array(25, 38, 39, 40), PackedInt32Array(41, 18, 17), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(46, 45, 44), PackedInt32Array(46, 44, 32, 47), PackedInt32Array(48, 49, 47, 32, 31), PackedInt32Array(50, 51, 52, 15, 35, 53), PackedInt32Array(54, 55, 56, 57, 58), PackedInt32Array(59, 60, 61, 62), PackedInt32Array(52, 63, 13, 15), PackedInt32Array(64, 52, 51, 65, 66), PackedInt32Array(67, 66, 65), PackedInt32Array(67, 65, 68), PackedInt32Array(69, 67, 68), PackedInt32Array(69, 68, 70), PackedInt32Array(71, 72, 69, 70, 73, 74), PackedInt32Array(75, 76, 77, 78, 79), PackedInt32Array(80, 81, 82, 83), PackedInt32Array(84, 80, 83), PackedInt32Array(84, 83, 85, 86), PackedInt32Array(35, 37, 87, 53), PackedInt32Array(88, 87, 37, 89, 90), PackedInt32Array(50, 53, 91), PackedInt32Array(19, 50, 91, 20), PackedInt32Array(28, 27, 92), PackedInt32Array(93, 28, 92), PackedInt32Array(93, 92, 94), PackedInt32Array(93, 94, 95, 96), PackedInt32Array(97, 96, 95, 98, 99), PackedInt32Array(58, 100, 71, 101), PackedInt32Array(86, 85, 102, 103), PackedInt32Array(16, 34, 104, 105), PackedInt32Array(105, 104, 106, 107), PackedInt32Array(108, 107, 106, 109), PackedInt32Array(40, 26, 25), PackedInt32Array(110, 40, 39), PackedInt32Array(110, 39, 99, 111), PackedInt32Array(98, 111, 99), PackedInt32Array(97, 99, 112, 113), PackedInt32Array(114, 97, 113), PackedInt32Array(114, 113, 115), PackedInt32Array(37, 114, 115), PackedInt32Array(37, 115, 116, 59, 89), PackedInt32Array(117, 79, 78, 118), PackedInt32Array(73, 41, 17, 74), PackedInt32Array(62, 119, 120, 89, 59), PackedInt32Array(88, 90, 117, 121), PackedInt32Array(122, 121, 117, 118, 49), PackedInt32Array(48, 122, 49), PackedInt32Array(29, 33, 123, 124, 125, 126, 127), PackedInt32Array(128, 29, 127, 103, 102), PackedInt32Array(128, 102, 54), PackedInt32Array(129, 128, 54), PackedInt32Array(130, 129, 54), PackedInt32Array(109, 131, 130, 54, 58, 108), PackedInt32Array(132, 108, 58, 133), PackedInt32Array(101, 133, 58), PackedInt32Array(74, 101, 71)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(685, 72, 688, 93, 678, 100, 592, 99, 584, 102, 575, 99, 575, 75, 510, 75, 499, 65, 464, 65, 454, 75, 412.462, 74.2493, 410, 69, 122, 69, 119, 59, 31, 59, 16, 70, 15.4309, 296.767, 58, 298, 58, 273, 115, 274, 123, 288, 123, 353, 182, 352, 182, 325, 160, 325, 151, 317, 152, 286, 157, 275, 213, 276, 222, 291, 238, 295, 274, 295, 291.847, 290.116, 300, 276, 312, 276, 312, 351, 376, 351, 373, 323, 354, 325, 344, 317, 342, 283, 351, 272, 401, 273, 409, 283, 411, 351, 441, 351, 441, 322, 439, 283, 446, 272, 491, 272, 503, 279, 503, 305, 509.087, 314.887, 523, 315, 523, 352, 552.205, 352.374, 552, 306, 574, 302, 467, 207, 464, 241, 445, 245, 354, 246, 348, 243, 276, 235, 270, 245, 80, 246, 69, 241, 63, 226, 66, 202, 73, 143, 70, 111, 79, 94, 267, 94, 274, 98, 353, 96, 439, 95, 452, 102, 454, 118, 449, 147, 348, 147, 337, 134, 336, 109, 353, 94, 273, 94, 276, 143, 261, 149, 83, 149, 71, 143, 66, 201, 78, 192, 266, 191, 275, 199, 275, 243, 347, 245, 346, 195, 352, 190, 448, 193, 466, 201, 468, 221, 567, 195, 569, 126, 585, 122, 598, 126, 598, 146, 795, 144, 796, 173, 772, 176, 619.25, 175.147, 598, 196, 598, 270, 585, 277, 569, 271, 569, 194, 468, 218, 572, 302, 583, 299, 596, 305, 594, 337.122, 606.304, 351.898, 715, 351, 698, 327, 678, 325, 665, 311, 665, 209, 674, 196, 718, 196, 725, 205, 726, 317, 719, 325, 698, 327, 692, 352, 799.785, 352, 817, 337.594, 817, 190.349, 796, 173, 795, 144, 795, 127, 776, 113, 769, 107, 768, 85, 768, 65, 690, 66)])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bci3c"]
 atlas = ExtResource("6_2clff")
@@ -55,38 +54,6 @@ region = Rect2(144, 176, 64, 16)
 atlas = ExtResource("6_2clff")
 region = Rect2(144, 144, 64, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypw7y"]
-atlas = ExtResource("7_pu6ks")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uot2j"]
-atlas = ExtResource("7_pu6ks")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pg3yg"]
-atlas = ExtResource("7_pu6ks")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_twtod"]
-atlas = ExtResource("7_pu6ks")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mshsm"]
-atlas = ExtResource("8_m5t7n")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0iatn"]
-atlas = ExtResource("8_m5t7n")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e16xl"]
-atlas = ExtResource("8_m5t7n")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6thmc"]
-atlas = ExtResource("8_m5t7n")
-region = Rect2(0, 32, 64, 32)
-
 [node name="OfficeSpace" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_2kpr1")
@@ -101,11 +68,11 @@ tile_map_data = PackedByteArray("AAA1AAAAAQAPAAMAAAA2AAAAAQAPAAMAAAA3AAAAAQAPAAM
 tile_set = ExtResource("1_hiqov")
 
 [node name="wall2" type="TileMapLayer" parent="tileMaps/non-Y-sorted"]
-tile_map_data = PackedByteArray("AAAaAAIAAQABABEAAAAaAAMAAQABABIAAAAbAAIAAQABABEAAAAbAAMAAQABABIAAAAcAAIAAQABABEAAAAcAAMAAQABABIAAAAdAAIAAQABABEAAAAdAAMAAQABABIAAAAeAAIAAQABABEAAAAeAAMAAQABABIAAAAfAAIAAQABABEAAAAfAAMAAQABABIAAAAgAAIAAQABABEAAAAgAAMAAQABABIAAAAhAAIAAQABABEAAAAhAAMAAQABABIAAAAiAAIAAQABABEAAAAiAAMAAQABABIAAAAjAAIAAQABABEAAAAjAAMAAQABABIAAAA=")
+tile_map_data = PackedByteArray("AAAaAAIAAQABABEAAAAaAAMAAQABABIAAAAbAAIAAQABABEAAAAbAAMAAQABABIAAAAcAAIAAQABABEAAAAcAAMAAQABABIAAAAdAAIAAQABABEAAAAdAAMAAQABABIAAAAeAAIAAQABABEAAAAeAAMAAQABABIAAAAfAAIAAQABABEAAAAfAAMAAQABABIAAAAgAAIAAQABABEAAAAgAAMAAQABABIAAAAhAAIAAQABABEAAAAhAAMAAQABABIAAAAiAAIAAQABABEAAAAiAAMAAQABABIAAAAjAAIAAQABABEAAAAjAAMAAQABABIAAAATAAIABwAIACsAAAAYAAIABwAIACsAAAAMAAIABwAIACsAAAAHAAIABwAIACsAAAACAAIABwAIACsAAAAKAAIABgACABoAAAAOAAIAAgAJAAoAAAAJAAIAAgAPAAIAAAALAAIAAgAPAAAAAAA=")
 tile_set = ExtResource("1_lym04")
 
 [node name="conf_Table" type="TileMapLayer" parent="tileMaps/non-Y-sorted"]
-tile_map_data = PackedByteArray("AAAlAAkAAgALAAsAAAAmAAkAAgAMAAsAAAAuAAYABwAIAEMAAAAwAAYABwAKAEMAAAAwAAcABwAKAEQAAAAuAAcABwAIAEQAAAAvAAYABwAKAEMAAAAvAAcABwAKAEQAAAAqAA4AAgABAAEAAAAqAA8AAgABAAEAAAAqABAAAgABAAEAAAAqABEAAgABAAEAAAAqABIAAgABAAEAAAAqABMAAgABAAIAAAArAA4AAgACAAEAAAArAA8AAgACAAEAAAArABAAAgACAAEAAAArABEAAgACAAEAAAArABIAAgACAAEAAAArABMAAgACAAIAAAAsAA4AAgADAAEAAAAsAA8AAgADAAEAAAAsABAAAgADAAEAAAAsABEAAgADAAEAAAAsABIAAgADAAEAAAAsABMAAgADAAIAAAAqAAwAAgABAAAAAAAqAA0AAgABAAEAAAArAAwAAgACAAAAAAArAA0AAgACAAEAAAAsAAwAAgADAAAAAAAsAA0AAgADAAEAAAAxAAYABwAJAEMAAAAxAAcABwAJAEQAAAAPABQAAgALAAEAAAAPABUAAgALAAIAAAAQABQAAgANAAEAAAAQABUAAgANAAIAAAAPABIAAgALAAAAAAAPABMAAgALAAEAAAAQABIAAgANAAAAAAAQABMAAgANAAEAAAAFABMAAgAEACIAAAAGABMAAgAFACIAAAAGABQAAgAHACMAAAAGABUAAgAHACQAAAAbAAQABQAEAAcAAAAcAAQABQAEAAcAAAAdAAQABQAFAAcAAAAeAAQABQAGAAcAAAAaAAQABQADAAcAAAAgAAQABQADAAcAAAAhAAQABQAEAAcAAAAiAAQABQAGAAcAAAAaAAMABQAEAAYAAAAgAAMABQAEAAYAAAAeAAMABQAGAAYAAAAiAAMABQAGAAYAAAAhAAMABQAFAAYAAAAdAAMABQAFAAYAAAAcAAMABQAFAAYAAAAbAAMABQAFAAYAAAA=")
+tile_map_data = PackedByteArray("AAAlAAkAAgALAAsAAAAmAAkAAgAMAAsAAAAuAAYABwAIAEMAAAAwAAYABwAKAEMAAAAwAAcABwAKAEQAAAAuAAcABwAIAEQAAAAvAAYABwAKAEMAAAAvAAcABwAKAEQAAAAqAA4AAgABAAEAAAAqAA8AAgABAAEAAAAqABAAAgABAAEAAAAqABEAAgABAAEAAAAqABIAAgABAAEAAAAqABMAAgABAAIAAAArAA4AAgACAAEAAAArAA8AAgACAAEAAAArABAAAgACAAEAAAArABEAAgACAAEAAAArABIAAgACAAEAAAArABMAAgACAAIAAAAsAA4AAgADAAEAAAAsAA8AAgADAAEAAAAsABAAAgADAAEAAAAsABEAAgADAAEAAAAsABIAAgADAAEAAAAsABMAAgADAAIAAAAqAAwAAgABAAAAAAAqAA0AAgABAAEAAAArAAwAAgACAAAAAAArAA0AAgACAAEAAAAsAAwAAgADAAAAAAAsAA0AAgADAAEAAAAxAAYABwAJAEMAAAAxAAcABwAJAEQAAAAPABQAAgALAAEAAAAPABUAAgALAAIAAAAQABQAAgANAAEAAAAQABUAAgANAAIAAAAPABIAAgALAAAAAAAPABMAAgALAAEAAAAQABIAAgANAAAAAAAQABMAAgANAAEAAAAFABMAAgAEACIAAAAGABMAAgAFACIAAAAGABQAAgAHACMAAAAGABUAAgAHACQAAAAbAAQABQAEAAcAAAAcAAQABQAEAAcAAAAdAAQABQAFAAcAAAAeAAQABQAGAAcAAAAaAAQABQADAAcAAAAgAAQABQADAAcAAAAhAAQABQAEAAcAAAAiAAQABQAGAAcAAAAaAAMABQAEAAYAAAAgAAMABQAEAAYAAAAeAAMABQAGAAYAAAAiAAMABQAGAAYAAAAhAAMABQAFAAYAAAAdAAMABQAFAAYAAAAcAAMABQAFAAYAAAAbAAMABQAFAAYAAAAcAAIAAgACAAwAAAAgAAIAAgALAAsAAAAhAAIAAgAMAAsAAAA=")
 tile_set = ExtResource("1_lym04")
 
 [node name="y-SortedWalls" type="TileMapLayer" parent="tileMaps"]
@@ -115,17 +82,17 @@ tile_set = ExtResource("1_lym04")
 
 [node name="divdersWallDecor" type="TileMapLayer" parent="tileMaps"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAlAAQAAgAGAAoAAAAsAAkAAgAJAA4AAAAyAAoAAgAGAAwAAAAuAAkAAgAFAA0AAAAoAAkAAgACAAwAAAAnAAkAAgAFAAwAAAAlAAkAAgALAAwAAAAmAAkAAgAMAAwAAAApAAkAAgAJAAwAAAAvAAkABgAAACAAAAADABIAAgAAABoAAAAEABIAAgABABoAAAAFABIAAgABABoAAAAGABIAAgABABoAAAAHABIAAgAAABoAABAHABMAAgAAABoAABAHABQAAgAAABoAABAJABIAAgAAABoAAAAKABIAAgABABoAAAALABIAAgABABoAAAAMABIAAgABABoAAAANABIAAgAAABoAABANABMAAgAAABoAABANABQAAgAAABoAABATABMAAgAAABoAABATABQAAgAAABoAABAZABMAAgAAABoAABAZABQAAgAAABoAABAfABMAAgAAABoAABAfABQAAgAAABoAABATABIAAgAAABoAABAZABIAAgAAABoAABAfABIAAgAAABoAABAbABIAAgAAABoAAAAcABIAAgABABoAAAAdABIAAgABABoAAAAeABIAAgABABoAAAAVABIAAgAAABoAAAAWABIAAgABABoAAAAXABIAAgABABoAAAAYABIAAgABABoAAAACAAIABwAIACsAAAAHAAIABwAIACsAAAAJAAIAAgAPAAIAAAALAAIAAgAPAAAAAAAMAAIABwAIACsAAAAOAAIAAgAJAAoAAAATAAIABwAIACsAAAAYAAIABwAIACsAAAAlAAIAAgAAAAwAAAAlAAMAAgAAAA0AAAAmAAIAAgABAAwAAAAmAAMAAgABAA0AAAAqAAMAAgAGAAcAAAArAAIAAgAHAAoAAAAsAAIAAgAIAAgAAAAuAAIAAgAJAAoAAAAwAAIAAgALAAwAAAAxAAIAAgAMAAwAAAAyAAMAAgAGAAwAAAAoAAQABAAQAAIAAAAnAAMAAgADAAoAAAAVAAcAAgAAABoAAAAVAA0AAgAAABoAAAAWAAcAAgABABoAAAAWAA0AAgABABoAAAAXAAcAAgABABoAAAAXAA0AAgABABoAAAAYAAUAAgADAAgAAAAYAAcAAgABABoAAAAYAAsAAgADAAgAAAAYAA0AAgABABoAAAAZAAcAAgABABoAAAAZAA0AAgABABoAAAAaAAcAAgABABoAAAAaAA0AAgABABoAAAAbAAcAAgADABoAAAAbAA0AAgADABoAAAAEAAcAAgAAABoAAAAEAA0AAgAAABoAAAAFAAcAAgABABoAAAAFAA0AAgABABoAAAAGAAcAAgABABoAAAAGAA0AAgABABoAAAAHAAUAAgADAAgAAAAHAAcAAgABABoAAAAHAAsAAgADAAgAAAAHAA0AAgABABoAAAAIAAcAAgABABoAAAAIAA0AAgABABoAAAAJAAcAAgABABoAAAAJAA0AAgABABoAAAAKAAcAAgADABoAAAAKAA0AAgADABoAAAALAAcAAgABABoAAAALAA0AAgABABoAAAAMAAcAAgABABoAAAAMAA0AAgABABoAAAANAAUAAgADAAgAAAANAAcAAgABABoAAAANAAsAAgADAAgAAAANAA0AAgABABoAAAAOAAcAAgABABoAAAAOAA0AAgABABoAAAAPAAcAAgABABoAAAAPAA0AAgABABoAAAAQAAcAAgADABoAAAAQAA0AAgADABoAAAAwAAsABgAKABsAAAAcAAIAAgACAAwAAAA=")
+tile_map_data = PackedByteArray("AAAlAAQAAgAGAAoAAAAsAAkAAgAJAA4AAAAyAAoAAgAGAAwAAAAuAAkAAgAFAA0AAAAoAAkAAgACAAwAAAAnAAkAAgAFAAwAAAAlAAkAAgALAAwAAAAmAAkAAgAMAAwAAAApAAkAAgAJAAwAAAAvAAkABgAAACAAAAADABIAAgAAABoAAAAEABIAAgABABoAAAAFABIAAgABABoAAAAGABIAAgABABoAAAAHABIAAgAAABoAABAHABMAAgAAABoAABAHABQAAgAAABoAABAJABIAAgAAABoAAAAKABIAAgABABoAAAALABIAAgABABoAAAAMABIAAgABABoAAAANABIAAgAAABoAABANABMAAgAAABoAABANABQAAgAAABoAABATABMAAgAAABoAABATABQAAgAAABoAABAZABMAAgAAABoAABAZABQAAgAAABoAABAfABMAAgAAABoAABAfABQAAgAAABoAABATABIAAgAAABoAABAZABIAAgAAABoAABAfABIAAgAAABoAABAbABIAAgAAABoAAAAcABIAAgABABoAAAAdABIAAgABABoAAAAeABIAAgABABoAAAAVABIAAgAAABoAAAAWABIAAgABABoAAAAXABIAAgABABoAAAAYABIAAgABABoAAAAlAAIAAgAAAAwAAAAlAAMAAgAAAA0AAAAmAAIAAgABAAwAAAAmAAMAAgABAA0AAAAqAAMAAgAGAAcAAAArAAIAAgAHAAoAAAAsAAIAAgAIAAgAAAAuAAIAAgAJAAoAAAAwAAIAAgALAAwAAAAxAAIAAgAMAAwAAAAyAAMAAgAGAAwAAAAoAAQABAAQAAIAAAAnAAMAAgADAAoAAAAVAAcAAgAAABoAAAAVAA0AAgAAABoAAAAWAAcAAgABABoAAAAWAA0AAgABABoAAAAXAAcAAgABABoAAAAXAA0AAgABABoAAAAYAAUAAgADAAgAAAAYAAcAAgABABoAAAAYAAsAAgADAAgAAAAYAA0AAgABABoAAAAZAAcAAgABABoAAAAZAA0AAgABABoAAAAaAAcAAgABABoAAAAaAA0AAgABABoAAAAbAAcAAgADABoAAAAbAA0AAgADABoAAAAEAAcAAgAAABoAAAAEAA0AAgAAABoAAAAFAAcAAgABABoAAAAFAA0AAgABABoAAAAGAAcAAgABABoAAAAGAA0AAgABABoAAAAHAAUAAgADAAgAAAAHAAcAAgABABoAAAAHAAsAAgADAAgAAAAHAA0AAgABABoAAAAIAAcAAgABABoAAAAIAA0AAgABABoAAAAJAAcAAgABABoAAAAJAA0AAgABABoAAAAKAAcAAgADABoAAAAKAA0AAgADABoAAAALAAcAAgABABoAAAALAA0AAgABABoAAAAMAAcAAgABABoAAAAMAA0AAgABABoAAAANAAUAAgADAAgAAAANAAcAAgABABoAAAANAAsAAgADAAgAAAANAA0AAgABABoAAAAOAAcAAgABABoAAAAOAA0AAgABABoAAAAPAAcAAgABABoAAAAPAA0AAgABABoAAAAQAAcAAgADABoAAAAQAA0AAgADABoAAAAwAAsABgAKABsAAAA=")
 tile_set = ExtResource("1_lym04")
 
 [node name="desks" type="TileMapLayer" parent="tileMaps"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAApAA8AAgAFAAoAAAApABEAAgAFAAoAAAApABMAAgAFAAoAAAAtAA8AAgAEAAoAAAAtABEAAgAEAAoAAAAtABMAAgAEAAoAAAApAA0AAgAFAAoAAAAtAA0AAgAEAAoAAAAMABUAAgADACMAAAALABMAAgAAACIAAAAMABMAAgABACIAAAAXABMAAgAAACIAAAAYABMAAgABACIAAAAdABMAAgAAACIAAAAeABMAAgABACIAAAAeABUAAgADACMAAAAYABUAAgADACMAAAALABQAAgAFAAgAAAAXABQAAgAFAAgAAAAcABIAAgADAAgAAAAEABIAAgADAAgAAAABABQABAASABQAAAABABUABAASABQAAAADABQABAACABAAAAAlAAUAAgAHAB4AAAAmAAUAAgAIAB4AAAAnAAUAAgAIAB4AAAAoAAUAAgAIAB4AAAApAAUAAgAIAB4AAAAqAAUAAgAJAB4AAAAgAAIAAgALAAsAAAAhAAIAAgAMAAsAAAAfAAMABQAMABcAAAAFAAwAAgAHABwAAAAFAA4AAgAHAB4AAAAGAAwAAgAIABwAAAAGAA4AAgAIAB4AAAAHAAwAAgAIABwAAAAHAA4AAgAIAB4AAAAIAAwAAgAIABwAAAAIAA4AAgAIAB4AAAAJAAwAAgAIABwAAAAJAA4AAgAIAB4AAAAKAAwAAgAJABwAAAAKAA4AAgAJAB4AAAALAAwAAgAHABwAAAALAA4AAgAHAB4AAAAMAAwAAgAIABwAAAAMAA4AAgAIAB4AAAANAAwAAgAIABwAAAANAA4AAgAIAB4AAAAOAAwAAgAIABwAAAAOAA4AAgAIAB4AAAAPAAwAAgAIABwAAAAPAA4AAgAIAB4AAAAQAAwAAgAJABwAAAAQAA4AAgAJAB4AAAAFAAYAAgAHABwAAAAFAAgAAgAHAB4AAAAGAAYAAgAIABwAAAAGAAgAAgAIAB4AAAAHAAYAAgAIABwAAAAHAAgAAgAIAB4AAAAIAAYAAgAIABwAAAAIAAgAAgAIAB4AAAAJAAYAAgAIABwAAAAJAAgAAgAIAB4AAAAKAAYAAgAJABwAAAAKAAgAAgAJAB4AAAALAAYAAgAHABwAAAALAAgAAgAHAB4AAAAMAAYAAgAIABwAAAAMAAgAAgAIAB4AAAANAAYAAgAIABwAAAANAAgAAgAIAB4AAAAOAAYAAgAIABwAAAAOAAgAAgAIAB4AAAAPAAYAAgAIABwAAAAPAAgAAgAIAB4AAAAQAAYAAgAJABwAAAAQAAgAAgAJAB4AAAAXAAYAAgAIABwAAAAXAAgAAgAIAB4AAAAXAAwAAgAIABwAAAAXAA4AAgAIAB4AAAAYAAYAAgAIABwAAAAYAAgAAgAIAB4AAAAYAAwAAgAIABwAAAAYAA4AAgAIAB4AAAAZAAYAAgAIABwAAAAZAAgAAgAIAB4AAAAZAAwAAgAIABwAAAAZAA4AAgAIAB4AAAAaAAYAAgAIABwAAAAaAAgAAgAIAB4AAAAaAAwAAgAIABwAAAAaAA4AAgAIAB4AAAAbAAYAAgAJABwAAAAbAAgAAgAJAB4AAAAbAAwAAgAJABwAAAAbAA4AAgAJAB4AAAAWAAYAAgAHABwAAAAWAAgAAgAHAB4AAAAWAAwAAgAHABwAAAAWAA4AAgAHAB4AAAAfABUAAgAGABYAAAAjAAMABQAMABcAAAA=")
+tile_map_data = PackedByteArray("AAApAA8AAgAFAAoAAAApABEAAgAFAAoAAAApABMAAgAFAAoAAAAtAA8AAgAEAAoAAAAtABEAAgAEAAoAAAAtABMAAgAEAAoAAAApAA0AAgAFAAoAAAAtAA0AAgAEAAoAAAAMABUAAgADACMAAAALABMAAgAAACIAAAAMABMAAgABACIAAAAXABMAAgAAACIAAAAYABMAAgABACIAAAAdABMAAgAAACIAAAAeABMAAgABACIAAAAeABUAAgADACMAAAAYABUAAgADACMAAAALABQAAgAFAAgAAAAXABQAAgAFAAgAAAAcABIAAgADAAgAAAAEABIAAgADAAgAAAABABQABAASABQAAAABABUABAASABQAAAADABQABAACABAAAAAlAAUAAgAHAB4AAAAmAAUAAgAIAB4AAAAnAAUAAgAIAB4AAAAoAAUAAgAIAB4AAAApAAUAAgAIAB4AAAAqAAUAAgAJAB4AAAAfAAMABQAMABcAAAAFAAwAAgAHABwAAAAFAA4AAgAHAB4AAAAGAAwAAgAIABwAAAAGAA4AAgAIAB4AAAAHAAwAAgAIABwAAAAHAA4AAgAIAB4AAAAIAAwAAgAIABwAAAAIAA4AAgAIAB4AAAAJAAwAAgAIABwAAAAJAA4AAgAIAB4AAAAKAAwAAgAJABwAAAAKAA4AAgAJAB4AAAALAAwAAgAHABwAAAALAA4AAgAHAB4AAAAMAAwAAgAIABwAAAAMAA4AAgAIAB4AAAANAAwAAgAIABwAAAANAA4AAgAIAB4AAAAOAAwAAgAIABwAAAAOAA4AAgAIAB4AAAAPAAwAAgAIABwAAAAPAA4AAgAIAB4AAAAQAAwAAgAJABwAAAAQAA4AAgAJAB4AAAAFAAYAAgAHABwAAAAFAAgAAgAHAB4AAAAGAAYAAgAIABwAAAAGAAgAAgAIAB4AAAAHAAYAAgAIABwAAAAHAAgAAgAIAB4AAAAIAAYAAgAIABwAAAAIAAgAAgAIAB4AAAAJAAYAAgAIABwAAAAJAAgAAgAIAB4AAAAKAAYAAgAJABwAAAAKAAgAAgAJAB4AAAALAAYAAgAHABwAAAALAAgAAgAHAB4AAAAMAAYAAgAIABwAAAAMAAgAAgAIAB4AAAANAAYAAgAIABwAAAANAAgAAgAIAB4AAAAOAAYAAgAIABwAAAAOAAgAAgAIAB4AAAAPAAYAAgAIABwAAAAPAAgAAgAIAB4AAAAQAAYAAgAJABwAAAAQAAgAAgAJAB4AAAAXAAYAAgAIABwAAAAXAAgAAgAIAB4AAAAXAAwAAgAIABwAAAAXAA4AAgAIAB4AAAAYAAYAAgAIABwAAAAYAAgAAgAIAB4AAAAYAAwAAgAIABwAAAAYAA4AAgAIAB4AAAAZAAYAAgAIABwAAAAZAAgAAgAIAB4AAAAZAAwAAgAIABwAAAAZAA4AAgAIAB4AAAAaAAYAAgAIABwAAAAaAAgAAgAIAB4AAAAaAAwAAgAIABwAAAAaAA4AAgAIAB4AAAAbAAYAAgAJABwAAAAbAAgAAgAJAB4AAAAbAAwAAgAJABwAAAAbAA4AAgAJAB4AAAAWAAYAAgAHABwAAAAWAAgAAgAHAB4AAAAWAAwAAgAHABwAAAAWAA4AAgAHAB4AAAAfABUAAgAGABYAAAAjAAMABQAMABcAAAA=")
 tile_set = ExtResource("1_lym04")
 
 [node name="computers" type="TileMapLayer" parent="tileMaps"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAoAAMAAgAMAAoAAAArABAAAgAGAAoAAAAxAAYAAgACABEAAAAsABEABQAJACQAAAAqAA8ABQAJACMAAAANABMAAAAMAB4AAAASABMAAAAPAB4AAAAjABUAAgAMAA8AAAAjABMAAgAGAAwAAAAgABUAAgAAAA4AABAfABUAAgABAA4AAAAFABQAAgACAA4AAAAGABMAAgAJAC0AAAAEABQABAATAAAAAAAMABMACQAFAEwAAAABABUABQAKACEAAAAFABMABAASAAgAAAACABUAAgABAA8AABAGABUAAgAMAC4AAAABABIACAAHAAoAAAADABMAAgAAAA4AAAAFABUAAgAAAA4AAAAEABUACAAEABAAAAAEAAQAAgAKACYAAAAGAAQAAgAMAA8AAAARAAQAAgAHAAwAAAAVAAQAAgAHAA8AAAAaAAMABQAKACEAAAAbAAMABQAPAB8AAAAiAAMABQAKACEAAAAnAAUABAATAAAAAAAZAA4AAgALABoAAAAaAA4AAgAMABoAAAAVAAcAAgAGAAcAAAAYAAYAAgANACAAAAAYAA4AAgAKABoAAAAcAA0AAgAGAAcAAAAEAA0AAgAGAAwAAAAHAAYAAgANACAAAAAHAAwAAgANAB8AAAAHAA4AAgAKABoAAAAIAA4AAgALABoAAAAJAA4AAgAMABoAAAANAAYAAgANAB4AAAANAAgAAgANABwAAAANAAwAAgANACAAAAAOAAgAAgAOABwAAAAOAA4AAgAKAB4AAAAMABQAAgAKACMAAAAYABQAAgALACMAAAAGAA4AAgAGAAoAAAAdABMAAgAHABoAAAAKAAIABgACABoAAAAWABIABgAKAAMAAAALAAgACQAKAEwAAAAbAAcACQAGAEwAAAAFAAcACQAFAEkAAAAPAA0ACQAFAEUAAAAFAA0ACQAEAEUAAAAJAA0ACQAJAEkAAAAGAA0ACQAHAEwAAAAKAA0ACQAJAEwAAAAIAA0ACQADAEUAAAAWAAgAAgAHABoAAAAWAA0AAgAHABoAAAAFAAgAAgAHABoAAAArAA0ABQABABcAAAA=")
+tile_map_data = PackedByteArray("AAAoAAMAAgAMAAoAAAArABAAAgAGAAoAAAAxAAYAAgACABEAAAANABMAAAAMAB4AAAASABMAAAAPAB4AAAAjABUAAgAMAA8AAAAjABMAAgAGAAwAAAAgABUAAgAAAA4AABAfABUAAgABAA4AAAAFABQAAgACAA4AAAAGABMAAgAJAC0AAAAEABQABAATAAAAAAAMABMACQAFAEwAAAABABUABQAKACEAAAAFABMABAASAAgAAAACABUAAgABAA8AABAGABUAAgAMAC4AAAABABIACAAHAAoAAAADABMAAgAAAA4AAAAFABUAAgAAAA4AAAAEABUACAAEABAAAAAEAAQAAgAKACYAAAAGAAQAAgAMAA8AAAARAAQAAgAHAAwAAAAVAAQAAgAHAA8AAAAaAAMABQAKACEAAAAbAAMABQAPAB8AAAAiAAMABQAKACEAAAAnAAUABAATAAAAAAAZAA4AAgALABoAAAAaAA4AAgAMABoAAAAVAAcAAgAGAAcAAAAYAAYAAgANACAAAAAYAA4AAgAKABoAAAAcAA0AAgAGAAcAAAAEAA0AAgAGAAwAAAAHAAYAAgANACAAAAAHAAwAAgANAB8AAAAHAA4AAgAKABoAAAAIAA4AAgALABoAAAAJAA4AAgAMABoAAAANAAYAAgANAB4AAAANAAgAAgANABwAAAANAAwAAgANACAAAAAOAAgAAgAOABwAAAAOAA4AAgAKAB4AAAAMABQAAgAKACMAAAAYABQAAgALACMAAAAdABMAAgAHABoAAAAKAAIABgACABoAAAAWABIABgAKAAMAAAALAAgACQAKAEwAAAAbAAcACQAGAEwAAAAFAAcACQAFAEkAAAAPAA0ACQAFAEUAAAAFAA0ACQAEAEUAAAAJAA0ACQAJAEkAAAAKAA0ACQAJAEwAAAAIAA0ACQADAEUAAAAWAAgAAgAHABoAAAAWAA0AAgAHABoAAAAFAAgAAgAHABoAAAArAA0ABQABABcAAAAFAA4ACQAGAEkAAAAGAA0ACQAHAEwAAAA=")
 tile_set = ExtResource("1_lym04")
 
 [node name="frontChairs" type="TileMapLayer" parent="tileMaps"]
@@ -195,6 +162,20 @@ position = Vector2(792, 59)
 
 [node name="KittyBed" parent="objects" instance=ExtResource("4_20riq")]
 position = Vector2(105, 318)
+
+[node name="waterGlass" parent="objects" instance=ExtResource("10_80cg4")]
+position = Vector2(704, 226)
+
+[node name="waterGlass2" parent="objects" instance=ExtResource("10_80cg4")]
+position = Vector2(693, 260)
+left_facing = true
+
+[node name="waterGlass3" parent="objects" instance=ExtResource("10_80cg4")]
+position = Vector2(378, 218)
+left_facing = true
+
+[node name="waterGlass4" parent="objects" instance=ExtResource("10_80cg4")]
+position = Vector2(197, 122)
 
 [node name="sleep_zone" parent="objects" instance=ExtResource("8_46vh5")]
 position = Vector2(806, 109)
@@ -271,123 +252,111 @@ position = Vector2(112, 96)
 desk_marker = NodePath("../starting locations/topleft/worker1Marker")
 fix_marker = NodePath("../../objects/genericItem/genericMarker2D")
 item_to_fix = NodePath("../../objects/genericItem")
-idle_time = 30
-walk_speed = 15
-character_texture = ExtResource("13_600vm")
 desk_direction = "down"
 fix_direction = "up"
+character_texture = ExtResource("13_600vm")
 
 [node name="worker2" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(22, 168)
 desk_marker = NodePath("../starting locations/topleft/worker2Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/printer/printerMarker")
 item_to_fix = NodePath("../../objects/printer")
-idle_time = 15
-walk_speed = 15
-character_texture = ExtResource("11_gh3w3")
 desk_direction = "down"
 fix_direction = "left"
+character_texture = ExtResource("11_gh3w3")
 
 [node name="worker3" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(260, 281)
 desk_marker = NodePath("../starting locations/topleft/worker3Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/trashCan2/trashMarker2")
 item_to_fix = NodePath("../../objects/trashCan2")
-idle_time = 15
-walk_speed = 25
-character_texture = ExtResource("14_o1chb")
 desk_direction = "up"
 fix_direction = "up"
+character_texture = ExtResource("14_o1chb")
 
 [node name="worker4" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(402, 98)
 desk_marker = NodePath("../starting locations/topright/worker4Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/donuts1/donutMarker1")
 item_to_fix = NodePath("../../objects/donuts1")
-idle_time = 11
-walk_speed = 20
-character_texture = ExtResource("12_mk8m3")
 desk_direction = "down"
 fix_direction = "left"
+character_texture = ExtResource("12_mk8m3")
 
 [node name="worker5" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(35, 181)
 desk_marker = NodePath("../starting locations/bottomleft/worker5Marker")
 fix_marker = NodePath("../../objects/genericItem/genericMarker2D")
 item_to_fix = NodePath("../../objects/genericItem")
-idle_time = 30
-walk_speed = 15
-character_texture = ExtResource("16_dfvmj")
 desk_direction = "down"
 fix_direction = "up"
+character_texture = ExtResource("16_dfvmj")
 
 [node name="worker6" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(206, 196)
 desk_marker = NodePath("../starting locations/bottomleft/worker6Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/donuts3/donutMarker3")
 item_to_fix = NodePath("../../objects/donuts3")
-idle_time = 10
-walk_speed = 19
-character_texture = ExtResource("20_ufxdy")
 desk_direction = "down"
 fix_direction = "up"
+character_texture = ExtResource("20_ufxdy")
 
 [node name="worker7" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
-position = Vector2(565, 83)
+position = Vector2(150, 249)
 desk_marker = NodePath("../starting locations/bottomleft/worker7Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/sink/sinkMarker")
 item_to_fix = NodePath("../../objects/sink")
-idle_time = 11
-walk_speed = 21
-character_texture = ExtResource("18_jnrgo")
 desk_direction = "up"
 fix_direction = "up"
+character_texture = ExtResource("18_jnrgo")
 
 [node name="worker8" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(276, 288)
 desk_marker = NodePath("../starting locations/bottomleft/worker8Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/donuts2/donutMarker2")
 item_to_fix = NodePath("../../objects/donuts2")
-idle_time = 15
-walk_speed = 25
-character_texture = ExtResource("20_fanvm")
 desk_direction = "up"
 fix_direction = "up"
+character_texture = ExtResource("20_fanvm")
 
 [node name="worker9" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(397, 250)
 desk_marker = NodePath("../starting locations/bottomright/worker9Marker")
-fix_marker = NodePath("../../objects/trashCan3/trashMarker3")
-item_to_fix = NodePath("../../objects/trashCan3")
-idle_time = 13
-walk_speed = 20
-character_texture = ExtResource("19_xks7e")
+fix_marker = NodePath("../../objects/genericItem/genericMarker2D")
+item_to_fix = NodePath("../../objects/genericItem")
 desk_direction = "up"
 fix_direction = "up"
+character_texture = ExtResource("19_xks7e")
 
 [node name="worker10" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(29, 192)
 desk_marker = NodePath("../starting locations/bottombottom/worker10Marker")
-fix_marker = NodePath("../../objects/genericItem/genericMarker2D")
-item_to_fix = NodePath("../../objects/genericItem")
-idle_time = 30
-walk_speed = 20
-character_texture = ExtResource("22_othrb")
+is_fixer_worker = true
+fix_marker = NodePath("../../objects/trashCan3/trashMarker3")
+item_to_fix = NodePath("../../objects/trashCan3")
 desk_direction = "right"
 fix_direction = "up"
+character_texture = ExtResource("22_othrb")
 
 [node name="worker11" parent="workers" node_paths=PackedStringArray("desk_marker", "fix_marker", "item_to_fix") instance=ExtResource("9_ghwth")]
 position = Vector2(358, 328)
 desk_marker = NodePath("../starting locations/bottombottom/worker11Marker")
+is_fixer_worker = true
 fix_marker = NodePath("../../objects/trashCan1/trashMarker1")
 item_to_fix = NodePath("../../objects/trashCan1")
-idle_time = 15
-walk_speed = 20
-character_texture = ExtResource("10_82s6s")
 desk_direction = "right"
 fix_direction = "up"
+character_texture = ExtResource("10_82s6s")
 
-[node name="npcNavigationRegion" type="NavigationRegion2D" parent="."]
+[node name="navigation" type="Node2D" parent="."]
+
+[node name="npcNavigationRegion" type="NavigationRegion2D" parent="navigation"]
 navigation_polygon = SubResource("NavigationPolygon_sajbj")
 navigation_layers = 3
 
@@ -395,16 +364,17 @@ navigation_layers = 3
 y_sort_enabled = true
 
 [node name="SupervisorMan" parent="supervisor" instance=ExtResource("3_eylrt")]
-position = Vector2(696, 191)
+position = Vector2(704, 90)
 
 [node name="SupervisorMan2" parent="supervisor" instance=ExtResource("3_eylrt")]
-position = Vector2(700, 87)
+position = Vector2(696, 197)
 
 [node name="SupervisorMan3" parent="supervisor" instance=ExtResource("3_eylrt")]
 position = Vector2(306, 179)
 active = false
 
 [node name="gameUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="topBar" type="Control" parent="gameUI"]
 layout_mode = 3
@@ -504,16 +474,16 @@ text = "|"
 horizontal_alignment = 1
 
 [node name="interactionMessage" type="Label" parent="gameUI/topBar"]
-custom_minimum_size = Vector2(1138, 0)
+custom_minimum_size = Vector2(1128, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 96.0
+offset_left = 101.0
 offset_top = -42.0
-offset_right = 1234.0
+offset_right = 1229.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -580,7 +550,7 @@ theme_override_constants/separation = 0
 
 [node name="listTitle" type="Label" parent="gameUI/topBar/taskList/taskBoxContainer"]
 layout_mode = 2
-text = "Kitty To-Do List for Office Destruction"
+text = "Kitty Key Purr-formance Indicators for today:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="gameUI/topBar/taskList/taskBoxContainer"]
 layout_mode = 2
@@ -658,26 +628,46 @@ theme_override_font_sizes/font_size = 32
 text = "day"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="gameUI/topBar/taskList"]
-layout_mode = 0
-offset_left = 725.0
-offset_top = 5.0
-offset_right = 927.0
-offset_bottom = 33.0
-theme_override_font_sizes/font_size = 32
-text = "Office destruction:"
+[node name="progress" type="Control" parent="gameUI/topBar/taskList"]
+anchors_preset = 0
+offset_left = 726.0
+offset_top = -3.0
+offset_right = 766.0
+offset_bottom = 37.0
 
-[node name="ProgressBar" type="TextureProgressBar" parent="gameUI/topBar/taskList"]
+[node name="Label" type="Label" parent="gameUI/topBar/taskList/progress"]
 layout_mode = 0
-offset_left = 934.0
-offset_top = -4.0
-offset_right = 998.0
-offset_bottom = 12.0
+offset_right = 194.0
+offset_bottom = 50.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 32
+text = "Supervisor Anger
+Level"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="TextureProgressBar" parent="gameUI/topBar/taskList/progress"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = -1.0
+offset_right = 272.0
+offset_bottom = 15.0
 scale = Vector2(3, 3)
 value = 100.0
 texture_under = SubResource("AtlasTexture_lycav")
 texture_over = SubResource("AtlasTexture_gm4kb")
 texture_progress = SubResource("AtlasTexture_72jxi")
+
+[node name="progressPercent" type="Label" parent="gameUI/topBar/taskList/progress"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 0
+offset_left = 217.0
+offset_top = 1.0
+offset_right = 392.0
+offset_bottom = 42.0
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "0%"
+horizontal_alignment = 1
 
 [node name="strikes" type="Control" parent="gameUI/topBar/taskList"]
 anchors_preset = 0
@@ -814,7 +804,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 32
-text = "Your purr-foramce rating:"
+text = "Your current purr-foramce rating:"
 horizontal_alignment = 1
 
 [node name="scoreCount" type="Label" parent="gameUI/endLevelPopUp/textConditions"]
@@ -883,6 +873,18 @@ text = "Exiting to main menu loses all progress"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="diffText" type="Label" parent="gameUI/endLevelPopUp"]
+layout_mode = 0
+offset_left = -187.0
+offset_top = 184.0
+offset_right = 33.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 16
+text = "Difficulty: Last Strike! - Impossible"
+vertical_alignment = 2
+autowrap_mode = 2
+
 [node name="escapeMenu" type="Control" parent="gameUI"]
 visible = false
 layout_mode = 3
@@ -905,10 +907,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -122.0
-offset_top = -126.0
-offset_right = 123.0
-offset_bottom = 126.0
+offset_left = -122.5
+offset_top = -109.0
+offset_right = 122.5
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_yqcrv")
@@ -925,9 +927,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -123.5
-offset_top = -126.5
+offset_top = -109.0
 offset_right = 123.5
-offset_bottom = 126.5
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_bci3c")
@@ -936,32 +938,363 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
+[node name="aboutText" type="Label" parent="gameUI/escapeMenu"]
+layout_mode = 0
+offset_left = -90.0
+offset_top = 82.0
+offset_right = 130.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 16
+text = "Exiting to main menu loses all progress"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="diffText2" type="Label" parent="gameUI/escapeMenu"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = 103.0
+offset_right = 124.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 16
+text = "Difficulty: Last Strike! - Impossible"
+vertical_alignment = 2
+autowrap_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="gameUI/escapeMenu"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -123.0
-offset_right = 14.0
-offset_bottom = -41.0
+offset_left = -64.0
+offset_top = -90.0
+offset_bottom = -16.0
+grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 alignment = 1
 
-[node name="continueButton" type="TextureButton" parent="gameUI/escapeMenu/VBoxContainer"]
+[node name="continueButton" parent="gameUI/escapeMenu/VBoxContainer" instance=ExtResource("25_qokrg")]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ypw7y")
-texture_pressed = SubResource("AtlasTexture_uot2j")
-texture_hover = SubResource("AtlasTexture_pg3yg")
-texture_disabled = SubResource("AtlasTexture_twtod")
+button_text = "Continue"
 
-[node name="exitButton" type="TextureButton" parent="gameUI/escapeMenu/VBoxContainer"]
+[node name="helpbutton" parent="gameUI/escapeMenu/VBoxContainer" instance=ExtResource("26_14x5w")]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_mshsm")
-texture_pressed = SubResource("AtlasTexture_0iatn")
-texture_hover = SubResource("AtlasTexture_e16xl")
-texture_disabled = SubResource("AtlasTexture_6thmc")
+button_text = "Help"
+
+[node name="exitButton" parent="gameUI/escapeMenu/VBoxContainer" instance=ExtResource("26_14x5w")]
+layout_mode = 2
+button_text = "Main Menu"
+
+[node name="helpPopUp" type="Control" parent="gameUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="gameUI/helpPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -188.5
+offset_right = 212.5
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_yqcrv")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="gameUI/helpPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -188.5
+offset_right = 213.0
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bci3c")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="textConditions" type="VBoxContainer" parent="gameUI/helpPopUp"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -180.0
+offset_right = 206.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="title" type="Label" parent="gameUI/helpPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "How to get a promotion:"
+horizontal_alignment = 1
+
+[node name="hint" type="Label" parent="gameUI/helpPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "aka win the game"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="aboutText" type="Label" parent="gameUI/helpPopUp/textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Complete your listed Kitty Key 
+Purr-formance Indicators listed above before time runs out."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer" type="Label" parent="gameUI/helpPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="gameUI/helpPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="scoreCount" type="Label" parent="gameUI/helpPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "200"
+horizontal_alignment = 1
+
+[node name="spacer2" type="Label" parent="gameUI/helpPopUp/textConditions"]
+visible = false
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+text = " "
+horizontal_alignment = 1
+
+[node name="controlsContainer3" type="HBoxContainer" parent="gameUI/helpPopUp/textConditions"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gameUI/helpPopUp/textConditions/controlsContainer3"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="controls" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="action" type="VBoxContainer" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Move the kitty"
+horizontal_alignment = 2
+
+[node name="jump" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Jump"
+horizontal_alignment = 2
+
+[node name="sprint" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sprint"
+horizontal_alignment = 2
+
+[node name="pause" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause the Game"
+horizontal_alignment = 2
+
+[node name="interact" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="pause_music" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause the Music"
+horizontal_alignment = 2
+
+[node name="dashes" type="VBoxContainer" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move2" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move3" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move4" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move5" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move6" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="key" type="VBoxContainer" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="moveK" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "WASD or Arrow Keys"
+
+[node name="jumpK" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Space Bar"
+
+[node name="sprintK" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Left Shift"
+
+[node name="pauseK" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Escape Key"
+
+[node name="interactK" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "E"
+
+[node name="pause_musicK" type="Label" parent="gameUI/helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "P"
+
+[node name="helpBackButton" parent="gameUI/helpPopUp" instance=ExtResource("25_qokrg")]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 157.0
+offset_right = 159.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+button_text = "Back"
+
+[node name="diffText" type="Label" parent="gameUI/helpPopUp"]
+layout_mode = 0
+offset_left = -187.0
+offset_top = 184.0
+offset_right = 33.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 16
+text = "Difficulty: Last Strike! - Impossible"
+vertical_alignment = 2
+autowrap_mode = 2
 
 [node name="levelTimer" type="Timer" parent="."]
 wait_time = 180.0
@@ -974,7 +1307,9 @@ one_shot = true
 [connection signal="button_pressed" from="gameUI/endLevelPopUp/HBoxContainer/redoButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="button_pressed" from="gameUI/endLevelPopUp/HBoxContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="button_pressed" from="gameUI/endLevelPopUp/HBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="gameUI/escapeMenu/VBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="gameUI/escapeMenu/VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/helpbutton" to="." method="_on_helpbutton_button_pressed"]
+[connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="button_pressed" from="gameUI/helpPopUp/helpBackButton" to="." method="_on_help_back_button_button_pressed"]
 [connection signal="timeout" from="levelTimer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="waitTimer" to="." method="_on_wait_timer_timeout"]
