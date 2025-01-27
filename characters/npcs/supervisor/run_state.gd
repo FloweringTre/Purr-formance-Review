@@ -79,7 +79,7 @@ func tracking_location() -> void:
 	if location == character.global_position:
 		counter += 1
 		print ("Supervisor in same location for: ", counter , " frames")
-		if counter == 10:
+		if counter == 3:
 			set_movement_target()
 			navigation_agent.navigation_finished.emit()
 			print("Sup is stuck, moving to idle")
@@ -105,6 +105,7 @@ func _on_next_transitions() -> void:
 		return
 
 func _on_enter() -> void:
+	set_speed()
 	set_movement_target()
 	location = character.global_position
 	counter = 1
@@ -127,3 +128,19 @@ func _on_exit() -> void:
 	seeking_zone_left.visible = false
 	seeking_zone_right.disabled = true
 	seeking_zone_right.visible = false
+
+func set_speed() -> void:
+	var reported_level = GlobalTrackingValues.productivity_level()
+	var percent : float = reported_level * 0.01
+	match GlobalTrackingValues.difficulty_level:
+		0:
+			speed = 40 + (percent * 10)
+		1:
+			speed = 45 + (percent * 5)
+		2:
+			speed = 45 + (percent * 10)
+		3:
+			speed = 45 + (percent * 15)
+	#print("sup speed: ", speed)
+	#print("sup percent: ", percent)
+	#print("reported levels: ", reported_level )

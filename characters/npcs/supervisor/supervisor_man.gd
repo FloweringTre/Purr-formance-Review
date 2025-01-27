@@ -12,7 +12,11 @@ func _ready() -> void:
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	GlobalTrackingValues.game_resumed.connect(on_game_resumed)
 	sup_name = $".".name
-	print(sup_name)
+	#print(sup_name)
+	if GlobalTrackingValues.difficulty_level > 2:
+		$seekingArea/seeking_zone/Polygon2D.visible = false
+		$seekingArea/seeking_zone_left/Polygon2D2.visible = false
+		$seekingArea/seeking_zone_right/Polygon2D3.visible = false
 
 func _process(delta: float) -> void:
 	supervisor_active(active)
@@ -21,14 +25,14 @@ func _process(delta: float) -> void:
 		seeking_timer.stop()
 
 func _on_seeking_area_body_entered(body: Node2D) -> void:
-	print(sup_name, " I can see the kitty!")
+	#print(sup_name, " I can see the kitty!")
 	tracking_kitty = true
 	can_see_kitty = true
 	seeking_timer.start()
 	
 
 func _on_seeking_area_body_exited(body: Node2D) -> void:
-	print(sup_name, " I lost sight of the kitty :(")
+	#print(sup_name, " I lost sight of the kitty :(")
 	can_see_kitty = false
 
 
@@ -40,11 +44,11 @@ func _on_seeking_timer_timeout() -> void:
 
 func _on_capture_area_area_entered(area: Area2D) -> void:
 	GlobalTrackingValues.kitty_caught_from_sup = true
-	print(sup_name, " I have caught the kitty!")
+	#print(sup_name, " I have caught the kitty!")
 
 func _on_capture_area_area_exited(area: Area2D) -> void:
 	GlobalTrackingValues.kitty_caught_from_sup = false
-	print(sup_name, " The kitty escaped me :(")
+	#print(sup_name, " The kitty escaped me :(")
 
 func on_last_chase() -> void:
 	last_chase_tracking = true

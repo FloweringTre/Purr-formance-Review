@@ -374,6 +374,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ld5oi")
 }
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(0, -3)
+radius = 4.0
+affect_navigation_mesh = true
+avoidance_layers = 3
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 rotation = 1.5708
@@ -467,6 +473,7 @@ debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
 
 [node name="emotionSprite" type="Sprite2D" parent="."]
 visible = false
+z_index = 2
 position = Vector2(8, -28)
 texture = SubResource("AtlasTexture_3klgd")
 
