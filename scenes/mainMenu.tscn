@@ -1,46 +1,23 @@
-[gd_scene load_steps=45 format=3 uid="uid://cbo4d3yslerjt"]
+[gd_scene load_steps=42 format=3 uid="uid://cbo4d3yslerjt"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_120gn"]
-[ext_resource type="Texture2D" uid="uid://blc7qv40koxaq" path="res://assets/ui/largeButtons/largeButtons_new_game.png" id="1_magig"]
-[ext_resource type="Texture2D" uid="uid://bh8e8oynjed11" path="res://assets/ui/largeButtons/largeButtons_exit.png" id="2_v4st1"]
+[ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://components/buttonSMOL2_blue.tscn" id="2_0yrn5"]
+[ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://components/buttonSMOL2.tscn" id="3_vil2u"]
 [ext_resource type="Texture2D" uid="uid://cnxkb4v007iol" path="res://assets/ui/boot_screen.png" id="4_1sw5p"]
 [ext_resource type="Texture2D" uid="uid://dd1uv7dc52dck" path="res://assets/1_assets_from_others/Modern tiles_Free/Characters_free/Bob_16x16.png" id="4_2ryj8"]
+[ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="4_cslpt"]
 [ext_resource type="Texture2D" uid="uid://bf76qwq2m7q5" path="res://assets/1_assets_from_others/moderninteriors-win/UI_16x16.png" id="5_3fk6m"]
 [ext_resource type="Texture2D" uid="uid://dvbav4thm8opf" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/Modern_Office_16x16.png" id="5_f5535"]
 [ext_resource type="Texture2D" uid="uid://bv2mw00a2yh6s" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/Theme_Sorter_Black_Shadow/16_Grocery_store_Black_Shadow_16x16.png" id="6_62482"]
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="7_nr24r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kf7q6"]
-atlas = ExtResource("1_magig")
-region = Rect2(0, 0, 64, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_03528"]
+atlas = ExtResource("4_cslpt")
+region = Rect2(96, 64, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vihn4"]
-atlas = ExtResource("1_magig")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tjcki"]
-atlas = ExtResource("1_magig")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_76qjv"]
-atlas = ExtResource("1_magig")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2j5a8"]
-atlas = ExtResource("2_v4st1")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m86oa"]
-atlas = ExtResource("2_v4st1")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wd820"]
-atlas = ExtResource("2_v4st1")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7iab"]
-atlas = ExtResource("2_v4st1")
-region = Rect2(0, 32, 64, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dib5t"]
+atlas = ExtResource("4_cslpt")
+region = Rect2(96, 80, 16, 16)
 
 [sub_resource type="Animation" id="Animation_um453"]
 length = 0.001
@@ -457,6 +434,14 @@ _data = {
 "walk": SubResource("Animation_wmi3i")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5quk"]
+atlas = ExtResource("4_cslpt")
+region = Rect2(58, 10, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sql7"]
+atlas = ExtResource("4_cslpt")
+region = Rect2(10, 58, 28, 28)
+
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
@@ -464,6 +449,7 @@ anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 719.0
 script = ExtResource("1_120gn")
+for_web = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(640, 360)
@@ -471,10 +457,11 @@ layout_mode = 1
 offset_right = 640.0
 offset_bottom = 360.0
 scale = Vector2(2, 2)
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="title" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 54)
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.510402, 0.792609, 0.901532, 1)
 theme_override_font_sizes/font_size = 48
@@ -482,166 +469,216 @@ text = "~~ Purr-formance Review ~~"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="buttonsContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="newGameButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="newGameButton" parent="VBoxContainer/buttonsContainer" instance=ExtResource("2_0yrn5")]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_kf7q6")
-texture_pressed = SubResource("AtlasTexture_vihn4")
-texture_hover = SubResource("AtlasTexture_tjcki")
-texture_disabled = SubResource("AtlasTexture_76qjv")
+button_text = "New Game"
 
-[node name="exitButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="exitButton" parent="VBoxContainer/buttonsContainer" instance=ExtResource("3_vil2u")]
 layout_mode = 2
-disabled = true
-texture_normal = SubResource("AtlasTexture_2j5a8")
-texture_pressed = SubResource("AtlasTexture_m86oa")
-texture_hover = SubResource("AtlasTexture_wd820")
-texture_disabled = SubResource("AtlasTexture_e7iab")
+button_text = "Exit"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="helpButton" parent="VBoxContainer/buttonsContainer" instance=ExtResource("3_vil2u")]
 layout_mode = 2
-theme_override_constants/separation = -9
+button_text = "Controls"
 
-[node name="goal" type="Label" parent="VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 48)
+[node name="goalsButton" parent="VBoxContainer/buttonsContainer" instance=ExtResource("3_vil2u")]
+layout_mode = 2
+button_text = "How to win"
+
+[node name="difficultyContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="diffTitle" type="Label" parent="VBoxContainer/difficultyContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.99772, 0.917412, 1)
+theme_override_font_sizes/font_size = 32
+text = "Game Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="diffLevel" type="Label" parent="VBoxContainer/difficultyContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="difficultySlider" type="HSlider" parent="VBoxContainer/difficultyContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_03528")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_dib5t")
+max_value = 3.0
+step = 0.2
+value = 1.0
+rounded = true
+
+[node name="diffAbout" type="Label" parent="VBoxContainer/difficultyContainer"]
+custom_minimum_size = Vector2(400, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+
+[node name="goalContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="goal" type="Label" parent="VBoxContainer/goalContainer"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.874395, 0.682565, 0.851918, 1)
-theme_override_constants/line_spacing = -8
+theme_override_constants/line_spacing = -6
 theme_override_font_sizes/font_size = 32
-text = "Kitty Key Purr-formance Indicators (KKPI)"
+text = "Kitty wants a promotion!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="controls3" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="controls3" type="Label" parent="VBoxContainer/goalContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_constants/line_spacing = -8
-theme_override_font_sizes/font_size = 32
-text = "- Destroy the office
-- Don't get caught by the supervisors
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 16
+text = "Time to go up for your purr-formance review in order to get to get it!
 
-Kitties that complete a full week get promoted!"
+"
 horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="controls4" type="Label" parent="VBoxContainer/goalContainer"]
+custom_minimum_size = Vector2(300, 18)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 16
+text = "Kitties that complete a full work week of KKPIs get promoted with excellent ratings!"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="controlsContainer3" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/controlsContainer3"]
 layout_mode = 2
+theme_override_constants/separation = -3
 
-[node name="controls" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="controls" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.443766, 0.621271, 0.452168, 1)
+theme_override_colors/font_color = Color(0.830922, 0.984355, 0.823631, 1)
 theme_override_font_sizes/font_size = 32
 text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/controlsContainer3/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="action" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+[node name="action" type="VBoxContainer" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="move" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+[node name="move" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 custom_minimum_size = Vector2(123, 0)
 layout_mode = 2
 text = "Move the kitty"
 horizontal_alignment = 2
 
-[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+[node name="jump" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
 text = "Jump"
 horizontal_alignment = 2
 
-[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+[node name="sprint" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
 text = "Sprint"
 horizontal_alignment = 2
 
-[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+[node name="interact" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
 text = "Interact"
 horizontal_alignment = 2
 
-[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+[node name="pause" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
-text = "Pause"
+text = "Pause the Game"
 horizontal_alignment = 2
 
-[node name="pause_music" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/action"]
+[node name="pause_music" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
 text = "Pause the Music"
 horizontal_alignment = 2
 
-[node name="dashes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+[node name="dashes" type="VBoxContainer" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="move" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+[node name="move" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="jump" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+[node name="jump" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="sprint" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+[node name="sprint" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="interact" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+[node name="interact" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="pause" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+[node name="pause" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="pause_music" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/dashes"]
+[node name="pause_music" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+[node name="key" type="VBoxContainer" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="moveK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+[node name="moveK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "W/A/S/D or Arrow Keys"
 
-[node name="jumpK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+[node name="jumpK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "Space Bar"
 
-[node name="sprintK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+[node name="sprintK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "Left Shift"
 
-[node name="interactK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+[node name="interactK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "E"
 
-[node name="pauseK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+[node name="pauseK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "Escape Key"
 
-[node name="pause_musicK" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/key"]
+[node name="pause_musicK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "P"
 
@@ -690,10 +727,10 @@ autoplay = "bounce_loop"
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 271.0
-offset_top = 489.0
-offset_right = 311.0
-offset_bottom = 529.0
+offset_left = 249.0
+offset_top = 486.0
+offset_right = 289.0
+offset_bottom = 526.0
 scale = Vector2(5, 5)
 
 [node name="desk" type="Node2D" parent="Control"]
@@ -751,6 +788,600 @@ libraries = {
 }
 autoplay = "idle_2"
 
+[node name="helpPopUp" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="helpPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -140.0
+offset_right = 212.5
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_c5quk")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="helpPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -140.0
+offset_right = 213.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6sql7")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="textConditions" type="VBoxContainer" parent="helpPopUp"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -131.0
+offset_right = 206.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="title" type="Label" parent="helpPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "How to get a promotion:"
+horizontal_alignment = 1
+
+[node name="hint" type="Label" parent="helpPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "aka win the game"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="aboutText" type="Label" parent="helpPopUp/textConditions"]
+visible = false
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer" type="Label" parent="helpPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="helpPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="scoreCount" type="Label" parent="helpPopUp/textConditions"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "200"
+horizontal_alignment = 1
+
+[node name="spacer2" type="Label" parent="helpPopUp/textConditions"]
+visible = false
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+text = " "
+horizontal_alignment = 1
+
+[node name="controlsContainer3" type="HBoxContainer" parent="helpPopUp/textConditions"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="helpPopUp/textConditions/controlsContainer3"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="controls" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="action" type="VBoxContainer" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Move the kitty"
+horizontal_alignment = 2
+
+[node name="jump" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Jump"
+horizontal_alignment = 2
+
+[node name="sprint" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sprint"
+horizontal_alignment = 2
+
+[node name="pause" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause the Game"
+horizontal_alignment = 2
+
+[node name="interact" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="pause_music" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause the Music"
+horizontal_alignment = 2
+
+[node name="dashes" type="VBoxContainer" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move2" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move3" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move4" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move5" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move6" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="key" type="VBoxContainer" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="moveK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "WASD or Arrow Keys"
+
+[node name="jumpK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Space Bar"
+
+[node name="sprintK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Left Shift"
+
+[node name="pauseK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Escape Key"
+
+[node name="interactK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "E"
+
+[node name="pause_musicK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "P"
+
+[node name="helpBackButton" parent="helpPopUp" instance=ExtResource("2_0yrn5")]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 103.5
+offset_right = 159.0
+offset_bottom = 125.5
+scale = Vector2(2, 2)
+button_text = "Back"
+
+[node name="goalsPopUp" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="goalsPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -256.5
+offset_right = 212.5
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_c5quk")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="goalsPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -256.5
+offset_right = 213.0
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6sql7")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="textConditions" type="VBoxContainer" parent="goalsPopUp"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -243.0
+offset_right = 206.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="title" type="Label" parent="goalsPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "How to get a promotion:"
+horizontal_alignment = 1
+
+[node name="hint" type="Label" parent="goalsPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "aka win the game"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="aboutText" type="Label" parent="goalsPopUp/textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Kitties must complete their Kitty Key Purr-formance Indicators (KKPIs) five days in a row to earn a promotion.
+Your KKPIs for the day are listed in the top bar."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer" type="Label" parent="goalsPopUp/textConditions"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="goalsPopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "Caution!"
+horizontal_alignment = 1
+
+[node name="aboutText2" type="Label" parent="goalsPopUp/textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "The human supervisor doesn't like you and will throw you out if you are caught! Getting caught is an automatic failure for your KKPIs.
+They will get angrier the more you disrupt their office, so be careful!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer2" type="Label" parent="goalsPopUp/textConditions"]
+visible = false
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+text = " "
+horizontal_alignment = 1
+
+[node name="controlsContainer3" type="HBoxContainer" parent="goalsPopUp/textConditions"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="goalsPopUp/textConditions/controlsContainer3"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="controls" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="action" type="VBoxContainer" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Move the kitty"
+horizontal_alignment = 2
+
+[node name="jump" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Jump"
+horizontal_alignment = 2
+
+[node name="sprint" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sprint"
+horizontal_alignment = 2
+
+[node name="pause" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause the Game"
+horizontal_alignment = 2
+
+[node name="interact" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="pause_music" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause the Music"
+horizontal_alignment = 2
+
+[node name="dashes" type="VBoxContainer" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="move" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move2" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move3" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move4" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move5" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="move6" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
+[node name="key" type="VBoxContainer" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="moveK" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "WASD or Arrow Keys"
+
+[node name="jumpK" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Space Bar"
+
+[node name="sprintK" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Left Shift"
+
+[node name="pauseK" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Escape Key"
+
+[node name="interactK" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "E"
+
+[node name="pause_musicK" type="Label" parent="goalsPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "P"
+
+[node name="goalsBackButton" parent="goalsPopUp" instance=ExtResource("2_0yrn5")]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 226.5
+offset_right = 159.0
+offset_bottom = 248.5
+scale = Vector2(2, 2)
+button_text = "Back"
+
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = 20
 layout_mode = 0
@@ -758,6 +1389,11 @@ offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("4_1sw5p")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/buttonsContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/buttonsContainer/exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/buttonsContainer/helpButton" to="." method="_on_help_button_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/buttonsContainer/goalsButton" to="." method="_on_goals_button_button_pressed"]
+[connection signal="drag_ended" from="VBoxContainer/difficultyContainer/difficultySlider" to="." method="_on_difficulty_slider_drag_ended"]
 [connection signal="timeout" from="splashTimer" to="." method="_on_timer_timeout"]
+[connection signal="button_pressed" from="helpPopUp/helpBackButton" to="." method="_on_help_back_button_button_pressed"]
+[connection signal="button_pressed" from="goalsPopUp/goalsBackButton" to="." method="_on_goals_back_button_button_pressed"]
