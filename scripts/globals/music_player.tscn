@@ -1,12 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj6r28g886xnu"]
+[gd_scene load_steps=9 format=3 uid="uid://dj6r28g886xnu"]
 
-[ext_resource type="AudioStream" uid="uid://eap8r1l0rdui" path="res://assets/1_assets_from_others/City Sunshine by Kevin MacLeod.mp3" id="1_bdoa0"]
+[ext_resource type="AudioStream" uid="uid://eap8r1l0rdui" path="res://assets/1_assets_from_others/music/City Sunshine by Kevin MacLeod.mp3" id="1_bdoa0"]
 [ext_resource type="Script" path="res://scripts/globals/music_player.gd" id="1_bu86n"]
+[ext_resource type="AudioStream" uid="uid://dbadj36u30no1" path="res://assets/1_assets_from_others/music/Inspiration by Rafael Krux-Trimmed.mp3" id="2_sqaup"]
+[ext_resource type="AudioStream" uid="uid://doxqo2gtmced0" path="res://assets/1_assets_from_others/music/Natural Vibes by Kevin MacLeod.mp3" id="4_tkxv1"]
+[ext_resource type="AudioStream" uid="uid://bvpvyory0jpqb" path="res://assets/1_assets_from_others/music/Driving Concern by Kevin MacLeod.mp3" id="5_g7c1q"]
+[ext_resource type="AudioStream" uid="uid://da0jicn58tmng" path="res://assets/1_assets_from_others/music/Patron Saint of Heists by Bryan Tech.mp3" id="6_f2w6s"]
+[ext_resource type="AudioStream" uid="uid://bxc0v40e622wm" path="res://assets/1_assets_from_others/Happy Whistling Ukulele by Rafael Krux.mp3" id="7_p828p"]
+[ext_resource type="AudioStream" uid="uid://cy3etjt4uuuvk" path="res://assets/1_assets_from_others/Bleu by Komiku.mp3" id="8_4hfgp"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_bu86n")
 
-[node name="music_player" type="AudioStreamPlayer" parent="."]
+[node name="dayOne" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sqaup")
+volume_db = -10.0
+parameters/looping = false
+
+[node name="dayTwo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_bdoa0")
 volume_db = -10.0
-autoplay = true
+parameters/looping = false
+
+[node name="dayThree" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tkxv1")
+volume_db = -10.0
+parameters/looping = false
+
+[node name="dayFour" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g7c1q")
+volume_db = -10.0
+parameters/looping = false
+
+[node name="dayFive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_f2w6s")
+volume_db = -10.0
+parameters/looping = false
+
+[node name="levelWon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_p828p")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="levelLoss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4hfgp")
+volume_db = -10.0
+parameters/looping = true
