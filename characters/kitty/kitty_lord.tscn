@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cnjrlb1mvmof6"]
+[gd_scene load_steps=44 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
 [ext_resource type="Script" path="res://characters/kitty/kitty_lord.gd" id="1_8xtop"]
@@ -13,6 +13,16 @@
 [ext_resource type="Script" path="res://characters/kitty/hiss_state.gd" id="10_yy5xl"]
 [ext_resource type="Texture2D" uid="uid://bgi5w8r3xkuq4" path="res://characters/kitty/blue_progress_bar.tres" id="11_tlvaq"]
 [ext_resource type="Texture2D" uid="uid://nbncib14bn35" path="res://characters/kitty/red_progress_bar.tres" id="11_yyv23"]
+[ext_resource type="AudioStream" uid="uid://cy8evvsa0xfou" path="res://assets/soundbites/meow_1.mp3" id="14_5u11k"]
+[ext_resource type="AudioStream" uid="uid://bwpfu4hg58mdp" path="res://assets/soundbites/bap_1.mp3" id="14_uf58d"]
+[ext_resource type="AudioStream" uid="uid://baxk76hnnldhq" path="res://assets/soundbites/meow_2.mp3" id="15_o37ru"]
+[ext_resource type="AudioStream" uid="uid://cu3temsw6qimu" path="res://assets/soundbites/bap_2.mp3" id="15_xlu1p"]
+[ext_resource type="AudioStream" uid="uid://divn2bogbiyi4" path="res://assets/soundbites/bap_3.mp3" id="16_830bf"]
+[ext_resource type="AudioStream" uid="uid://c1ptyqj7lpyvs" path="res://assets/soundbites/meow_3.mp3" id="16_t7i25"]
+[ext_resource type="AudioStream" uid="uid://dfb2nfd3ibgab" path="res://assets/soundbites/meow_4.mp3" id="17_l3sdm"]
+[ext_resource type="AudioStream" uid="uid://vmbv7fl7h7r7" path="res://assets/soundbites/meow_5.mp3" id="18_lu7dp"]
+[ext_resource type="AudioStream" uid="uid://di1hahryk4q8b" path="res://assets/soundbites/meow_6.mp3" id="19_0bxrg"]
+[ext_resource type="AudioStream" uid="uid://cqn3ovx3lu7a" path="res://assets/soundbites/meow_7.mp3" id="20_4ypxt"]
 
 [sub_resource type="Animation" id="Animation_rv7qj"]
 length = 0.001
@@ -28,6 +38,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bapAudioPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tlhis"]
 resource_name = "bap"
@@ -39,10 +61,22 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.833333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [56, 57, 58, 59, 60, 59, 60, 61]
+"values": [56, 57, 58, 59, 60, 59, 60, 59, 60, 61]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bapAudioPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_jjar4"]
@@ -233,6 +267,22 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5hn02"]
 radius = 5.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_akjnf"]
+streams_count = 7
+stream_0/stream = ExtResource("14_5u11k")
+stream_1/stream = ExtResource("15_o37ru")
+stream_2/stream = ExtResource("16_t7i25")
+stream_3/stream = ExtResource("17_l3sdm")
+stream_4/stream = ExtResource("18_lu7dp")
+stream_5/stream = ExtResource("19_0bxrg")
+stream_6/stream = ExtResource("20_4ypxt")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7usn5"]
+streams_count = 3
+stream_0/stream = ExtResource("14_uf58d")
+stream_1/stream = ExtResource("15_xlu1p")
+stream_2/stream = ExtResource("16_830bf")
+
 [node name="kittyLord" type="CharacterBody2D" groups=["PlayerKitty"]]
 y_sort_enabled = true
 collision_layer = 3
@@ -350,7 +400,14 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_5hn02")
 debug_color = Color(0.781857, 0.256015, 0.870392, 0.42)
 
+[node name="meowAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_akjnf")
+
+[node name="bapAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7usn5")
+
 [connection signal="body_entered" from="seekingArea" to="." method="_on_seeking_area_body_entered"]
 [connection signal="body_exited" from="seekingArea" to="." method="_on_seeking_area_body_exited"]
 [connection signal="area_entered" from="caughtArea" to="." method="_on_caught_area_area_entered"]
 [connection signal="area_exited" from="caughtArea" to="." method="_on_caught_area_area_exited"]
+[connection signal="finished" from="meowAudioPlayer" to="." method="_on_meow_audio_player_finished"]

@@ -14,32 +14,32 @@ script = ExtResource("1_bu86n")
 
 [node name="dayOne" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_sqaup")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = false
 
 [node name="dayTwo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_bdoa0")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = false
 
 [node name="dayThree" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tkxv1")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = false
 
 [node name="dayFour" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_g7c1q")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = false
 
 [node name="dayFive" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_f2w6s")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = false
 
 [node name="levelWon" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_p828p")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = true
 
 [node name="levelLoss" type="AudioStreamPlayer" parent="."]

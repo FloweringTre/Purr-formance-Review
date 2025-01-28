@@ -610,6 +610,11 @@ layout_mode = 2
 text = "Interact"
 horizontal_alignment = 2
 
+[node name="meow" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+text = "Meow"
+horizontal_alignment = 2
+
 [node name="pause" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
 text = "Pause the Game"
@@ -644,6 +649,11 @@ layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
+[node name="meow" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
 [node name="pause" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
 layout_mode = 2
 text = "-"
@@ -673,6 +683,10 @@ text = "Left Shift"
 [node name="interactK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "E"
+
+[node name="meowK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+text = "R"
 
 [node name="pauseK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
@@ -982,6 +996,13 @@ theme_override_font_sizes/font_size = 32
 text = "Interact"
 horizontal_alignment = 2
 
+[node name="meow" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Meow"
+horizontal_alignment = 2
+
 [node name="pause_music" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/action"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
@@ -1035,6 +1056,13 @@ theme_override_font_sizes/font_size = 32
 text = "-"
 horizontal_alignment = 1
 
+[node name="move7" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/dashes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "-"
+horizontal_alignment = 1
+
 [node name="key" type="VBoxContainer" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -1068,6 +1096,12 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
 theme_override_font_sizes/font_size = 32
 text = "E"
+
+[node name="meowK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.360784, 1)
+theme_override_font_sizes/font_size = 32
+text = "R"
 
 [node name="pause_musicK" type="Label" parent="helpPopUp/textConditions/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2

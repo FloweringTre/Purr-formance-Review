@@ -16,9 +16,10 @@ var can_sprint : bool = true #can the player sprint?
 var sprint_value : int
 var max_sprint_value : int
 var sprint_locked : bool = false
-var counter: int = 1
+var counter: int = 0
 var being_tracked : bool #is the player being tracked by the supervisor?
 var last_chase_tracking : bool
+var meowing : bool = false
 
 func _ready() -> void:
 	set_max_sprint()
@@ -45,6 +46,10 @@ func _physics_process(_delta) -> void:
 		GlobalTrackingValues.last_reported_kitty_location = $".".global_position
 	
 	if !GlobalTrackingValues.game_paused:
+		if Input.is_action_just_pressed("meow") && !meowing:
+			$meowAudioPlayer.play()
+			meowing = true
+		
 		if !sprint_locked:
 			if Input.is_action_just_pressed("sprint"):
 				sprint_value -= 5
@@ -76,10 +81,10 @@ func on_sprint_depleted() -> void:
 func slow_sprint_increase() -> void:
 	$blueProgressBar.visible = false
 	$redProgressBar.visible = true
-	if counter == 1:
-		counter += 1
+	if counter == 5:
+		counter = 0
 	else:
-		counter = 1
+		counter += 1
 		sprint_value += 1
 		$blueProgressBar.value = sprint_value
 		$redProgressBar.value = sprint_value
@@ -125,3 +130,7 @@ func set_max_sprint() -> void:
 	sprint_value = max_sprint_value
 	$redProgressBar.value = sprint_value
 	$blueProgressBar.value = sprint_value
+
+
+func _on_meow_audio_player_finished() -> void:
+	meowing = false
