@@ -19,6 +19,9 @@ var day_successful : bool
 @onready var redo_button: Panel = $gameUI/endLevelPopUp/HBoxContainer/redoButton
 @onready var diff_text: Label = $gameUI/endLevelPopUp/diffText
 @onready var diff_text_2: Label = $gameUI/escapeMenu/diffText2
+@onready var diff_text_3: Label = $gameUI/helpPopUp/diffText3
+@onready var diff_text_4: Label = $gameUI/controlsPopUp/diffText4
+
 @onready var progress_percent: Label = $gameUI/topBar/taskList/progress/progressPercent
 @onready var score_title: Label = $gameUI/endLevelPopUp/textConditions/scoreTitle
 
@@ -32,9 +35,12 @@ func _ready() -> void:
 	GlobalTrackingValues.game_was_played = true
 	end_level_pop_up.visible = false
 	game_ui.visible = true
-	diff_text.text = str("Difficulty: ", GlobalTrackingValues.diffLevels[GlobalTrackingValues.difficulty_level])
-	diff_text_2.text = str("Difficulty: ", GlobalTrackingValues.diffLevels[GlobalTrackingValues.difficulty_level])
-	
+	var difficulty_text = str("Difficulty: ", GlobalTrackingValues.diffLevels[GlobalTrackingValues.difficulty_level])
+	diff_text.text = difficulty_text
+	diff_text_2.text = difficulty_text
+	diff_text_3.text = difficulty_text
+	diff_text_4.text = difficulty_text
+	GlobalTrackingValues.set_up_position_arrays()
 	on_list_active(true)
 	set_work_day()
 	print("Difficulty Level: ", GlobalTrackingValues.difficulty_level)
@@ -189,6 +195,7 @@ func set_work_day() -> void:
 			time = 160
 		4: #friday
 			workday.text = "Friday"
+			$supervisor/bigBossMan.active = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider2.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/printer.visible = true
 			$gameUI/topBar/taskList/taskBoxContainer/HBoxContainer/divider.visible = true
@@ -230,7 +237,15 @@ func _on_continue_game_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_help_back_button_button_pressed() -> void:
+	$gameUI/helpPopUp/Node2D/AnimationPlayer.stop()
 	$gameUI/helpPopUp.visible = false
 
 func _on_helpbutton_button_pressed() -> void:
 	$gameUI/helpPopUp.visible = true
+	$gameUI/helpPopUp/Node2D/AnimationPlayer.play("glow")
+
+func _on_control_back_button_button_pressed() -> void:
+	$gameUI/controlsPopUp.visible = false
+
+func _on_controlsbutton_button_pressed() -> void:
+	$gameUI/controlsPopUp.visible = true
