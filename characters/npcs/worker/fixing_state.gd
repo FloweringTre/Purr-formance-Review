@@ -31,6 +31,7 @@ func _on_next_transitions() -> void:
 			animation_player.play(fix_animation)
 
 func _on_enter() -> void:
+	character.global_position = character.fix_location
 	fix_animation = str("fixing_", character.fix_direction)
 	#Plays Animations
 	animation_player.play(fix_animation)

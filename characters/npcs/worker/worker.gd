@@ -16,6 +16,9 @@ var fix_location : Vector2
 var desk_location : Vector2
 var idle_time : int
 var walk_speed : int
+var worker_name 
+var walking_position_index : int = 1500
+var stuck : bool = false
 
 func _ready() -> void:
 	sprite_2d.texture = character_texture
@@ -26,6 +29,7 @@ func _ready() -> void:
 	else:
 		desk_location = desk_marker.global_position
 	fix_location = fix_marker.global_position
+	worker_name = $".".name
 	
 	setup_worker()
 	#print("idle time: ", idle_time)
@@ -51,7 +55,7 @@ func setup_worker() -> void:
 			walk_speed = randi_range(15, 20)
 		1: #medium
 			if is_fixer_worker:
-				idle_time = randi_range(15, 30)
+				idle_time = randi_range(10, 30)
 			else:
 				idle_time = randi_range(30, 50)
 			walk_speed = randi_range(15, 25)
@@ -60,10 +64,10 @@ func setup_worker() -> void:
 				idle_time = randi_range(15, 25)
 			else:
 				idle_time = randi_range(30, 40)
-			walk_speed = randi_range(15, 25)
+			walk_speed = randi_range(15, 30)
 		3: #impossible
 			if is_fixer_worker:
 				idle_time = randi_range(10, 15)
 			else:
 				idle_time = randi_range(20, 30)
-			walk_speed = randi_range(15, 25)
+			walk_speed = randi_range(20, 30)

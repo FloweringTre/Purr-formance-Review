@@ -3,9 +3,16 @@ extends Node
 var music_playing : bool = true
 var difficulty_level : int = 1
 # 0 - Easy // 1 - Normal // 2 - Hard // 3 - Impossible
+var score : int = 0
+var total_score : int = 0
+var workday : int = 3
 
 var last_reported_kitty_location : Vector2
 var kitty_caught_from_sup : bool = false
+var worker_positions : Array = []
+var worker_aval_pos : Array = []
+var sup_positions : Array = []
+var sup_aval_pos : Array = []
 #var kitty_caught_from_kitty : bool = false
 
 signal last_chase
@@ -40,9 +47,6 @@ var message_counter : int = 0
 signal set_message
 signal list_active
 
-var score : int = 0
-var total_score : int = 0
-var workday : int = 0
 
 var ratings : Array = [" fishies", " naps", " snuggles", " pets", " treats", " munchies", " sniffs", " feathers", " cuddles", " fuzzies", "catnip"]
 var diffLevels : Array = ["Kitten - Easy", "House Cat - Medium", "Stray - Hard", "Last Strike - Impossible"]
@@ -54,24 +58,7 @@ var aboutLevels : Array = [
 ]
 
 func game_reset() -> void:
-	last_reported_kitty_location = Vector2(0, 0)
-	kitty_caught_from_sup = false
-	game_over= false
-	game_paused= false
-	kitty_in_bed = false
-	kitty_can_sleep = false
-	bed_location = Vector2(0, 0)
-	last_message_sent = false
-	message_counter = 0
-	
-	active_item_location = Vector2(0, 0)
-	trash_spilled = 0
-	donuts_spilled = 0
-	money_spilled = false
-	printer_broken = false
-	secret_sleep = false
-	sink_broken = false
-	tipped_glasses = 0
+	day_reset(false)
 	
 	workday = 0
 	score = 0
@@ -80,6 +67,10 @@ func game_reset() -> void:
 func day_reset(day_successful : bool) -> void:
 	last_reported_kitty_location = Vector2(0, 0)
 	kitty_caught_from_sup = false
+	worker_positions = []
+	worker_aval_pos = []
+	sup_positions = []
+	sup_aval_pos = []
 	game_over= false
 	game_paused= false
 	kitty_in_bed = false
@@ -202,20 +193,20 @@ func productivity_level():
 
 func score_calculate(time_left : int):
 	var value = 0
-	value += (trash_spilled * 20)
-	value += (donuts_spilled * 20)
-	value += (tipped_glasses * 30)
+	value += (trash_spilled * 1)
+	value += (donuts_spilled * 1)
+	value += (tipped_glasses * 5)
 	
 	if money_spilled:
-		value += 30
+		value += 5
 	if secret_sleep:
-		value += 30
+		value += 10
 	if printer_broken:
-		value += 20
+		value += 1
 	if sink_broken:
-		value += 20
+		value += 1
 	if !kitty_caught_from_sup && time_left > 0:
-		value += 20
+		value += 10
 	
 	value += time_left
 	
@@ -224,3 +215,16 @@ func score_calculate(time_left : int):
 	score = value
 	
 	return return_string
+
+func set_up_position_arrays() -> void:
+	var worker_index = 0
+	for marker in get_tree().get_nodes_in_group("idleMarkers"):
+		worker_positions.append(marker.global_position)
+		worker_aval_pos.append(worker_index)
+		worker_index += 1
+	
+	var sup_index = 0
+	for marker in get_tree().get_nodes_in_group("supMarkers"):
+		sup_positions.append(marker.global_position)
+		sup_aval_pos.append(sup_index)
+		sup_index += 1

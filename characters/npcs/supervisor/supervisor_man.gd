@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
 @export var active : bool = true
+@export var character_texture : Texture2D
 var tracking_kitty : bool = false
 var last_chase_tracking : bool = false
 var can_see_kitty : bool = false
 @onready var seeking_timer: Timer = $seekingTimer
 var time_left
 var sup_name
+var walking_position_index : int
+var stuck : bool = false
 
 func _ready() -> void:
+	$Sprite2D.texture = character_texture
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
 	GlobalTrackingValues.game_resumed.connect(on_game_resumed)
 	sup_name = $".".name

@@ -134,13 +134,13 @@ func set_speed() -> void:
 	var percent : float = reported_level * 0.01
 	match GlobalTrackingValues.difficulty_level:
 		0:
-			speed = 40 + (percent * 10)
+			speed = 40 + (percent * 15)
 		1:
-			speed = 45 + (percent * 5)
+			speed = 40 + (percent * 15)
 		2:
-			speed = 45 + (percent * 10)
-		3:
 			speed = 45 + (percent * 15)
+		3:
+			speed = 45 + (percent * 20)
 	#print("sup speed: ", speed)
 	#print("sup percent: ", percent)
 	#print("reported levels: ", reported_level )
