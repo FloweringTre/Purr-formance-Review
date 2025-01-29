@@ -1,0 +1,37 @@
+[style name="textbubble_style"]
+join cat_boss center
+cat_boss: ring ring....
+join kitty center
+kitty: zzzzz.....
+cat_boss: RING RING!!!
+[signal arg="kitty_awake"]
+[signal arg="meow"]
+kitty: Hello?
+cat_boss: Hello, hello?
+[signal arg="meow"]
+kitty: I'm here boss!
+cat_boss: Lovely! Are you hard at work Jr Catuary, Kitty?
+- Yes, Sir!
+	[signal arg="meow"]
+	kitty: I have crunched 17 papers with this nap!
+	cat_boss: Good! You are our best Catuary in this district!
+- Errr... Not really...
+	[signal arg="meow"]
+	kitty: I have been napping today.
+	cat_boss: Well, it is okay to take a break, you are our best Catuary in this district after all!
+cat_boss: I am calling because a new position of Cat-astrophe Manager has opened up.... are you interested?
+- ABSOLUTELY!
+	[signal arg="meow"]
+	kitty: I want a promotion so badly!
+	cat_boss: We are happy for your enthusiasm!
+- I would be honored.
+	[signal arg="meow"]
+	kitty: I have made a lot of biscuits for the company and am glad my work is recognized.
+	cat_boss: Your biscuits have been top notch!
+cat_boss: You have one week to prove to us you can be the Cat-astrophe Manager.
+cat_boss: We will send you daily Kitty Key Purr-formance Indicators for you to hit each day.
+[signal arg="meow"]
+kitty: I will complete my KKPIs each day! You will be proud with my office cat-astrophes!
+cat_boss: I am sure we will. Your purr-formance review starts now!
+[signal arg="end"]
+[end_timeline]
