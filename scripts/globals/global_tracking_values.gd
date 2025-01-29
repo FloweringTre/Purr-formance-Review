@@ -4,6 +4,7 @@ var music_playing : bool = true
 signal music_alert
 var sound_effect_volume : float = 10.0
 var difficulty_level : int = 1
+var play_cutscenes : bool = true
 # 0 - Easy // 1 - Normal // 2 - Hard // 3 - Impossible
 var score : int = 0
 var total_score : int = 0
