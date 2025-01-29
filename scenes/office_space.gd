@@ -21,6 +21,7 @@ var day_successful : bool
 @onready var diff_text_2: Label = $gameUI/escapeMenu/diffText2
 @onready var diff_text_3: Label = $gameUI/helpPopUp/diffText3
 @onready var diff_text_4: Label = $gameUI/controlsPopUp/diffText4
+@onready var diff_text_5: Label = $gameUI/startingday1PopUp/diffText5
 
 @onready var progress_percent: Label = $gameUI/topBar/taskList/progress/progressPercent
 @onready var score_title: Label = $gameUI/endLevelPopUp/textConditions/scoreTitle
@@ -40,10 +41,12 @@ func _ready() -> void:
 	diff_text_2.text = difficulty_text
 	diff_text_3.text = difficulty_text
 	diff_text_4.text = difficulty_text
+	diff_text_5.text = difficulty_text
 	GlobalTrackingValues.set_up_position_arrays()
 	on_list_active(true)
 	set_work_day()
 	print("Difficulty Level: ", GlobalTrackingValues.difficulty_level)
+	day_start_message(GlobalTrackingValues.workday)
 
 func _process(delta: float) -> void:
 	if GlobalTrackingValues.game_paused or GlobalTrackingValues.game_over:
@@ -105,7 +108,7 @@ func on_game_won() -> void:
 		continue_button.visible = true
 	elif GlobalTrackingValues.successful_day() && GlobalTrackingValues.workday == 4:
 		title.text = "Well done!"
-		about_text.text = "You have completed a full week with amazing KKPIs! You have been promoted to Official Office Destroyer! There is no stopping you!"
+		about_text.text = "You have completed a full week with amazing KKPIs! You have been promoted to Cat-astrophe Manager! There is no stopping you!"
 		score_title.text = "Your final purr-formance rating"
 		day_successful = true
 		redo_button.visible = false
@@ -130,12 +133,16 @@ func game_loss() -> void:
 		continue_button.visible = false
 
 func _on_new_game_button_pressed() -> void:
-	get_tree().reload_current_scene()
 	GlobalTrackingValues.game_reset()
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
+	get_tree().reload_current_scene()
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 	GlobalTrackingValues.game_reset()
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 
 func _on_continue_button_pressed() -> void:
 	GlobalTrackingValues.game_paused = false
@@ -224,6 +231,7 @@ func set_work_day() -> void:
 			$supervisor/SupervisorMan3.active = true
 			time += 10
 	
+	time_left = time
 	level_timer.start(time)
 
 func on_ready_last_chase() -> void:
@@ -234,7 +242,13 @@ func _on_wait_timer_timeout() -> void:
 
 func _on_continue_game_button_pressed() -> void:
 	GlobalTrackingValues.day_reset(day_successful)
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
 	get_tree().reload_current_scene()
+	#if !GlobalTrackingValues.play_cutscenes:
+		#get_tree().reload_current_scene()
+	#else:
+		#get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 
 func _on_help_back_button_button_pressed() -> void:
 	$gameUI/helpPopUp/Node2D/AnimationPlayer.stop()
@@ -252,3 +266,19 @@ func _on_controlsbutton_button_pressed() -> void:
 
 func _on_volume_button_button_pressed() -> void:
 	$gameUI/volumePopUp.visible = true
+
+
+func day_start_message(workday : int) -> void:
+	if workday == 0:
+		level_timer.paused = true
+		$gameUI/startingday1PopUp.visible = true
+		$gameUI/startingday1PopUp/Node2D/AnimationPlayer.play("glow")
+		GlobalTrackingValues.game_paused = true
+	else:
+		pass
+
+func _on_start_back_button_button_pressed() -> void:
+	level_timer.paused = false
+	$gameUI/startingday1PopUp.visible = false
+	$gameUI/startingday1PopUp/Node2D/AnimationPlayer.stop()
+	GlobalTrackingValues.game_paused = false

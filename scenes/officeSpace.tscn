@@ -200,7 +200,7 @@ metadata/_edit_lock_ = true
 
 [node name="computers" type="TileMapLayer" parent="tileMaps"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAoAAMAAgAMAAoAAAArABAAAgAGAAoAAAAxAAYAAgACABEAAAANABMAAAAMAB4AAAASABMAAAAPAB4AAAAjABUAAgAMAA8AAAAjABMAAgAGAAwAAAAgABUAAgAAAA4AABAfABUAAgABAA4AAAAFABQAAgACAA4AAAAGABMAAgAJAC0AAAAEABQABAATAAAAAAAMABMACQAFAEwAAAABABUABQAKACEAAAAFABMABAASAAgAAAACABUAAgABAA8AABAGABUAAgAMAC4AAAABABIACAAHAAoAAAADABMAAgAAAA4AAAAFABUAAgAAAA4AAAAEABUACAAEABAAAAAEAAQAAgAKACYAAAAGAAQAAgAMAA8AAAARAAQAAgAHAAwAAAAVAAQAAgAHAA8AAAAaAAMABQAKACEAAAAbAAMABQAPAB8AAAAiAAMABQAKACEAAAAnAAUABAATAAAAAAAZAA4AAgALABoAAAAaAA4AAgAMABoAAAAVAAcAAgAGAAcAAAAYAAYAAgANACAAAAAYAA4AAgAKABoAAAAcAA0AAgAGAAcAAAAEAA0AAgAGAAwAAAAHAAYAAgANACAAAAAHAAwAAgANAB8AAAAHAA4AAgAKABoAAAAIAA4AAgALABoAAAAJAA4AAgAMABoAAAANAAYAAgANAB4AAAANAAgAAgANABwAAAANAAwAAgANACAAAAAOAAgAAgAOABwAAAAOAA4AAgAKAB4AAAAMABQAAgAKACMAAAAYABQAAgALACMAAAAdABMAAgAHABoAAAAKAAIABgACABoAAAAWABIABgAKAAMAAAALAAgACQAKAEwAAAAbAAcACQAGAEwAAAAFAAcACQAFAEkAAAAPAA0ACQAFAEUAAAAFAA0ACQAEAEUAAAAJAA0ACQAJAEkAAAAKAA0ACQAJAEwAAAAIAA0ACQADAEUAAAAWAAgAAgAHABoAAAAWAA0AAgAHABoAAAAFAAgAAgAHABoAAAArAA0ABQABABcAAAAFAA4ACQAGAEkAAAAGAA0ACQAHAEwAAAA=")
+tile_map_data = PackedByteArray("AAAoAAMAAgAMAAoAAAArABAAAgAGAAoAAAAxAAYAAgACABEAAAANABMAAAAMAB4AAAASABMAAAAPAB4AAAAjABUAAgAMAA8AAAAjABMAAgAGAAwAAAAgABUAAgAAAA4AABAfABUAAgABAA4AAAAFABQAAgACAA4AAAAGABMAAgAJAC0AAAAEABQABAATAAAAAAAMABMACQAFAEwAAAABABUABQAKACEAAAAFABMABAASAAgAAAACABUAAgABAA8AABAGABUAAgAMAC4AAAABABIACAAHAAoAAAADABMAAgAAAA4AAAAFABUAAgAAAA4AAAAEABUACAAEABAAAAAEAAQAAgAKACYAAAAGAAQAAgAMAA8AAAARAAQAAgAHAAwAAAAVAAQAAgAHAA8AAAAaAAMABQAKACEAAAAbAAMABQAPAB8AAAAiAAMABQAKACEAAAAnAAUABAATAAAAAAAZAA4AAgALABoAAAAaAA4AAgAMABoAAAAVAAcAAgAGAAcAAAAYAAYAAgANACAAAAAYAA4AAgAKABoAAAAcAA0AAgAGAAcAAAAEAA0AAgAGAAwAAAAHAAYAAgANACAAAAAHAAwAAgANAB8AAAAHAA4AAgAKABoAAAAIAA4AAgALABoAAAAJAA4AAgAMABoAAAANAAYAAgANAB4AAAANAAgAAgANABwAAAANAAwAAgANACAAAAAOAAgAAgAOABwAAAAOAA4AAgAKAB4AAAAMABQAAgAKACMAAAAYABQAAgALACMAAAAdABMAAgAHABoAAAAKAAIABgACABoAAAAWABIABgAKAAMAAAALAAgACQAKAEwAAAAbAAcACQAGAEwAAAAFAAcACQAFAEkAAAAPAA0ACQAFAEUAAAAFAA0ACQAEAEUAAAAJAA0ACQAJAEkAAAAKAA0ACQAJAEwAAAAIAA0ACQADAEUAAAAWAAgAAgAHABoAAAAWAA0AAgAHABoAAAAFAAgAAgAHABoAAAArAA0ABQABABcAAAAFAA4ACQAGAEkAAAAGAA0ACQAHAEwAAAAmAAUAAgAHABoAAAA=")
 tile_set = ExtResource("1_lym04")
 metadata/_edit_lock_ = true
 
@@ -906,6 +906,213 @@ points = PackedVector2Array(5, 33, 125, 33)
 width = 3.0
 default_color = Color(0.419606, 0.68278, 0.510882, 1)
 
+[node name="startingday1PopUp" type="Control" parent="gameUI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="gameUI/startingday1PopUp"]
+position = Vector2(118.855, -240)
+scale = Vector2(1.01316, 1)
+color = Color(0.133333, 0.435294, 0.509804, 1)
+polygon = PackedVector2Array(-303.857, 157, -411.442, 20, -442.039, 38, -433.156, -37, -358.143, -15, -385.779, 6, -287.078, 125)
+
+[node name="Polygon2D2" type="Polygon2D" parent="gameUI/startingday1PopUp"]
+position = Vector2(119, -240)
+color = Color(0.301961, 0.639216, 0.72549, 1)
+polygon = PackedVector2Array(-309, 152, -416, 13, -445, 34, -437, -35, -367, -14, -398, 3, -293, 128)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="gameUI/startingday1PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -188.5
+offset_right = 212.5
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_yqcrv")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="gameUI/startingday1PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -188.5
+offset_right = 213.0
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bci3c")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="textConditions" type="VBoxContainer" parent="gameUI/startingday1PopUp"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -180.0
+offset_right = 206.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="title" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "How to get a promotion:"
+horizontal_alignment = 1
+
+[node name="hint" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "aka win the game"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="aboutText" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Complete your listed Kitty Key 
+Purr-formance Indicators listed above before time runs out."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="aboutText4" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Stay away from the supervisors! If they catch you, you fail the day!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 32
+text = "Where are the KKPI items??"
+horizontal_alignment = 1
+
+[node name="aboutText2" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "The needed items for your KKPI goals will be glowing blue."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer2" type="Label" parent="gameUI/startingday1PopUp/textConditions"]
+visible = false
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+text = " "
+horizontal_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="gameUI/startingday1PopUp"]
+position = Vector2(-149, 177)
+scale = Vector2(4, 4)
+
+[node name="glow" type="Sprite2D" parent="gameUI/startingday1PopUp/Node2D"]
+self_modulate = Color(0.156863, 0.611765, 1, 1)
+texture = ExtResource("33_5myui")
+offset = Vector2(0, -11)
+hframes = 4
+frame = 3
+
+[node name="canBase" type="Sprite2D" parent="gameUI/startingday1PopUp/Node2D"]
+texture = ExtResource("33_5myui")
+offset = Vector2(0, -11)
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gameUI/startingday1PopUp/Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_721eq")
+}
+
+[node name="aboutText3" type="Label" parent="gameUI/startingday1PopUp"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = -105.0
+offset_top = 127.0
+offset_right = 145.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 16
+text = "Be warned, the workers will fix your messes and you'll need to redo your KKPI goals!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="startBackButton" parent="gameUI/startingday1PopUp" instance=ExtResource("25_qokrg")]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 157.0
+offset_right = 159.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+button_text = "Start Day"
+
+[node name="diffText5" type="Label" parent="gameUI/startingday1PopUp"]
+layout_mode = 0
+offset_left = -187.0
+offset_top = 184.0
+offset_right = 33.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 16
+text = "Difficulty: Last Strike! - Impossible"
+vertical_alignment = 2
+autowrap_mode = 2
+
 [node name="endLevelPopUp" type="Control" parent="gameUI"]
 visible = false
 layout_mode = 3
@@ -1046,7 +1253,7 @@ alignment = 1
 
 [node name="continueButton" parent="gameUI/endLevelPopUp/HBoxContainer" instance=ExtResource("25_qokrg")]
 layout_mode = 2
-button_text = "Continue"
+button_text = "Next Day"
 
 [node name="redoButton" parent="gameUI/endLevelPopUp/HBoxContainer" instance=ExtResource("25_qokrg")]
 visible = false
@@ -1216,6 +1423,17 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Polygon2D" type="Polygon2D" parent="gameUI/helpPopUp"]
+position = Vector2(118.855, -240)
+scale = Vector2(1.01316, 1)
+color = Color(0.133333, 0.435294, 0.509804, 1)
+polygon = PackedVector2Array(-303.857, 157, -411.442, 20, -442.039, 38, -433.156, -37, -358.143, -15, -385.779, 6, -287.078, 125)
+
+[node name="Polygon2D2" type="Polygon2D" parent="gameUI/helpPopUp"]
+position = Vector2(119, -240)
+color = Color(0.301961, 0.639216, 0.72549, 1)
+polygon = PackedVector2Array(-309, 152, -416, 13, -445, 34, -437, -35, -367, -14, -398, 3, -293, 128)
+
 [node name="NinePatchRect" type="NinePatchRect" parent="gameUI/helpPopUp"]
 layout_mode = 1
 anchors_preset = 8
@@ -1299,6 +1517,16 @@ Purr-formance Indicators listed above before time runs out."
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="aboutText4" type="Label" parent="gameUI/helpPopUp/textConditions"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Stay away from the supervisors! If they catch you, you fail the day!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="spacer" type="Label" parent="gameUI/helpPopUp/textConditions"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
@@ -1319,7 +1547,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 32
-text = "The needed items for your KKPI goals will have a blue glowing aura."
+text = "The needed items for your KKPI goals will be glowing blue."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1333,7 +1561,7 @@ text = " "
 horizontal_alignment = 1
 
 [node name="Node2D" type="Node2D" parent="gameUI/helpPopUp"]
-position = Vector2(-123, 153)
+position = Vector2(-151, 173)
 scale = Vector2(4, 4)
 
 [node name="glow" type="Sprite2D" parent="gameUI/helpPopUp/Node2D"]
@@ -1354,16 +1582,16 @@ libraries = {
 }
 
 [node name="aboutText3" type="Label" parent="gameUI/helpPopUp"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-offset_left = -68.0
-offset_top = 98.0
-offset_right = 200.0
-offset_bottom = 151.0
+offset_left = -110.0
+offset_top = 125.0
+offset_right = 140.0
+offset_bottom = 152.0
 theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
-text = "The aura will go away when your KKPI is met, but be warned, the workers will fix your messes and you'll need to redo your KKPI goals!"
+text = "Be warned, the workers will fix your messes and you'll need to redo your KKPI goals!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1725,6 +1953,7 @@ one_shot = true
 [node name="waitTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="button_pressed" from="gameUI/startingday1PopUp/startBackButton" to="." method="_on_start_back_button_button_pressed"]
 [connection signal="button_pressed" from="gameUI/endLevelPopUp/HBoxContainer/continueButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="button_pressed" from="gameUI/endLevelPopUp/HBoxContainer/redoButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="button_pressed" from="gameUI/endLevelPopUp/HBoxContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
