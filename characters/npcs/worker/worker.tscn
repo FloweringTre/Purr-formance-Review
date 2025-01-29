@@ -499,7 +499,6 @@ avoidance_layers = 3
 navigation_layers = 2
 simplify_path = true
 avoidance_layers = 3
-debug_enabled = true
 
 [node name="NodeStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_5qmny")
