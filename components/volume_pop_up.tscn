@@ -1,0 +1,252 @@
+[gd_scene load_steps=24 format=3 uid="uid://t0yg5xyswrc"]
+
+[ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="1_8qgh8"]
+[ext_resource type="Script" path="res://components/volume_pop_up.gd" id="1_odn71"]
+[ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://components/buttonSMOL2_blue.tscn" id="2_4y4o6"]
+[ext_resource type="AudioStream" uid="uid://cy8evvsa0xfou" path="res://assets/soundbites/meow_1.mp3" id="4_um74j"]
+[ext_resource type="AudioStream" uid="uid://baxk76hnnldhq" path="res://assets/soundbites/meow_2.mp3" id="5_0gfyj"]
+[ext_resource type="AudioStream" uid="uid://c1ptyqj7lpyvs" path="res://assets/soundbites/meow_3.mp3" id="6_kfsd7"]
+[ext_resource type="AudioStream" uid="uid://dfb2nfd3ibgab" path="res://assets/soundbites/meow_4.mp3" id="7_v6fgp"]
+[ext_resource type="AudioStream" uid="uid://vmbv7fl7h7r7" path="res://assets/soundbites/meow_5.mp3" id="8_nauaf"]
+[ext_resource type="AudioStream" uid="uid://di1hahryk4q8b" path="res://assets/soundbites/meow_6.mp3" id="9_cq6jh"]
+[ext_resource type="AudioStream" uid="uid://cqn3ovx3lu7a" path="res://assets/soundbites/meow_7.mp3" id="10_6p6bs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5quk"]
+atlas = ExtResource("1_8qgh8")
+region = Rect2(58, 10, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sql7"]
+atlas = ExtResource("1_8qgh8")
+region = Rect2(10, 58, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03528"]
+atlas = ExtResource("1_8qgh8")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dib5t"]
+atlas = ExtResource("1_8qgh8")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3tv4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_septg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e2v7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psq5n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc6bv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erdw7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgxb2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_43rvo"]
+Button/font_sizes/font_size = 32
+Button/styles/disabled = SubResource("StyleBoxFlat_p3tv4")
+Button/styles/focus = SubResource("StyleBoxFlat_septg")
+Button/styles/hover = SubResource("StyleBoxFlat_2e2v7")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_psq5n")
+Button/styles/normal = SubResource("StyleBoxFlat_lc6bv")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_erdw7")
+Button/styles/pressed = SubResource("StyleBoxFlat_qgxb2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a7d65"]
+streams_count = 7
+stream_0/stream = ExtResource("4_um74j")
+stream_1/stream = ExtResource("5_0gfyj")
+stream_2/stream = ExtResource("6_kfsd7")
+stream_3/stream = ExtResource("7_v6fgp")
+stream_4/stream = ExtResource("8_nauaf")
+stream_5/stream = ExtResource("9_cq6jh")
+stream_6/stream = ExtResource("10_6p6bs")
+
+[node name="volumePopUp" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odn71")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -140.0
+offset_right = 212.5
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_c5quk")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -140.0
+offset_right = 213.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6sql7")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="textConditions" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -131.0
+offset_right = 206.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="title" type="Label" parent="textConditions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 48
+text = "Volume Settings"
+horizontal_alignment = 1
+
+[node name="muic" type="Label" parent="textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Music"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="musicVolume" type="HSlider" parent="textConditions"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_03528")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_dib5t")
+min_value = -30.0
+max_value = 1.0
+step = 0.2
+value = -15.0
+
+[node name="interaction" type="Label" parent="textConditions"]
+custom_minimum_size = Vector2(411, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Sound Effects"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="effectsVolume" type="HSlider" parent="textConditions"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_03528")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_dib5t")
+min_value = -5.0
+max_value = 30.0
+step = 0.2
+value = 10.0
+
+[node name="spacer" type="Label" parent="textConditions"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="textConditions"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="textConditions/HBoxContainer"]
+layout_mode = 2
+
+[node name="mute" type="Label" parent="textConditions/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Mute Music"
+horizontal_alignment = 1
+
+[node name="muteButton" type="Button" parent="textConditions/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_43rvo")
+theme_override_colors/font_disabled_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/font_focus_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/font_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/font_outline_color = Color(0.113725, 0.227451, 0.356863, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+toggle_mode = true
+text = "Mute Music"
+
+[node name="volumeBackButton" parent="." instance=ExtResource("2_4y4o6")]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 103.5
+offset_right = 159.0
+offset_bottom = 125.5
+scale = Vector2(2, 2)
+button_text = "Back"
+
+[node name="meowAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_a7d65")
+
+[connection signal="value_changed" from="textConditions/musicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="drag_ended" from="textConditions/effectsVolume" to="." method="_on_effects_volume_drag_ended"]
+[connection signal="value_changed" from="textConditions/effectsVolume" to="." method="_on_effects_volume_value_changed"]
+[connection signal="pressed" from="textConditions/HBoxContainer/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="textConditions/HBoxContainer/muteButton" to="." method="_on_mute_button_pressed"]
+[connection signal="button_pressed" from="volumeBackButton" to="." method="_on_volume_back_button_button_pressed"]

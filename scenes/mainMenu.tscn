@@ -1,15 +1,19 @@
-[gd_scene load_steps=42 format=3 uid="uid://cbo4d3yslerjt"]
+[gd_scene load_steps=46 format=3 uid="uid://cbo4d3yslerjt"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_120gn"]
 [ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://components/buttonSMOL2_blue.tscn" id="2_0yrn5"]
 [ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://components/buttonSMOL2.tscn" id="3_vil2u"]
 [ext_resource type="Texture2D" uid="uid://cnxkb4v007iol" path="res://assets/ui/boot_screen.png" id="4_1sw5p"]
-[ext_resource type="Texture2D" uid="uid://dd1uv7dc52dck" path="res://assets/1_assets_from_others/Modern tiles_Free/Characters_free/Bob_16x16.png" id="4_2ryj8"]
 [ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="4_cslpt"]
 [ext_resource type="Texture2D" uid="uid://bf76qwq2m7q5" path="res://assets/1_assets_from_others/moderninteriors-win/UI_16x16.png" id="5_3fk6m"]
 [ext_resource type="Texture2D" uid="uid://dvbav4thm8opf" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/Modern_Office_16x16.png" id="5_f5535"]
+[ext_resource type="Texture2D" uid="uid://d4mwlh0483hi5" path="res://assets/1_assets_from_others/characters/sup_4.png" id="5_jtvsc"]
 [ext_resource type="Texture2D" uid="uid://bv2mw00a2yh6s" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/Theme_Sorter_Black_Shadow/16_Grocery_store_Black_Shadow_16x16.png" id="6_62482"]
+[ext_resource type="Texture2D" uid="uid://bboy0qe34n6f3" path="res://assets/1_assets_from_others/characters/sup_1.png" id="6_wh5fa"]
+[ext_resource type="Texture2D" uid="uid://cwd05se10l428" path="res://assets/1_assets_from_others/characters/sup_2.png" id="7_lyigd"]
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="7_nr24r"]
+[ext_resource type="Texture2D" uid="uid://dhk4jtxpuhmw8" path="res://assets/1_assets_from_others/characters/sup_3.png" id="8_1b176"]
+[ext_resource type="PackedScene" uid="uid://t0yg5xyswrc" path="res://components/volume_pop_up.tscn" id="13_nbgn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03528"]
 atlas = ExtResource("4_cslpt")
@@ -122,6 +126,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("emotionSprite2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15.2, -37)]
+}
 
 [sub_resource type="Animation" id="Animation_yebj0"]
 resource_name = "bounce"
@@ -165,6 +181,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_x4bsh"]
 resource_name = "bounce_loop"
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -175,7 +192,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(8, -28), Vector2(8, -31), Vector2(8, -28), Vector2(8, -31), Vector2(8, -28)]
+"values": [Vector2(15, -37), Vector2(15, -40), Vector2(15, -37), Vector2(15, -40), Vector2(15, -37)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -200,6 +217,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("emotionSprite2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15.2, -37), Vector2(-15.2, -40), Vector2(-15.2, -37), Vector2(-15.2, -40), Vector2(-15.2, -37)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh4fe"]
@@ -490,6 +519,10 @@ button_text = "Controls"
 layout_mode = 2
 button_text = "How to win"
 
+[node name="volumeButton" parent="VBoxContainer/buttonsContainer" instance=ExtResource("3_vil2u")]
+layout_mode = 2
+button_text = "Volume"
+
 [node name="difficultyContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -3
@@ -705,98 +738,131 @@ libraries = {
 wait_time = 2.0
 one_shot = true
 
-[node name="Control2" type="Control" parent="."]
+[node name="managerArt" type="Control" parent="."]
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1076.0
-offset_top = 532.0
-offset_right = 1116.0
-offset_bottom = 572.0
+offset_left = 1130.0
+offset_top = 531.0
+offset_right = 1170.0
+offset_bottom = 571.0
 scale = Vector2(5, 5)
 
-[node name="sup" type="Node2D" parent="Control2"]
+[node name="sup" type="Node2D" parent="managerArt"]
 position = Vector2(-8, 26.8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Control2/sup"]
+[node name="Sprite2D" type="Sprite2D" parent="managerArt/sup"]
 y_sort_enabled = true
-texture = ExtResource("4_2ryj8")
+position = Vector2(0, -19.2)
+texture = ExtResource("5_jtvsc")
 offset = Vector2(0, -16)
-hframes = 24
-vframes = 7
-frame = 42
+hframes = 56
+vframes = 20
+frame = 74
 
-[node name="emotionSprite" type="Sprite2D" parent="Control2/sup"]
+[node name="Sprite2D2" type="Sprite2D" parent="managerArt/sup"]
+y_sort_enabled = true
+position = Vector2(0, -1.2207e-05)
+texture = ExtResource("6_wh5fa")
+offset = Vector2(0, -16)
+hframes = 56
+vframes = 20
+frame = 74
+
+[node name="Sprite2D3" type="Sprite2D" parent="managerArt/sup"]
+y_sort_enabled = true
+position = Vector2(16, -5)
+texture = ExtResource("7_lyigd")
+offset = Vector2(0, -16)
+hframes = 56
+vframes = 20
+frame = 74
+
+[node name="Sprite2D4" type="Sprite2D" parent="managerArt/sup"]
+y_sort_enabled = true
+position = Vector2(-15, -5)
+texture = ExtResource("8_1b176")
+offset = Vector2(0, -16)
+hframes = 56
+vframes = 20
+frame = 74
+
+[node name="emotionSprite" type="Sprite2D" parent="managerArt/sup"]
 visible = false
 position = Vector2(8, -28)
 texture = SubResource("AtlasTexture_qtvka")
 
-[node name="emotionAnimation" type="AnimationPlayer" parent="Control2/sup"]
+[node name="emotionSprite2" type="Sprite2D" parent="managerArt/sup"]
+position = Vector2(-15.2, -37)
+texture = SubResource("AtlasTexture_qtvka")
+flip_h = true
+
+[node name="emotionAnimation" type="AnimationPlayer" parent="managerArt/sup"]
 libraries = {
 "": SubResource("AnimationLibrary_bh4fe")
 }
 autoplay = "bounce_loop"
 
-[node name="Control" type="Control" parent="."]
+[node name="kittyArt" type="Control" parent="."]
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 249.0
-offset_top = 486.0
+offset_top = 463.0
 offset_right = 289.0
-offset_bottom = 526.0
+offset_bottom = 503.0
 scale = Vector2(5, 5)
 
-[node name="desk" type="Node2D" parent="Control"]
+[node name="desk" type="Node2D" parent="kittyArt"]
 position = Vector2(1, 5)
 
-[node name="desk" type="Sprite2D" parent="Control/desk"]
+[node name="desk" type="Sprite2D" parent="kittyArt/desk"]
 position = Vector2(-6.33333, 2.66667)
 texture = SubResource("AtlasTexture_mqn00")
 
-[node name="desk2" type="Sprite2D" parent="Control/desk"]
+[node name="desk2" type="Sprite2D" parent="kittyArt/desk"]
 position = Vector2(2, 23.3333)
 texture = SubResource("AtlasTexture_0ksil")
 
-[node name="comp2" type="Sprite2D" parent="Control/desk"]
+[node name="comp2" type="Sprite2D" parent="kittyArt/desk"]
 position = Vector2(-2, 18)
 texture = SubResource("AtlasTexture_62n2b")
 
-[node name="comp" type="Sprite2D" parent="Control/desk"]
+[node name="comp" type="Sprite2D" parent="kittyArt/desk"]
 z_index = 1
 position = Vector2(2.66667, 16)
 texture = SubResource("AtlasTexture_5ggji")
 
-[node name="chair" type="Sprite2D" parent="Control/desk"]
+[node name="chair" type="Sprite2D" parent="kittyArt/desk"]
 z_index = 1
 position = Vector2(-12.3333, 16.3333)
 texture = SubResource("AtlasTexture_4106w")
 
-[node name="decor" type="Node2D" parent="Control"]
+[node name="decor" type="Node2D" parent="kittyArt"]
 position = Vector2(0, 0.333333)
 
-[node name="flowers" type="Sprite2D" parent="Control/decor"]
+[node name="flowers" type="Sprite2D" parent="kittyArt/decor"]
 z_index = 1
 position = Vector2(2.99999, 0.666664)
 texture = SubResource("AtlasTexture_6oxdo")
 
-[node name="phone" type="Sprite2D" parent="Control/decor"]
+[node name="phone" type="Sprite2D" parent="kittyArt/decor"]
 z_index = 1
 position = Vector2(-14.4, 3.06666)
 texture = SubResource("AtlasTexture_u8bn4")
 
-[node name="kitty" type="Node2D" parent="Control"]
+[node name="kitty" type="Node2D" parent="kittyArt"]
 z_index = 5
 position = Vector2(-10.3333, 25.3333)
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/kitty"]
+[node name="Sprite2D" type="Sprite2D" parent="kittyArt/kitty"]
 y_sort_enabled = true
 texture = ExtResource("7_nr24r")
 offset = Vector2(0, -16)
 hframes = 8
 vframes = 10
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/kitty"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="kittyArt/kitty"]
 libraries = {
 "": SubResource("AnimationLibrary_t6c3y")
 }
@@ -1118,6 +1184,10 @@ offset_bottom = 125.5
 scale = Vector2(2, 2)
 button_text = "Back"
 
+[node name="volumePopUp" parent="." instance=ExtResource("13_nbgn1")]
+visible = false
+layout_mode = 1
+
 [node name="goalsPopUp" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -1427,6 +1497,7 @@ texture = ExtResource("4_1sw5p")
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/exitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/helpButton" to="." method="_on_help_button_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/goalsButton" to="." method="_on_goals_button_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/buttonsContainer/volumeButton" to="." method="_on_volume_button_button_pressed"]
 [connection signal="drag_ended" from="VBoxContainer/difficultyContainer/difficultySlider" to="." method="_on_difficulty_slider_drag_ended"]
 [connection signal="timeout" from="splashTimer" to="." method="_on_timer_timeout"]
 [connection signal="button_pressed" from="helpPopUp/helpBackButton" to="." method="_on_help_back_button_button_pressed"]

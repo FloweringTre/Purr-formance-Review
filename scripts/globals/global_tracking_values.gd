@@ -1,11 +1,13 @@
 extends Node
 
 var music_playing : bool = true
+signal music_alert
+var sound_effect_volume : float = 10.0
 var difficulty_level : int = 1
 # 0 - Easy // 1 - Normal // 2 - Hard // 3 - Impossible
 var score : int = 0
 var total_score : int = 0
-var workday : int = 3
+var workday : int = 0
 
 var last_reported_kitty_location : Vector2
 var kitty_caught_from_sup : bool = false

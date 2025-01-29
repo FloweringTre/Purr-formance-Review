@@ -10,6 +10,9 @@ extends Node
 var is_playing : bool
 var track_playing: int
 
+func _ready() -> void:
+	set_volume(-15)
+	GlobalTrackingValues.music_alert.connect(on_music_alert)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,6 +23,12 @@ func _process(delta: float) -> void:
 		else:
 			GlobalTrackingValues.music_playing = true
 			resume_music()
+
+func on_music_alert() -> void:
+	if !GlobalTrackingValues.music_playing:
+		pause_music()
+	else:
+		resume_music()
 
 func pause_music() -> void:
 	match track_playing:
@@ -88,3 +97,10 @@ func stop_music() -> void:
 func main_menu_music() -> void:
 	var random_track = randi_range(0, 4)
 	set_track(random_track)
+
+func set_volume(value : float) -> void:
+	day_one.volume_db = value
+	day_two.volume_db = value
+	day_three.volume_db = value
+	day_four.volume_db = value
+	day_five.volume_db = value

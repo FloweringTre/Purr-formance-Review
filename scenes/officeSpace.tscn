@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://f2gp8e478ej2"]
+[gd_scene load_steps=45 format=4 uid="uid://f2gp8e478ej2"]
 
 [ext_resource type="Script" path="res://scenes/office_space.gd" id="1_2kpr1"]
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://assets/tilesets/rooms_tile_set.tres" id="1_hiqov"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dhk4jtxpuhmw8" path="res://assets/1_assets_from_others/characters/sup_3.png" id="28_cri1a"]
 [ext_resource type="Texture2D" uid="uid://d4mwlh0483hi5" path="res://assets/1_assets_from_others/characters/sup_4.png" id="29_1hdtp"]
 [ext_resource type="Texture2D" uid="uid://bk2nq8qdfe2j4" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/2_Modern_Office_Black_Shadow/trashCan.png" id="33_5myui"]
+[ext_resource type="PackedScene" uid="uid://t0yg5xyswrc" path="res://components/volume_pop_up.tscn" id="33_8qj8o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kf37h"]
 vertices = PackedVector2Array(317.648, 169.57, 473, 182, 449.07, 182, 326.711, 181.203, 289.273, 180.953, 287.578, 169.461, 732.289, 221.922, 804.906, 195.867, 804.047, 341.039, 734.18, 328, 604.789, 341.953, 658, 328, 752.242, 186.859, 733.594, 191.672, 733.711, 190, 658, 185.898, 658, 190, 619.141, 186.844, 319.203, 108, 288, 98.0313, 320.57, 85.1172, 288, 84.9531, 472.141, 259.063, 473, 248.688, 563.461, 126.039, 564.727, 270.523, 515, 265, 603.813, 294.977, 604.898, 271.742, 30.9531, 82.0313, 396.961, 83.3594, 396.883, 84.1094, 53, 86.0469, 30.0625, 271.094, 53, 168.703, 459, 85, 418.867, 85, 419.023, 83.4375, 563.078, 83.9609, 783.656, 122, 784.281, 131.047, 606.703, 131.938, 606.898, 128.977, 759, 122, 277.844, 286, 236.5, 286, 237.547, 264.641, 277.5, 264.844, 658, 185.383, 319.672, 108, 431.031, 264.922, 431, 335.68, 418.039, 335.289, 418.383, 265, 289.063, 232, 325, 246.867, 289, 256.906, 563.211, 98.7188, 459, 170.031, 289, 232, 325, 257.922, 321, 265.047, 548, 292, 548, 338, 541, 338, 541, 300, 515, 300, 370, 331.727, 370, 338, 321, 338, 334, 330.727, 334, 263.859, 140.977, 334, 178, 334, 178, 338, 129, 338, 129.023, 264.172, 141.109, 264.18, 696.648, 78.1094, 759, 78.8672, 695.992, 97.3672, 582.82, 109.828, 576.391, 114.977, 680.906, 102.961, 594.992, 116.773, 598.609, 104.961, 606.883, 198.422, 594.68, 284, 575.523, 292, 573.617, 284, 461.031, 265, 53, 259.094, 57.75, 264, 53, 179.383)
@@ -63,6 +64,45 @@ region = Rect2(144, 176, 64, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_72jxi"]
 atlas = ExtResource("6_2clff")
 region = Rect2(144, 144, 64, 16)
+
+[sub_resource type="Animation" id="Animation_ox3la"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glow:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("canBase:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("glow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_85yvf"]
 resource_name = "glow"
@@ -103,45 +143,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.129412), Color(1, 1, 1, 1), Color(1, 1, 1, 0.129412)]
-}
-
-[sub_resource type="Animation" id="Animation_ox3la"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("glow:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("canBase:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("glow:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_721eq"]
@@ -1107,9 +1108,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -122.5
-offset_top = -136.5
+offset_top = -161.5
 offset_right = 122.5
-offset_bottom = 136.5
+offset_bottom = 161.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_yqcrv")
@@ -1126,9 +1127,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -123.5
-offset_top = -137.0
+offset_top = -161.5
 offset_right = 123.5
-offset_bottom = 137.0
+offset_bottom = 161.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_bci3c")
@@ -1140,9 +1141,9 @@ patch_margin_bottom = 4
 [node name="aboutText" type="Label" parent="gameUI/escapeMenu"]
 layout_mode = 0
 offset_left = -90.0
-offset_top = 100.0
+offset_top = 131.0
 offset_right = 130.0
-offset_bottom = 120.0
+offset_bottom = 151.0
 theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
 theme_override_font_sizes/font_size = 16
 text = "Exiting to main menu loses all progress"
@@ -1152,9 +1153,9 @@ autowrap_mode = 2
 [node name="diffText2" type="Label" parent="gameUI/escapeMenu"]
 layout_mode = 0
 offset_left = -96.0
-offset_top = 131.0
+offset_top = 157.0
 offset_right = 124.0
-offset_bottom = 151.0
+offset_bottom = 177.0
 theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
 theme_override_font_sizes/font_size = 16
 text = "Difficulty: Last Strike! - Impossible"
@@ -1169,9 +1170,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -63.0
-offset_top = -124.0
+offset_top = -145.0
 offset_right = 1.0
-offset_bottom = -24.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -1189,9 +1190,16 @@ button_text = "How to Win"
 layout_mode = 2
 button_text = "Controls"
 
+[node name="volumeButton" parent="gameUI/escapeMenu/VBoxContainer" instance=ExtResource("26_14x5w")]
+layout_mode = 2
+button_text = "Volume"
+
 [node name="exitButton" parent="gameUI/escapeMenu/VBoxContainer" instance=ExtResource("26_14x5w")]
 layout_mode = 2
 button_text = "Main Menu"
+
+[node name="volumePopUp" parent="gameUI" instance=ExtResource("33_8qj8o")]
+visible = false
 
 [node name="helpPopUp" type="Control" parent="gameUI"]
 visible = false
@@ -1724,6 +1732,7 @@ one_shot = true
 [connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/helpbutton" to="." method="_on_helpbutton_button_pressed"]
 [connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/controlsbutton" to="." method="_on_controlsbutton_button_pressed"]
+[connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/volumeButton" to="." method="_on_volume_button_button_pressed"]
 [connection signal="button_pressed" from="gameUI/escapeMenu/VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="button_pressed" from="gameUI/helpPopUp/helpBackButton" to="." method="_on_help_back_button_button_pressed"]
 [connection signal="button_pressed" from="gameUI/controlsPopUp/controlBackButton" to="." method="_on_control_back_button_button_pressed"]

@@ -249,3 +249,6 @@ func _on_control_back_button_button_pressed() -> void:
 
 func _on_controlsbutton_button_pressed() -> void:
 	$gameUI/controlsPopUp.visible = true
+
+func _on_volume_button_button_pressed() -> void:
+	$gameUI/volumePopUp.visible = true

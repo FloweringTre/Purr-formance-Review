@@ -25,6 +25,8 @@ func _ready() -> void:
 	set_max_sprint()
 	print("Max sprint value: ", max_sprint_value)
 	GlobalTrackingValues.last_chase.connect(on_last_chase)
+	$meowAudioPlayer.volume_db = GlobalTrackingValues.sound_effect_volume
+	$bapAudioPlayer.volume_db = GlobalTrackingValues.sound_effect_volume
 
 func _physics_process(_delta) -> void:
 	if movement_state: #is true
@@ -47,6 +49,7 @@ func _physics_process(_delta) -> void:
 	
 	if !GlobalTrackingValues.game_paused:
 		if Input.is_action_just_pressed("meow") && !meowing:
+			$meowAudioPlayer.volume_db = GlobalTrackingValues.sound_effect_volume
 			$meowAudioPlayer.play()
 			meowing = true
 		

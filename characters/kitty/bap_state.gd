@@ -17,6 +17,7 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	#Plays Animations
+	$"../../bapAudioPlayer".volume_db = GlobalTrackingValues.sound_effect_volume
 	animation_player.play("bap")
 	var direction : Vector2 = player.global_position.direction_to(GlobalTrackingValues.active_item_location)
 	$"../../Sprite2D".flip_h = direction.x < 0
