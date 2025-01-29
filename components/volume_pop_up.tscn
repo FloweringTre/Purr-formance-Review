@@ -27,36 +27,36 @@ region = Rect2(96, 64, 16, 16)
 atlas = ExtResource("1_8qgh8")
 region = Rect2(96, 80, 16, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3tv4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n1qf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_septg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hjii"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e2v7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3stp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psq5n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_856ym"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc6bv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqt2t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erdw7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d780q"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgxb2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hqv5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_43rvo"]
 Button/font_sizes/font_size = 32
-Button/styles/disabled = SubResource("StyleBoxFlat_p3tv4")
-Button/styles/focus = SubResource("StyleBoxFlat_septg")
-Button/styles/hover = SubResource("StyleBoxFlat_2e2v7")
-Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_psq5n")
-Button/styles/normal = SubResource("StyleBoxFlat_lc6bv")
-Button/styles/normal_mirrored = SubResource("StyleBoxFlat_erdw7")
-Button/styles/pressed = SubResource("StyleBoxFlat_qgxb2")
+Button/styles/disabled = SubResource("StyleBoxFlat_7n1qf")
+Button/styles/focus = SubResource("StyleBoxFlat_0hjii")
+Button/styles/hover = SubResource("StyleBoxFlat_d3stp")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_856ym")
+Button/styles/normal = SubResource("StyleBoxFlat_sqt2t")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_d780q")
+Button/styles/pressed = SubResource("StyleBoxFlat_1hqv5")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a7d65"]
 streams_count = 7
