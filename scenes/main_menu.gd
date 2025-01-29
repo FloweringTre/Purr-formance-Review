@@ -28,7 +28,12 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_new_game_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
+	if !GlobalTrackingValues.play_cutscenes:
+		get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 
 func _on_difficulty_slider_drag_ended(value_changed: bool) -> void:
 	var value = difficulty_slider.value
@@ -53,3 +58,18 @@ func _on_volume_button_button_pressed() -> void:
 
 func _on_volume_back_button_button_pressed() -> void:
 	$volumePopUp.visible = false
+
+
+func _on_check_box_pressed() -> void:
+	if GlobalTrackingValues.play_cutscenes:
+		GlobalTrackingValues.play_cutscenes = false
+	else:
+		GlobalTrackingValues.play_cutscenes = true
+
+func _on_cutscene_button_pressed() -> void:
+	if GlobalTrackingValues.play_cutscenes:
+		GlobalTrackingValues.play_cutscenes = false
+		$VBoxContainer/cutsceneContainer/CheckBox.button_pressed = true
+	else:
+		GlobalTrackingValues.play_cutscenes = true
+		$VBoxContainer/cutsceneContainer/CheckBox.button_pressed = false

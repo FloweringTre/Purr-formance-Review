@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cbo4d3yslerjt"]
+[gd_scene load_steps=54 format=3 uid="uid://cbo4d3yslerjt"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_120gn"]
 [ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://components/buttonSMOL2_blue.tscn" id="2_0yrn5"]
@@ -22,6 +22,37 @@ region = Rect2(96, 64, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dib5t"]
 atlas = ExtResource("4_cslpt")
 region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3tv4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_septg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e2v7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psq5n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc6bv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erdw7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgxb2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_2w6g3"]
+Button/font_sizes/font_size = 32
+Button/styles/disabled = SubResource("StyleBoxFlat_p3tv4")
+Button/styles/focus = SubResource("StyleBoxFlat_septg")
+Button/styles/hover = SubResource("StyleBoxFlat_2e2v7")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_psq5n")
+Button/styles/normal = SubResource("StyleBoxFlat_lc6bv")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_erdw7")
+Button/styles/pressed = SubResource("StyleBoxFlat_qgxb2")
 
 [sub_resource type="Animation" id="Animation_um453"]
 length = 0.001
@@ -728,6 +759,50 @@ text = "Escape Key"
 [node name="pause_musicK" type="Label" parent="VBoxContainer/controlsContainer3/VBoxContainer/HBoxContainer2/key"]
 layout_mode = 2
 text = "P"
+
+[node name="spacer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "
+"
+horizontal_alignment = 1
+
+[node name="cutsceneContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/cutsceneContainer"]
+layout_mode = 2
+
+[node name="mute" type="Label" parent="VBoxContainer/cutsceneContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11472, 0.228292, 0.359145, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 32
+text = "Mute Music"
+horizontal_alignment = 1
+
+[node name="cutsceneButton" type="Button" parent="VBoxContainer/cutsceneContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2w6g3")
+theme_override_colors/font_disabled_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_hover_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_pressed_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_focus_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_outline_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Skip Cutscenes"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1499,6 +1574,8 @@ texture = ExtResource("4_1sw5p")
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/goalsButton" to="." method="_on_goals_button_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/volumeButton" to="." method="_on_volume_button_button_pressed"]
 [connection signal="drag_ended" from="VBoxContainer/difficultyContainer/difficultySlider" to="." method="_on_difficulty_slider_drag_ended"]
+[connection signal="pressed" from="VBoxContainer/cutsceneContainer/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="VBoxContainer/cutsceneContainer/cutsceneButton" to="." method="_on_cutscene_button_pressed"]
 [connection signal="timeout" from="splashTimer" to="." method="_on_timer_timeout"]
 [connection signal="button_pressed" from="helpPopUp/helpBackButton" to="." method="_on_help_back_button_button_pressed"]
 [connection signal="button_pressed" from="goalsPopUp/goalsBackButton" to="." method="_on_goals_back_button_button_pressed"]
