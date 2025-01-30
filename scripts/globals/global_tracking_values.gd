@@ -4,11 +4,15 @@ var music_playing : bool = true
 signal music_alert
 var sound_effect_volume : float = 10.0
 var difficulty_level : int = 1
-var play_cutscenes : bool = true
 # 0 - Easy // 1 - Normal // 2 - Hard // 3 - Impossible
+var workday : int = 0
 var score : int = 0
 var total_score : int = 0
-var workday : int = 0
+
+var play_cutscenes : bool = true
+var repeated_day : bool = false
+signal cat_dialogue
+signal worker_dialogue
 
 var last_reported_kitty_location : Vector2
 var kitty_caught_from_sup : bool = false
@@ -63,6 +67,7 @@ var aboutLevels : Array = [
 func game_reset() -> void:
 	day_reset(false)
 	
+	repeated_day = false
 	workday = 0
 	score = 0
 	total_score = 0
@@ -74,7 +79,7 @@ func day_reset(day_successful : bool) -> void:
 	worker_aval_pos = []
 	sup_positions = []
 	sup_aval_pos = []
-	game_over= false
+	game_over = false
 	game_paused= false
 	kitty_in_bed = false
 	kitty_can_sleep = false
@@ -94,6 +99,9 @@ func day_reset(day_successful : bool) -> void:
 	if day_successful:
 		workday += 1
 		total_score += score
+		repeated_day = false
+	else:
+		repeated_day = true
 	
 	score = 0
 
@@ -231,3 +239,13 @@ func set_up_position_arrays() -> void:
 		sup_positions.append(marker.global_position)
 		sup_aval_pos.append(sup_index)
 		sup_index += 1
+
+func next_dialogue(type: String, dialouge_timeline : String) -> void:
+	if type == "cat":
+		TransitionFade.text_transition("Meanwhile...")
+		await TransitionFade.transition_finished
+		cat_dialogue.emit(dialouge_timeline)
+	if type == "worker":
+		TransitionFade.text_transition("Meanwhile...")
+		await TransitionFade.transition_finished
+		worker_dialogue.emit(dialouge_timeline)
