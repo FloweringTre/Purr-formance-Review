@@ -7,6 +7,7 @@ extends NodeState
 
 var location
 var counter : int = 1
+var tracking_counter : int = 1
 
 @onready var sprite_2d: Sprite2D = $"../../Sprite2D"
 
@@ -33,6 +34,7 @@ func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
+	set_speed()
 	if GlobalTrackingValues.game_paused:
 		character.velocity = Vector2.ZERO
 		return
@@ -47,6 +49,13 @@ func _on_physics_process(_delta : float) -> void:
 		return
 	
 	tracking_location()
+	
+	if character.last_chase_tracking:
+		if tracking_counter < 30:
+			tracking_counter += 1
+		else:
+			tracking_counter == 1
+			set_movement_target()
 	
 	var target_position : Vector2 = navigation_agent.get_next_path_position()
 	var target_direction : Vector2 = character.global_position.direction_to(target_position)
@@ -105,10 +114,10 @@ func _on_next_transitions() -> void:
 		return
 
 func _on_enter() -> void:
-	set_speed()
 	set_movement_target()
 	location = character.global_position
 	counter = 1
+	tracking_counter = 1
 	animation_player.play("run")
 	sprite_2d.flip_h = false
 	seeking_zone.disabled = true

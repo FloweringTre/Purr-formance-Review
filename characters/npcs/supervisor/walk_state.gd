@@ -25,7 +25,6 @@ func character_setup() -> void:
 	set_movement_target()
 
 func set_movement_target() -> void:
-	set_speed()
 	if GlobalTrackingValues.sup_aval_pos.size() == 0 or !character.active:
 		character.velocity = Vector2.ZERO
 		transition.emit("idle")
@@ -51,6 +50,7 @@ func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
+	set_speed()
 	if !GlobalTrackingValues.game_paused:
 		if navigation_agent.is_navigation_finished():
 			set_movement_target()

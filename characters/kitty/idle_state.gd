@@ -22,6 +22,9 @@ func _on_action() -> void:
 	pass
 
 func _on_next_transitions() -> void:
+	if GlobalTrackingValues.game_paused:
+		return
+	
 	if !GlobalTrackingValues.game_over or !GlobalTrackingValues.game_paused:
 		GameInputEvents.movement_input()
 		
