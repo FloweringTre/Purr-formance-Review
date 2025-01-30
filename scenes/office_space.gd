@@ -22,12 +22,14 @@ var day_successful : bool
 @onready var diff_text_3: Label = $gameUI/helpPopUp/diffText3
 @onready var diff_text_4: Label = $gameUI/controlsPopUp/diffText4
 @onready var diff_text_5: Label = $gameUI/startingday1PopUp/diffText5
+@onready var diff_text_6: Label = $gameUI/startingDayPopUp/diffText6
 
 @onready var progress_percent: Label = $gameUI/topBar/taskList/progress/progressPercent
 @onready var score_title: Label = $gameUI/endLevelPopUp/textConditions/scoreTitle
 
 
 func _ready() -> void:
+	GlobalTrackingValues.game_over = false
 	MusicPlayer.set_track(GlobalTrackingValues.workday)
 	GlobalTrackingValues.game_won.connect(on_game_won)
 	GlobalTrackingValues.set_message.connect(set_message)
@@ -42,6 +44,7 @@ func _ready() -> void:
 	diff_text_3.text = difficulty_text
 	diff_text_4.text = difficulty_text
 	diff_text_5.text = difficulty_text
+	diff_text_6.text = difficulty_text
 	GlobalTrackingValues.set_up_position_arrays()
 	on_list_active(true)
 	set_work_day()
@@ -80,12 +83,13 @@ func _on_level_timer_timeout() -> void:
 	level_time_display.text = str(round(time_left))
 	level_timer.paused = true
 	title.text = "Oh no..."
-	about_text.text = "You didn't complete your kitty tasks today."
+	about_text.text = "You didn't complete your KKPIs today."
 	day_successful = false
 	if GlobalTrackingValues.difficulty_level != 3:
 		redo_button.visible = true
 		continue_button.visible = false
 	else:
+		about_text.text = "You didn't complete your KKPIs today. \n We are sorry, this is the end of your purr-formance review. You didn't get the position."
 		score_title.text = "Your final purr-formance rating"
 		redo_button.visible = false
 		continue_button.visible = false
@@ -101,14 +105,14 @@ func on_game_won() -> void:
 	level_timer.paused = true
 	
 	if GlobalTrackingValues.successful_day() && GlobalTrackingValues.workday != 4:
-		title.text = "Congrats"
-		about_text.text = "You have gotten through the workday without being caught by the supervisor!"
+		title.text = "Success!"
+		about_text.text = str("You completed all your KKPIs today! \n You have ", (4 - GlobalTrackingValues.workday), " days left in your\npurr-formance review.")
 		day_successful = true
 		redo_button.visible = false
 		continue_button.visible = true
 	elif GlobalTrackingValues.successful_day() && GlobalTrackingValues.workday == 4:
 		title.text = "Well done!"
-		about_text.text = "You have completed a full week with amazing KKPIs! You have been promoted to Cat-astrophe Manager! There is no stopping you!"
+		about_text.text = "You have completed the purr-formance review with amazing KKPIs! You have been promoted to Cat-astrophe Manager! There is no stopping you!"
 		score_title.text = "Your final purr-formance rating"
 		day_successful = true
 		redo_button.visible = false
@@ -122,21 +126,25 @@ func game_loss() -> void:
 	GlobalTrackingValues.kitty_caught_from_sup = false
 	end_level_pop_up.visible = true
 	title.text = "You've been caught!"
-	about_text.text = "Your office reign of terror has come to an end. :("
+	about_text.text = "This is an automatic failure of your KKPIs for the day."
 	score_count.text = GlobalTrackingValues.score_calculate(0)
 	if GlobalTrackingValues.difficulty_level != 3:
 		redo_button.visible = true
 		continue_button.visible = false
 	else:
+		about_text.text = "This is an automatic failure of your KKPIs for the day. \n We are sorry, this is the end of your purr-formance review. You didn't get the position."
 		score_title.text = "Your final purr-formance rating"
 		redo_button.visible = false
 		continue_button.visible = false
 
 func _on_new_game_button_pressed() -> void:
 	GlobalTrackingValues.game_reset()
-	TransitionFade.transition()
+	TransitionFade.text_transition("In an office\nsomewhere...")
 	await TransitionFade.transition_finished
-	get_tree().reload_current_scene()
+	if !GlobalTrackingValues.play_cutscenes:
+		get_tree().reload_current_scene()
+	else:
+		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 
 func _on_exit_button_pressed() -> void:
 	GlobalTrackingValues.game_reset()
@@ -242,13 +250,16 @@ func _on_wait_timer_timeout() -> void:
 
 func _on_continue_game_button_pressed() -> void:
 	GlobalTrackingValues.day_reset(day_successful)
-	TransitionFade.transition()
+	if day_successful:
+		TransitionFade.text_transition("The next day...")
+	else:
+		TransitionFade.transition()
 	await TransitionFade.transition_finished
-	get_tree().reload_current_scene()
-	#if !GlobalTrackingValues.play_cutscenes:
-		#get_tree().reload_current_scene()
-	#else:
-		#get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
+	#get_tree().reload_current_scene()
+	if !GlobalTrackingValues.play_cutscenes:
+		get_tree().reload_current_scene()
+	else:
+		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 
 func _on_help_back_button_button_pressed() -> void:
 	$gameUI/helpPopUp/Node2D/AnimationPlayer.stop()
@@ -269,16 +280,42 @@ func _on_volume_button_button_pressed() -> void:
 
 
 func day_start_message(workday : int) -> void:
-	if workday == 0:
-		level_timer.paused = true
-		$gameUI/startingday1PopUp.visible = true
-		$gameUI/startingday1PopUp/Node2D/AnimationPlayer.play("glow")
-		GlobalTrackingValues.game_paused = true
-	else:
-		pass
+	match workday:
+		0:
+			level_timer.paused = true
+			$gameUI/startingday1PopUp.visible = true
+			$gameUI/startingday1PopUp/Node2D/AnimationPlayer.play("glow")
+			GlobalTrackingValues.game_paused = true
+		1:
+			level_timer.paused = true
+			$gameUI/startingDayPopUp.visible = true
+			GlobalTrackingValues.game_paused = true
+		2:
+			level_timer.paused = true
+			$gameUI/startingDayPopUp.visible = true
+			GlobalTrackingValues.game_paused = true
+			$gameUI/startingDayPopUp/VBoxContainer/sink.visible = true
+		3:
+			level_timer.paused = true
+			$gameUI/startingDayPopUp.visible = true
+			GlobalTrackingValues.game_paused = true
+			$gameUI/startingDayPopUp/VBoxContainer/sink.visible = true
+			$gameUI/startingDayPopUp/VBoxContainer/donuts.visible = true
+		4:
+			level_timer.paused = true
+			$gameUI/startingDayPopUp.visible = true
+			GlobalTrackingValues.game_paused = true
+			$gameUI/startingDayPopUp/VBoxContainer/sink.visible = true
+			$gameUI/startingDayPopUp/VBoxContainer/donuts.visible = true
 
 func _on_start_back_button_button_pressed() -> void:
 	level_timer.paused = false
 	$gameUI/startingday1PopUp.visible = false
 	$gameUI/startingday1PopUp/Node2D/AnimationPlayer.stop()
+	GlobalTrackingValues.game_paused = false
+
+
+func _on_startingday_back_button_button_pressed() -> void:
+	level_timer.paused = false
+	$gameUI/startingDayPopUp.visible = false
 	GlobalTrackingValues.game_paused = false
