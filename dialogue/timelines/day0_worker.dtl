@@ -1,0 +1,5 @@
+big_boss: ... All of this is to say, we are very proud of you Bob.
+supervisor: Thank you, I have been trying my best to keep Office Corp clean and busy.
+big_boss: Good, keep it that way. I want to see a perfectly tidy and organized office on Friday for my visit.
+[signal arg="end"]
+[end_timeline]

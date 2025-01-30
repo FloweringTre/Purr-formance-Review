@@ -1,7 +1,5 @@
-[style name="textbubble_style"]
-join cat_boss center
+[signal arg="kitty_ring"]
 cat_boss: ring ring....
-join kitty center
 kitty: zzzzz.....
 cat_boss: RING RING!!!
 [signal arg="kitty_awake"]
@@ -32,6 +30,5 @@ cat_boss: You have one week to prove to us you can be the Cat-astrophe Manager.
 cat_boss: We will send you daily Kitty Key Purr-formance Indicators for you to hit each day.
 [signal arg="meow"]
 kitty: I will complete my KKPIs each day! You will be proud with my office cat-astrophes!
-cat_boss: I am sure we will. Your purr-formance review starts now!
-[signal arg="end"]
+do GlobalTrackingValues.next_dialogue("worker", "day0_worker")
 [end_timeline]

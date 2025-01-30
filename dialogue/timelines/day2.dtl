@@ -1,0 +1,13 @@
+[signal arg="kitty_ring"]
+cat_boss: ~ Ring ~ Ring ~
+[signal arg="meow"]
+[signal arg="kitty_awake"]
+kitty: Hello!
+cat_boss: I heard about the printer yesterday...
+[signal arg="meow"]
+kitty: Yes, it was a office cat-astrophe!
+cat_boss: Your purr-formance review rating is looking really good.
+cat_boss: Today is Wednesday.... don't let the hump be a roadbump in your progress!
+[signal arg="meow"]
+kitty: It won't! I will become the best Cat-astrophe Manager in the nation!
+[signal arg="end"]

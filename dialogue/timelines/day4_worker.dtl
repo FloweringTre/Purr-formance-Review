@@ -1,0 +1,9 @@
+[signal arg="big_boss_human"]
+big_boss_human: This office is a DISASTER BOB!
+supervisor: I promise I stay late every night to clean up.
+big_boss_human: But you allow it to become dirty under your watch!
+big_boss_human: No, ~REAL~ Assistant to the Manager would ever allow this at Office Corp!
+supervisor: I promise I am trying my best.
+big_boss_human: Then I will fix this myself.
+do GlobalTrackingValues.next_dialogue("cat", "day4_cat")
+[end_timeline]

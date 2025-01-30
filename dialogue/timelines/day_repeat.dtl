@@ -1,0 +1,21 @@
+[signal arg="kitty_ring"]
+cat_boss: Ring Ring!!
+[signal arg="kitty_awake"]
+[signal arg="meow"]
+kitty: hello??
+cat_boss: We got reports that you didn't hit your goals "yesterday".
+- Yes, it won't happen again.
+	[signal arg="meow"]
+	kitty: I promise, I want this promotion.
+	cat_boss: Good, I want to see you in that Cat-astrophe Manager position.
+- "Yesterday?"
+	[signal arg="meow"]
+	kitty: Why do you say it like that?
+	cat_boss: Well you are lucky the lab rats we got figured out time warps.
+	[signal arg="meow"]
+	kitty: Ahh... for the second breafasts....
+	cat_boss: Yes... it was a great scientific break through for Cat-kind.
+	cat_boss: We have reset the day for you. Don't make it a habit!
+	[signal arg="meow"]
+	kitty: You got it boss, I will do better this time!
+[signal arg="end"]

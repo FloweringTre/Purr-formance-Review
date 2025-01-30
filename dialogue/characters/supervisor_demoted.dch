@@ -2,15 +2,15 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 "_translation_id": "",
-"color": Color(0.855469, 0.433321, 0.153717, 1),
+"color": Color(0.568627, 0.901961, 0.415686, 1),
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "cat_textbubble"
+"style": "worker_textbubble"
 },
 "default_portrait": "",
 "description": "",
-"display_name": "Kitty - Jr Catuary",
+"display_name": "Bob - Office Intern",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

@@ -1,0 +1,17 @@
+[signal arg="sup_ring"]
+big_boss: RING RING!!!!!
+[signal arg="sup_answer"]
+supervisor: ... hello ? ...
+big_boss: SINKS OVERFLOWING????
+big_boss: BOB WHAT IS HAPPENING OVER THERE?
+supervisor: We got it mopped up... it is all clean now...
+big_boss: Are you joking right now?
+big_boss: Wet floors are no joke, Bob.
+big_boss: MOLD FROM DAMPNESS IS NO JOKE BOB!
+supervisor: Yes, it is no joke. It has been cleaned up.
+big_boss: Your promotion is on the line, Bob.
+big_boss: I was coming over tomorrow to give you that promotion to Assistant to the Manager of this branch of Office Corp.
+big_boss: Clean up your act and YOUR OFFICE.
+big_boss: * CLICK *
+supervisor: I really got to get that cat....
+[signal arg="end"]

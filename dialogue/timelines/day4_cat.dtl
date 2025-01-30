@@ -1,0 +1,6 @@
+cat_boss: Today is the last day of your purr-formance review!
+[signal arg="meow"]
+kitty: I am ready for it. I have been causing meow-hem each day.
+cat_boss: Your work has been noticed more than a laser pointer here at Distrobution HQ.
+cat_boss: Show us that you can finish strong, and that promotion is yours.
+[signal arg="end"]

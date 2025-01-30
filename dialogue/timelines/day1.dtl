@@ -1,0 +1,14 @@
+[signal arg="sup_ring"]
+big_boss: RING! RING!
+[signal arg="sup_answer"]
+supervisor: Hello?
+big_boss: Why am I getting reports of a messy office?
+supervisor: It was a one time thing, there was this cat...
+big_boss: It better be a 'WAS'!
+big_boss: Get your office together. Office Corp is known for clean and tidy.
+big_boss: KEEP IT THAT WAY!
+big_boss: * click *
+supervisor: . . .
+supervisor: I can't let that cat destroy all that I worked for.
+supervisor: This ends today.
+[signal arg="end"]
