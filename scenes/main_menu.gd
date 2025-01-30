@@ -28,7 +28,7 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_new_game_button_pressed() -> void:
-	TransitionFade.transition()
+	TransitionFade.text_transition("In an office\nsomewhere...")
 	await TransitionFade.transition_finished
 	if !GlobalTrackingValues.play_cutscenes:
 		get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")

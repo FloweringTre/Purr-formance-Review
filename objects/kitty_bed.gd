@@ -19,6 +19,9 @@ func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_inde
 	kitty_can_sleep = true
 	GlobalTrackingValues.bed_location = $pillows2/Sprite2D3.global_position
 
+func no_glow() -> void:
+	$AnimationPlayer.play("RESET")
+	$arrow.visible = false
 
 func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	#print("kitty out of the bed")

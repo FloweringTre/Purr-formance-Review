@@ -29,15 +29,26 @@ TransitionFade="*res://components/transition_fade.tscn"
 
 directories/dch_directory={
 "big_boss": "res://dialogue/characters/big_boss.dch",
+"big_boss_human": "res://dialogue/characters/big_boss_human.dch",
 "cat_boss": "res://dialogue/characters/cat_boss.dch",
 "kitty": "res://dialogue/characters/kitty.dch",
-"supervisor": "res://dialogue/characters/supervisor.dch"
+"kitty_promoted": "res://dialogue/characters/kitty_promoted.dch",
+"supervisor": "res://dialogue/characters/supervisor.dch",
+"supervisor_demoted": "res://dialogue/characters/supervisor_demoted.dch",
+"supervisor_promoted": "res://dialogue/characters/supervisor_promoted.dch"
 }
 directories/dtl_directory={
-"day1_cat": "res://dialogue/timelines/day1_cat.dtl"
+"day0_cat": "res://dialogue/timelines/day0_cat.dtl",
+"day0_worker": "res://dialogue/timelines/day0_worker.dtl",
+"day1": "res://dialogue/timelines/day1.dtl",
+"day2": "res://dialogue/timelines/day2.dtl",
+"day3": "res://dialogue/timelines/day3.dtl",
+"day4_cat": "res://dialogue/timelines/day4_cat.dtl",
+"day4_worker": "res://dialogue/timelines/day4_worker.dtl",
+"day_repeat": "res://dialogue/timelines/day_repeat.dtl"
 }
-layout/style_list=["res://dialogue/textbubble_style.tres"]
-layout/default_style=""
+layout/style_list=["res://dialogue/cat_textbubble.tres", "res://dialogue/worker_textbubble.tres"]
+layout/default_style="res://dialogue/cat_textbubble.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
