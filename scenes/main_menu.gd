@@ -4,7 +4,7 @@ extends Control
 @onready var diff_level: Label = $VBoxContainer/difficultyContainer/diffLevel
 @onready var diff_about: Label = $VBoxContainer/difficultyContainer/diffAbout
 @onready var difficulty_slider: HSlider = $VBoxContainer/difficultyContainer/difficultySlider
-@onready var exit_button: Panel = $VBoxContainer/buttonsContainer/exitButton
+@onready var exit_button: Panel = $buttonsContainer/exitButton
 
 @export var for_web : bool
 
@@ -79,3 +79,11 @@ func _on_difficulty_slider_value_changed(value: float) -> void:
 	GlobalTrackingValues.difficulty_level = value
 	diff_level.text = GlobalTrackingValues.diffLevels[value]
 	diff_about.text = GlobalTrackingValues.aboutLevels[value]
+
+
+func _on_credits_back_button_button_pressed() -> void:
+	$creditsPopUp.visible = false
+
+
+func _on_credits_button_button_pressed() -> void:
+	$creditsPopUp.visible = true
