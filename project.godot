@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Purr-formance Review"
-config/description="Kitty is destined for OFFICE DOMINATION"
-config/version="0.14"
+config/description="Kitty is seeking a promotion to Cat-astrophe Manager. Destroy the office and cause mayhem!"
+config/version="1.0"
 run/main_scene="res://scenes/mainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/ui/boot_screen.png"
