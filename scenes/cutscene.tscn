@@ -1,14 +1,16 @@
-[gd_scene load_steps=37 format=4 uid="uid://emmqlss7ns1d"]
+[gd_scene load_steps=47 format=4 uid="uid://emmqlss7ns1d"]
 
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://assets/tilesets/rooms_tile_set.tres" id="1_0gieh"]
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_xi4ld"]
 [ext_resource type="TileSet" uid="uid://bj20fap8d0cqh" path="res://assets/tilesets/new_tile_set.tres" id="2_4cr8t"]
+[ext_resource type="Texture2D" uid="uid://cdl8ty74j8hnn" path="res://assets/1_assets_from_others/moderninteriors-win/emotes.png" id="7_0myte"]
 [ext_resource type="PackedScene" uid="uid://noryh17qpt8k" path="res://objects/safe.tscn" id="7_firgy"]
 [ext_resource type="PackedScene" uid="uid://cdnpc6ir2yisu" path="res://objects/kittyBed.tscn" id="8_c5kci"]
 [ext_resource type="Texture2D" uid="uid://d4mwlh0483hi5" path="res://assets/1_assets_from_others/characters/sup_4.png" id="8_y1jj1"]
 [ext_resource type="Texture2D" uid="uid://t28f1sckb0a2" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/Theme_Sorter_Black_Shadow/12_Kitchen_Black_Shadow_16x16.png" id="11_85c36"]
 [ext_resource type="Texture2D" uid="uid://dvbav4thm8opf" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/Modern_Office_16x16.png" id="11_ugya6"]
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="12_odjff"]
+[ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://components/buttonSMOL2_blue.tscn" id="13_djn3q"]
 [ext_resource type="Texture2D" uid="uid://cgbisan7qv4ky" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/Theme_Sorter_Black_Shadow/11_Halloween_Black_Shadow_16x16.png" id="13_qbytx"]
 [ext_resource type="Texture2D" uid="uid://bboy0qe34n6f3" path="res://assets/1_assets_from_others/characters/sup_1.png" id="14_8sbsk"]
 [ext_resource type="Texture2D" uid="uid://b7qkepebots0r" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/7_Modern_Office_Previous_Version/Modern_Office_old/Office_interiors_16x16.png" id="15_ewuem"]
@@ -76,6 +78,287 @@ _data = {
 "RESET": SubResource("Animation_r6yei"),
 "idle": SubResource("Animation_yqrg0"),
 "sleep": SubResource("Animation_uu13n")
+}
+
+[sub_resource type="Animation" id="Animation_04bpk"]
+resource_name = "soft_bounce"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../kitty/kittySprite/kittyemote:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("supSprite/supemote:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("supSprite/supemote:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../kitty/kittySprite/kittyemote:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xfmva"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../kitty/kittySprite/kittyemote:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("supSprite/supemote:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../kitty/kittySprite/kittyemote:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("supSprite/supemote:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n1pta"]
+resource_name = "on"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../kitty/kittySprite/kittyemote:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("supSprite/supemote:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b4n0j"]
+resource_name = "off"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../kitty/kittySprite/kittyemote:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("supSprite/supemote:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6tfwv"]
+_data = {
+"RESET": SubResource("Animation_xfmva"),
+"off": SubResource("Animation_b4n0j"),
+"on": SubResource("Animation_n1pta"),
+"soft_bounce": SubResource("Animation_04bpk")
+}
+
+[sub_resource type="Animation" id="Animation_b8qs2"]
+resource_name = "soft_bounce"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("supemote2:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("supemote2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [27]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("supemote2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5gnc5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("supemote2:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("supemote2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [27]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("supemote2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jg18a"]
+_data = {
+"RESET": SubResource("Animation_5gnc5"),
+"soft_bounce": SubResource("Animation_b8qs2")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_woxck"]
@@ -275,9 +558,23 @@ vframes = 10
 [node name="Marker2D2" type="Marker2D" parent="kitty/kittySprite"]
 position = Vector2(-8, -9)
 
+[node name="kittyemote" type="Sprite2D" parent="kitty/kittySprite"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(5, -19)
+texture = ExtResource("7_0myte")
+hframes = 14
+vframes = 2
+frame = 2
+
 [node name="kittyAnimationPlayer" type="AnimationPlayer" parent="kitty"]
 libraries = {
 "": SubResource("AnimationLibrary_mv43h")
+}
+
+[node name="emoteAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../sup")
+libraries = {
+"": SubResource("AnimationLibrary_6tfwv")
 }
 
 [node name="sup" type="Node2D" parent="."]
@@ -295,6 +592,13 @@ frame = 74
 [node name="Marker2D" type="Marker2D" parent="sup/supSprite"]
 position = Vector2(-7, 1.00001)
 
+[node name="supemote" type="Sprite2D" parent="sup/supSprite"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(12, -11)
+texture = ExtResource("7_0myte")
+hframes = 14
+vframes = 2
+
 [node name="ceoSprite" type="Sprite2D" parent="sup"]
 visible = false
 y_sort_enabled = true
@@ -306,6 +610,19 @@ frame = 74
 
 [node name="Marker2D" type="Marker2D" parent="sup/ceoSprite"]
 position = Vector2(-7, 1.00001)
+
+[node name="supemote2" type="Sprite2D" parent="sup/ceoSprite"]
+visible = false
+position = Vector2(11, -9)
+texture = ExtResource("7_0myte")
+hframes = 14
+vframes = 2
+frame = 27
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sup/ceoSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_jg18a")
+}
 
 [node name="Node2D" type="Node2D" parent="sup"]
 
@@ -376,5 +693,25 @@ position = Vector2(643, 69)
 position = Vector2(643, 69)
 zoom = Vector2(10, 10)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="skipButton" parent="CanvasLayer" instance=ExtResource("13_djn3q")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -107.0
+offset_right = -177.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+button_text = "Skip"
+
 [node name="meowAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_sqpou")
+
+[connection signal="animation_finished" from="emoteAnimationPlayer" to="." method="_on_emote_animation_player_animation_finished"]
+[connection signal="button_pressed" from="CanvasLayer/skipButton" to="." method="_on_skip_button_button_pressed"]

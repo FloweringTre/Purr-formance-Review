@@ -4,31 +4,43 @@ kitty: zzzzz.....
 cat_boss: RING RING!!!
 [signal arg="kitty_awake"]
 [signal arg="meow"]
+[signal arg="question"]
 kitty: Hello?
 cat_boss: Hello, hello?
 [signal arg="meow"]
+[signal arg="no emote"]
 kitty: I'm here boss!
 cat_boss: Lovely! Are you hard at work Jr Catuary, Kitty?
 - Yes, Sir!
 	[signal arg="meow"]
+	[signal arg="emote"]
+	[signal arg="happy"]
 	kitty: I have crunched 17 papers with this nap!
 	cat_boss: Good! You are our best Catuary in this district!
 - Errr... Not really...
 	[signal arg="meow"]
+	[signal arg="emote"]
+	[signal arg="nervous"]
 	kitty: I have been napping today.
 	cat_boss: Well, it is okay to take a break, you are our best Catuary in this district after all!
+[signal arg="no emote"]
 cat_boss: I am calling because a new position of Cat-astrophe Manager has opened up.... are you interested?
 - ABSOLUTELY!
 	[signal arg="meow"]
+	[signal arg="emote"]
+	[signal arg="happy"]
 	kitty: I want a promotion so badly!
 	cat_boss: We are happy for your enthusiasm!
 - I would be honored.
 	[signal arg="meow"]
+	[signal arg="emote"]
+	[signal arg="happy"]
 	kitty: I have made a lot of biscuits for the company and am glad my work is recognized.
 	cat_boss: Your biscuits have been top notch!
 cat_boss: You have one week to prove to us you can be the Cat-astrophe Manager.
 cat_boss: We will send you daily Kitty Key Purr-formance Indicators for you to hit each day.
 [signal arg="meow"]
 kitty: I will complete my KKPIs each day! You will be proud with my office cat-astrophes!
+[signal arg="no emote"]
 do GlobalTrackingValues.next_dialogue("worker", "day0_worker")
 [end_timeline]

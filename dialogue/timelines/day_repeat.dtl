@@ -2,7 +2,9 @@
 cat_boss: Ring Ring!!
 [signal arg="kitty_awake"]
 [signal arg="meow"]
+[signal arg="question"]
 kitty: hello??
+[signal arg="sad"]
 cat_boss: We got reports that you didn't hit your goals "yesterday".
 - Yes, it won't happen again.
 	[signal arg="meow"]
@@ -10,10 +12,13 @@ cat_boss: We got reports that you didn't hit your goals "yesterday".
 	cat_boss: Good, I want to see you in that Cat-astrophe Manager position.
 - "Yesterday?"
 	[signal arg="meow"]
+	[signal arg="question"]
 	kitty: Why do you say it like that?
 	cat_boss: Well you are lucky the lab rats we got figured out time warps.
 	[signal arg="meow"]
+	[signal arg="happy"]
 	kitty: Ahh... for the second breafasts....
+	[signal arg="no emote"]
 	cat_boss: Yes... it was a great scientific break through for Cat-kind.
 	cat_boss: We have reset the day for you. Don't make it a habit!
 	[signal arg="meow"]

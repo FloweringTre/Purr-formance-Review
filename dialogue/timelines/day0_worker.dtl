@@ -1,5 +1,15 @@
-big_boss: ... All of this is to say, we are very proud of you Bob.
+big_boss: Your branch has never been cleaner. Everything tidy and of course productive.
+big_boss: All in all, we are very proud of you Bob.
+[signal arg="emote"]
+[signal arg="happy"]
 supervisor: Thank you, I have been trying my best to keep Office Corp clean and busy.
+big_boss: Busy offices at Office Corps are where promotions live.
+supervisor: I understand, I keep my branch as best as it can be. All the workers are productive and tidy!
+[signal arg="!"]
 big_boss: Good, keep it that way. I want to see a perfectly tidy and organized office on Friday for my visit.
+[signal arg="question"]
+supervisor: You're coming on Friday?!
+[signal arg="!"]
+big_boss: I only give out ~promotions~ in person Bob. Keep up the good work.
 [signal arg="end"]
 [end_timeline]

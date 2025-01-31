@@ -1,6 +1,10 @@
 extends Node2D
 @onready var kitty_animation_player: AnimationPlayer = $kitty/kittyAnimationPlayer
 @onready var phone_animation_player: AnimationPlayer = $phones/phoneAnimationPlayer
+@onready var emote_animation_player: AnimationPlayer = $emoteAnimationPlayer
+@onready var kittyemote: Sprite2D = $kitty/kittySprite/kittyemote
+@onready var supemote: Sprite2D = $sup/supSprite/supemote
+
 
 @onready var kitty_cam_marker: Marker2D = $camera/kittyMarker
 @onready var sup_cam_marker: Marker2D = $camera/supMarker
@@ -15,30 +19,32 @@ extends Node2D
 
 func _ready() -> void:
 	$objects/KittyBed.no_glow()
+	emote_animation_player.play("RESET")
 	$meowAudioPlayer.volume_db = GlobalTrackingValues.sound_effect_volume
 	Dialogic.signal_event.connect(on_dialogic_signal)
 	GlobalTrackingValues.cat_dialogue.connect(run_cat_dialogue)
 	GlobalTrackingValues.worker_dialogue.connect(run_worker_dialogue)
 	
+	GlobalTrackingValues.workday = 4
+	#GlobalTrackingValues.repeated_day = true
+	
+	MusicPlayer.set_track(GlobalTrackingValues.workday)
+	
 	if GlobalTrackingValues.repeated_day:
 		run_cat_dialogue("day_repeat")
-		MusicPlayer.main_menu_music()
+	
 	else:
 		match GlobalTrackingValues.workday:
 			0:
 				run_cat_dialogue("day0_cat")
 			1:
 				run_worker_dialogue("day1")
-				MusicPlayer.main_menu_music()
 			2:
 				run_cat_dialogue("day2")
-				MusicPlayer.main_menu_music()
 			3:
 				run_worker_dialogue("day3")
-				MusicPlayer.main_menu_music()
 			4:
 				run_worker_dialogue("day4_worker")
-				MusicPlayer.main_menu_music()
 				
 
 func run_cat_dialogue(dialogueString) -> void:
@@ -68,6 +74,8 @@ func on_dialogic_signal(argument : String):
 	
 	if argument == "kitty_ring":
 		kitty_animation_player.play("sleep")
+		emote_animation_player.play("soft_bounce")
+		kittyemote.frame = 7
 		phone_animation_player.play("kitty_ring")
 	
 	if argument == "kitty_awake":
@@ -79,9 +87,54 @@ func on_dialogic_signal(argument : String):
 		phone_animation_player.play("RESET")
 	
 	if argument == "big_boss_human":
-		$sup/ceoSprite.visible = true
+		$sup/ceoSprite/AnimationPlayer.play("soft_bounce")
 	
 	if argument == "end":
 		TransitionFade.transition()
 		await TransitionFade.transition_finished
 		get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
+	
+	if argument == "mad":
+		supemote.frame = 27
+	
+	if argument == "nervous":
+		supemote.frame = 25
+		kittyemote.frame = 25
+	
+	if argument == "happy":
+		supemote.frame = 2
+		kittyemote.frame = 2
+	
+	if argument == "sad":
+		supemote.frame = 3
+		kittyemote.frame = 3
+	
+	if argument == "question":
+		supemote.frame = 4
+		kittyemote.frame = 4
+	
+	if argument == "!":
+		supemote.frame = 5
+		kittyemote.frame = 5
+	
+	if argument == "no emote":
+		emote_animation_player.play("off")
+	
+	if argument == "emote":
+		emote_animation_player.play("on")
+	
+	if argument == "soft_bounce":
+		emote_animation_player.play("soft_bounce")
+
+func _on_skip_button_button_pressed() -> void:
+	Dialogic.end_timeline()
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
+	get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
+
+
+func _on_emote_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "on":
+		emote_animation_player.play("soft_bounce")
+	else:
+		pass

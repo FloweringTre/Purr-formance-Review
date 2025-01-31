@@ -1,14 +1,23 @@
 [signal arg="sup_ring"]
-big_boss: RING! RING!
+big_boss: Ring! Ring!
 [signal arg="sup_answer"]
+[signal arg="emote"]
+[signal arg="question"]
 supervisor: Hello?
-big_boss: Why am I getting reports of a messy office?
-supervisor: It was a one time thing, there was this cat...
-big_boss: It better be a 'WAS'!
+[signal arg="!"]
+big_boss: Why am I getting reports of a messy office yesterday?
+[signal arg="nervous"]
+supervisor: It was a one time thing.
+supervisor: You see...  there was this cat...
+[signal arg="!"]
+big_boss: Cats have no place in the office! That cat better be gone!
 big_boss: Get your office together. Office Corp is known for clean and tidy.
+[signal arg="sad"]
 big_boss: KEEP IT THAT WAY!
+[signal arg="no emote"]
 big_boss: * click *
 supervisor: . . .
+[signal arg="emote"]
+[signal arg="mad"]
 supervisor: I can't let that cat destroy all that I worked for.
-supervisor: This ends today.
 [signal arg="end"]
