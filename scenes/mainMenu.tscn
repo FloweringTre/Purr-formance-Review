@@ -814,7 +814,6 @@ toggle_mode = true
 text = "Skip Cutscenes"
 
 [node name="buttonsContainer" type="HBoxContainer" parent="."]
-z_index = 3
 layout_mode = 2
 offset_top = 130.0
 offset_right = 427.0
