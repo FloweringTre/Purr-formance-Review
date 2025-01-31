@@ -572,7 +572,7 @@ layout_mode = 2
 horizontal_alignment = 1
 
 [node name="difficultySlider" type="HSlider" parent="VBoxContainer/difficultyContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_icons/grabber = SubResource("AtlasTexture_03528")
@@ -593,7 +593,7 @@ layout_mode = 2
 theme_override_constants/separation = -3
 
 [node name="goal" type="Label" parent="VBoxContainer/goalContainer"]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.874395, 0.682565, 0.851918, 1)
 theme_override_constants/line_spacing = -6
@@ -1573,7 +1573,7 @@ texture = ExtResource("4_1sw5p")
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/helpButton" to="." method="_on_help_button_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/goalsButton" to="." method="_on_goals_button_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/buttonsContainer/volumeButton" to="." method="_on_volume_button_button_pressed"]
-[connection signal="drag_ended" from="VBoxContainer/difficultyContainer/difficultySlider" to="." method="_on_difficulty_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/difficultyContainer/difficultySlider" to="." method="_on_difficulty_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/cutsceneContainer/CheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="VBoxContainer/cutsceneContainer/cutsceneButton" to="." method="_on_cutscene_button_pressed"]
 [connection signal="timeout" from="splashTimer" to="." method="_on_timer_timeout"]

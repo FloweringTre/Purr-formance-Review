@@ -73,3 +73,9 @@ func _on_cutscene_button_pressed() -> void:
 	else:
 		GlobalTrackingValues.play_cutscenes = true
 		$VBoxContainer/cutsceneContainer/CheckBox.button_pressed = false
+
+
+func _on_difficulty_slider_value_changed(value: float) -> void:
+	GlobalTrackingValues.difficulty_level = value
+	diff_level.text = GlobalTrackingValues.diffLevels[value]
+	diff_about.text = GlobalTrackingValues.aboutLevels[value]
