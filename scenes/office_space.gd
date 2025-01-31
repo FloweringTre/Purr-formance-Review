@@ -30,7 +30,8 @@ var day_successful : bool
 
 func _ready() -> void:
 	GlobalTrackingValues.game_over = false
-	MusicPlayer.set_track(GlobalTrackingValues.workday)
+	if !GlobalTrackingValues.play_cutscenes:
+		MusicPlayer.set_track(GlobalTrackingValues.workday)
 	GlobalTrackingValues.game_won.connect(on_game_won)
 	GlobalTrackingValues.set_message.connect(set_message)
 	GlobalTrackingValues.list_active.connect(on_list_active)
