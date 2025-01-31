@@ -49,13 +49,13 @@ func setup_worker() -> void:
 	match GlobalTrackingValues.difficulty_level:
 		0: # easy
 			if is_fixer_worker:
-				idle_time = randi_range(25, 45)
+				idle_time = randi_range(20, 30)
 			else:
 				idle_time = randi_range(40, 50)
 			walk_speed = randi_range(15, 20)
 		1: #medium
 			if is_fixer_worker:
-				idle_time = randi_range(10, 30)
+				idle_time = randi_range(15, 30)
 			else:
 				idle_time = randi_range(30, 50)
 			walk_speed = randi_range(15, 25)
@@ -64,10 +64,10 @@ func setup_worker() -> void:
 				idle_time = randi_range(15, 25)
 			else:
 				idle_time = randi_range(30, 40)
-			walk_speed = randi_range(15, 30)
+			walk_speed = randi_range(15, 25)
 		3: #impossible
 			if is_fixer_worker:
-				idle_time = randi_range(10, 15)
+				idle_time = randi_range(15, 25)
 			else:
 				idle_time = randi_range(20, 30)
-			walk_speed = randi_range(20, 30)
+			walk_speed = randi_range(15, 30)

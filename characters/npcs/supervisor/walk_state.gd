@@ -167,11 +167,11 @@ func set_speed() -> void:
 		0:
 			speed = 15 + (percent * 15)
 		1:
-			speed = 20 + (percent * 15)
+			speed = 15 + (percent * 15)
 		2:
-			speed = 20 + (percent * 20)
+			speed = 15 + (percent * 20)
 		3:
-			speed = 20 + (percent * 25)
+			speed = 20 + (percent * 20)
 	#print("sup speed: ", speed)
 	#print("sup percent: ", percent)
 	#print("reported levels: ", reported_level )
