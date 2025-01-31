@@ -25,7 +25,7 @@ func _ready() -> void:
 	GlobalTrackingValues.cat_dialogue.connect(run_cat_dialogue)
 	GlobalTrackingValues.worker_dialogue.connect(run_worker_dialogue)
 	
-	GlobalTrackingValues.workday = 4
+	#GlobalTrackingValues.workday = 4
 	#GlobalTrackingValues.repeated_day = true
 	
 	MusicPlayer.set_track(GlobalTrackingValues.workday)

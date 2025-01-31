@@ -24,17 +24,6 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	$AnimationPlayer.play("fade")
 
-func _on_exit_button_pressed() -> void:
-	get_tree().quit()
-
-func _on_new_game_button_pressed() -> void:
-	TransitionFade.text_transition("In an office\nsomewhere...")
-	await TransitionFade.transition_finished
-	if !GlobalTrackingValues.play_cutscenes:
-		get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
-	else:
-		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
-
 func _on_difficulty_slider_drag_ended(value_changed: bool) -> void:
 	var value = difficulty_slider.value
 	GlobalTrackingValues.difficulty_level = value
@@ -87,3 +76,15 @@ func _on_credits_back_button_button_pressed() -> void:
 
 func _on_credits_button_button_pressed() -> void:
 	$creditsPopUp.visible = true
+
+
+func _on_new_game_button_button_pressed() -> void:
+	TransitionFade.text_transition("In an office\nsomewhere...")
+	await TransitionFade.transition_finished
+	if !GlobalTrackingValues.play_cutscenes:
+		get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
+
+func _on_exit_button_button_pressed() -> void:
+	get_tree().quit()
