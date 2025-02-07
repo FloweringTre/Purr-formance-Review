@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://clxftkhcliti8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4034"]
+
+[resource]
+Label/font_sizes/font_size = 32
+SpinBox/icons/updown = SubResource("AtlasTexture_w4034")
