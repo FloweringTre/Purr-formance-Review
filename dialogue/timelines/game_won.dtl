@@ -1,0 +1,20 @@
+cat_boss: Wonderful job Kitty!
+[signal arg="emote"]
+[signal arg="happy"]
+[signal arg="meow"]
+kitty: Thank you boss!
+cat_boss: Safe to say you earned that promotion!
+[signal arg="meow"]
+[signal arg="excited"]
+kitty_promoted: It is such an honor!
+[signal arg="no emote"]
+cat_boss: Office Corp has been a hard location to get good cats in.
+cat_boss: We are so proud of you, Kitty.
+[signal arg="emote"]
+[signal arg="happy"]
+cat_boss: You have blown us away with your work at Office Corp.
+cat_boss: We may have different assignments for you soon...
+cat_boss: Your cat-astrophe skills are a-meow-zing!
+[signal arg="meow"]
+kitty_promoted: I am purr-fectly happy to cause cat-astrophes where ever is needed!
+do GlobalTrackingValues.next_dialogue("worker", "game_won_2")

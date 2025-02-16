@@ -16,8 +16,11 @@ extends Node2D
 @onready var sup_marker: Marker2D = $sup/supSprite/Marker2D
 @onready var ceo_marker: Marker2D = $sup/ceoSprite/Marker2D
 
+@onready var score_count: Label = $CanvasLayer/endLevelPopUp/textConditions/scoreCount
+
 
 func _ready() -> void:
+	$CanvasLayer/endLevelPopUp/diffText.text = str("Difficulty: ", GlobalTrackingValues.diffLevels[GlobalTrackingValues.difficulty_level])
 	$objects/KittyBed.no_glow()
 	emote_animation_player.play("RESET")
 	$meowAudioPlayer.volume_db = GlobalTrackingValues.sound_effect_volume
@@ -29,6 +32,11 @@ func _ready() -> void:
 	#GlobalTrackingValues.repeated_day = true
 	
 	MusicPlayer.set_track(GlobalTrackingValues.workday)
+	
+	if GlobalTrackingValues.promotion_achieved:
+		MusicPlayer.set_track(5)
+		camera_2d.position = kitty_cam_marker.position
+		run_cat_dialogue("game_won")
 	
 	if GlobalTrackingValues.repeated_day:
 		run_cat_dialogue("day_repeat")
@@ -53,6 +61,7 @@ func run_cat_dialogue(dialogueString) -> void:
 	var layout = Dialogic.Styles.load_style("cat_textbubble")
 	layout.register_character(load("res://dialogue/characters/cat_boss.dch"), kitty_phone_marker)
 	layout.register_character(load("res://dialogue/characters/kitty.dch"), kitty_marker)
+	layout.register_character(load("res://dialogue/characters/kitty_promoted.dch"), kitty_marker)
 	Dialogic.start(dialogueString)
 	print("running kitty dialogue: ", dialogueString)
 
@@ -60,6 +69,7 @@ func run_worker_dialogue(dialogueString) -> void:
 	#Dialogic.start(dialogueString)
 	camera_2d.position = sup_cam_marker.position
 	var worker_layout = Dialogic.Styles.load_style("cat_textbubble")
+	worker_layout.register_character(load("res://dialogue/characters/supervisor_demoted.dch"), sup_marker)
 	worker_layout.register_character(load("res://dialogue/characters/supervisor.dch"), sup_marker)
 	worker_layout.register_character(load("res://dialogue/characters/big_boss.dch"), sup_phone_marker)
 	worker_layout.register_character(load("res://dialogue/characters/big_boss_human.dch"), ceo_marker)
@@ -125,12 +135,22 @@ func on_dialogic_signal(argument : String):
 	
 	if argument == "soft_bounce":
 		emote_animation_player.play("soft_bounce")
+	
+	if argument == "game_end":
+		Dialogic.end_timeline()
+		$CanvasLayer/endLevelPopUp.visible = true
+		score_count.text = str(GlobalTrackingValues.total_score)
 
 func _on_skip_button_button_pressed() -> void:
 	Dialogic.end_timeline()
-	TransitionFade.transition()
-	await TransitionFade.transition_finished
-	get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
+	if GlobalTrackingValues.promotion_achieved:
+		$CanvasLayer/endLevelPopUp.visible = true
+		score_count.text = str(GlobalTrackingValues.total_score)
+	else:
+		TransitionFade.transition()
+		await TransitionFade.transition_finished
+		GlobalTrackingValues.game_reset()
+		get_tree().change_scene_to_file("res://scenes/officeSpace.tscn")
 
 
 func _on_emote_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -138,3 +158,10 @@ func _on_emote_animation_player_animation_finished(anim_name: StringName) -> voi
 		emote_animation_player.play("soft_bounce")
 	else:
 		pass
+
+
+func _on_exit_button_pressed() -> void:
+	GlobalTrackingValues.game_reset()
+	TransitionFade.text_transition("Thanks for playing!!!")
+	await TransitionFade.transition_finished
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")

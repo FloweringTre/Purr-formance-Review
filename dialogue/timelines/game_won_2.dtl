@@ -1,0 +1,30 @@
+[signal arg="big_boss_human"]
+[signal arg="emote"]
+[signal arg="sad"]
+supervisor: See, the cat is really hard to deal with.
+big_boss_human: I can't stand this!
+[signal arg="no emote"]
+supervisor: Yes! We need more help!
+big_boss_human: I agree!
+[signal arg="emote"]
+[signal arg="question"]
+supervisor: You... do?
+[signal arg="excited"]
+big_boss_human: Yes, we need new leadership here.
+supervisor: What!?
+[signal arg="no emote"]
+big_boss_human: You are demoted. Effective Immediately!
+supervisor_demoted: I can't believe this!
+big_boss_human: I can't believe you let your office get to this state!
+[signal arg="emote"]
+[signal arg="sad"]
+supervisor_demoted: Please, give me another chance!
+big_boss_human: No, you can work your way up to the top again.
+[signal arg="no emote"]
+supervisor_demoted: But it took years to get my Cleanliness Supervisor role!
+big_boss_human: Then you can do it again!
+[signal arg="emote"]
+[signal arg="mad"]
+supervisor_demoted: CURSE YOU CAT!!!!
+[signal arg="game_end"]
+[end_timeline]
