@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Purr-formance Review"
 config/description="Kitty is seeking a promotion to Cat-astrophe Manager. Destroy the office and cause mayhem!"
-config/version="1.0"
+config/version="1.1"
 run/main_scene="res://scenes/mainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/ui/boot_screen.png"
@@ -45,7 +45,9 @@ directories/dtl_directory={
 "day3": "res://dialogue/timelines/day3.dtl",
 "day4_cat": "res://dialogue/timelines/day4_cat.dtl",
 "day4_worker": "res://dialogue/timelines/day4_worker.dtl",
-"day_repeat": "res://dialogue/timelines/day_repeat.dtl"
+"day_repeat": "res://dialogue/timelines/day_repeat.dtl",
+"game_won": "res://dialogue/timelines/game_won.dtl",
+"game_won_2": "res://dialogue/timelines/game_won_2.dtl"
 }
 layout/style_list=["res://dialogue/cat_textbubble.tres", "res://dialogue/worker_textbubble.tres"]
 layout/default_style="res://dialogue/cat_textbubble.tres"
