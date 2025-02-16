@@ -25,6 +25,7 @@ var sup_aval_pos : Array = []
 signal last_chase
 signal ready_last_chase
 signal game_won
+var promotion_achieved : bool = false
 signal game_has_been_won
 
 var game_was_played : bool = false
@@ -41,8 +42,8 @@ signal item_broken
 signal item_fixed
 var active_item_location : Vector2
 var trash_spilled : int = 0
-var printer_broken : bool
-var sink_broken : bool
+var printer_broken : bool 
+var sink_broken : bool 
 var donuts_spilled : int = 0
 var money_spilled : bool
 var secret_sleep : bool
@@ -67,6 +68,7 @@ var aboutLevels : Array = [
 func game_reset() -> void:
 	day_reset(false)
 	
+	promotion_achieved = false
 	repeated_day = false
 	workday = 0
 	score = 0

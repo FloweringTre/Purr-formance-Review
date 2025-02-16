@@ -98,28 +98,27 @@ func _on_level_timer_timeout() -> void:
 
 func on_game_won() -> void:
 	GlobalTrackingValues.send_message("")
-	MusicPlayer.set_track(5)
 	GlobalTrackingValues.game_over = true
 	end_level_pop_up.visible = true
 	time_left = round(level_timer.time_left)
 	level_time_display.text = str(round(time_left))
 	level_timer.paused = true
+	score_count.text = GlobalTrackingValues.score_calculate(time_left)
 	
 	if GlobalTrackingValues.successful_day() && GlobalTrackingValues.workday != 4:
+		MusicPlayer.set_track(5)
 		title.text = "Success!"
 		about_text.text = str("You completed all your KKPIs today! \n You have ", (4 - GlobalTrackingValues.workday), " days left in your\npurr-formance review.")
 		day_successful = true
 		redo_button.visible = false
 		continue_button.visible = true
 	elif GlobalTrackingValues.successful_day() && GlobalTrackingValues.workday == 4:
-		title.text = "Well done!"
-		about_text.text = "You have completed the purr-formance review with amazing KKPIs! You have been promoted to Cat-astrophe Manager! There is no stopping you!"
-		score_title.text = "Your final purr-formance rating"
-		day_successful = true
-		redo_button.visible = false
-		continue_button.visible = false
-	
-	score_count.text = GlobalTrackingValues.score_calculate(time_left)
+		GlobalTrackingValues.day_reset(true)
+		GlobalTrackingValues.promotion_achieved = true
+		TransitionFade.text_transition("The Purr-formance\nReview is over!")
+		await TransitionFade.transition_finished
+		#get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 
 func game_loss() -> void:
 	GlobalTrackingValues.send_message("")
