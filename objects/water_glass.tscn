@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcpg4oprdl21d"]
 
-[ext_resource type="Script" path="res://objects/water_glass.gd" id="1_erfgw"]
+[ext_resource type="Script" uid="uid://yx741ypexp22" path="res://objects/water_glass.gd" id="1_erfgw"]
 [ext_resource type="Texture2D" uid="uid://coiijr0a12cun" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/water_glass.png" id="2_kiwxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ny1p"]
@@ -105,9 +105,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_56lwu"]
 _data = {
-"RESET": SubResource("Animation_wk40t"),
-"tipped_over_left": SubResource("Animation_l2mt7"),
-"tipped_over_right": SubResource("Animation_8oagm")
+&"RESET": SubResource("Animation_wk40t"),
+&"tipped_over_left": SubResource("Animation_l2mt7"),
+&"tipped_over_right": SubResource("Animation_8oagm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5dj2"]

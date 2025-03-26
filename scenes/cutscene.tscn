@@ -1,7 +1,7 @@
 [gd_scene load_steps=51 format=4 uid="uid://emmqlss7ns1d"]
 
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://assets/tilesets/rooms_tile_set.tres" id="1_0gieh"]
-[ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_xi4ld"]
+[ext_resource type="Script" uid="uid://b37lutwdarixp" path="res://scenes/cutscene.gd" id="1_xi4ld"]
 [ext_resource type="TileSet" uid="uid://bj20fap8d0cqh" path="res://assets/tilesets/new_tile_set.tres" id="2_4cr8t"]
 [ext_resource type="Texture2D" uid="uid://cdl8ty74j8hnn" path="res://assets/1_assets_from_others/moderninteriors-win/emotes.png" id="7_0myte"]
 [ext_resource type="PackedScene" uid="uid://noryh17qpt8k" path="res://objects/safe.tscn" id="7_firgy"]
@@ -77,9 +77,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mv43h"]
 _data = {
-"RESET": SubResource("Animation_r6yei"),
-"idle": SubResource("Animation_yqrg0"),
-"sleep": SubResource("Animation_uu13n")
+&"RESET": SubResource("Animation_r6yei"),
+&"idle": SubResource("Animation_yqrg0"),
+&"sleep": SubResource("Animation_uu13n")
 }
 
 [sub_resource type="Animation" id="Animation_xfmva"]
@@ -247,10 +247,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6tfwv"]
 _data = {
-"RESET": SubResource("Animation_xfmva"),
-"off": SubResource("Animation_b4n0j"),
-"on": SubResource("Animation_n1pta"),
-"soft_bounce": SubResource("Animation_04bpk")
+&"RESET": SubResource("Animation_xfmva"),
+&"off": SubResource("Animation_b4n0j"),
+&"on": SubResource("Animation_n1pta"),
+&"soft_bounce": SubResource("Animation_04bpk")
 }
 
 [sub_resource type="Animation" id="Animation_5gnc5"]
@@ -359,8 +359,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jg18a"]
 _data = {
-"RESET": SubResource("Animation_5gnc5"),
-"soft_bounce": SubResource("Animation_b8qs2")
+&"RESET": SubResource("Animation_5gnc5"),
+&"soft_bounce": SubResource("Animation_b8qs2")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_woxck"]
@@ -457,9 +457,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vfhhb"]
 _data = {
-"RESET": SubResource("Animation_niayd"),
-"kitty_ring": SubResource("Animation_bvdjw"),
-"sup_ring": SubResource("Animation_33o2k")
+&"RESET": SubResource("Animation_niayd"),
+&"kitty_ring": SubResource("Animation_bvdjw"),
+&"sup_ring": SubResource("Animation_33o2k")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pr72e"]
@@ -578,13 +578,13 @@ frame = 2
 
 [node name="kittyAnimationPlayer" type="AnimationPlayer" parent="kitty"]
 libraries = {
-"": SubResource("AnimationLibrary_mv43h")
+&"": SubResource("AnimationLibrary_mv43h")
 }
 
 [node name="emoteAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../sup")
 libraries = {
-"": SubResource("AnimationLibrary_6tfwv")
+&"": SubResource("AnimationLibrary_6tfwv")
 }
 
 [node name="sup" type="Node2D" parent="."]
@@ -631,7 +631,7 @@ frame = 27
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sup/ceoSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_jg18a")
+&"": SubResource("AnimationLibrary_jg18a")
 }
 
 [node name="Node2D" type="Node2D" parent="sup"]
@@ -688,7 +688,7 @@ position = Vector2(1, -7)
 [node name="phoneAnimationPlayer" type="AnimationPlayer" parent="phones"]
 root_node = NodePath("../kitty_phone")
 libraries = {
-"": SubResource("AnimationLibrary_vfhhb")
+&"": SubResource("AnimationLibrary_vfhhb")
 }
 
 [node name="camera" type="Node2D" parent="."]

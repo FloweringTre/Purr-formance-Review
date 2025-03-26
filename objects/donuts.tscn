@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfjqs73h12t0y"]
 
-[ext_resource type="Script" path="res://objects/donuts.gd" id="1_34pse"]
+[ext_resource type="Script" uid="uid://p1f7rlqdh81u" path="res://objects/donuts.gd" id="1_34pse"]
 [ext_resource type="Texture2D" uid="uid://biu33tyy70504" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/donuts.png" id="2_0hkff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ny1p"]
@@ -363,10 +363,10 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_56lwu"]
 _data = {
-"RESET": SubResource("Animation_wk40t"),
-"glow": SubResource("Animation_v68y4"),
-"plate_fixed": SubResource("Animation_ahdj6"),
-"plate_spilled": SubResource("Animation_as30s")
+&"RESET": SubResource("Animation_wk40t"),
+&"glow": SubResource("Animation_v68y4"),
+&"plate_fixed": SubResource("Animation_ahdj6"),
+&"plate_spilled": SubResource("Animation_as30s")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxaxi"]

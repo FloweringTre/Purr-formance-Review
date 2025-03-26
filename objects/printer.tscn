@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dgji124pxajuv"]
 
-[ext_resource type="Script" path="res://objects/printer.gd" id="1_ucciy"]
+[ext_resource type="Script" uid="uid://bxooa4c577hli" path="res://objects/printer.gd" id="1_ucciy"]
 [ext_resource type="Texture2D" uid="uid://cu46p3myl65i1" path="res://assets/1_assets_from_others/Modern_Office_Revamped_v1.2/2_Modern_Office_Black_Shadow/printer.png" id="2_2qg31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ny1p"]
@@ -112,8 +112,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_56lwu"]
 _data = {
-"RESET": SubResource("Animation_wk40t"),
-"glow": SubResource("Animation_v68y4")
+&"RESET": SubResource("Animation_wk40t"),
+&"glow": SubResource("Animation_v68y4")
 }
 
 [sub_resource type="Gradient" id="Gradient_aph51"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bb04824npavak"]
 
-[ext_resource type="Script" path="res://objects/sink.gd" id="1_tyabb"]
+[ext_resource type="Script" uid="uid://dwjacndqo3xxu" path="res://objects/sink.gd" id="1_tyabb"]
 [ext_resource type="Texture2D" uid="uid://egcaob5ujaww" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/sink.png" id="2_nshhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ny1p"]
@@ -202,11 +202,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_56lwu"]
 _data = {
-"RESET": SubResource("Animation_wk40t"),
-"glow": SubResource("Animation_v68y4"),
-"sink_breaking": SubResource("Animation_qp0ed"),
-"sink_broken": SubResource("Animation_2beq1"),
-"sink_fixing": SubResource("Animation_5xw4y")
+&"RESET": SubResource("Animation_wk40t"),
+&"glow": SubResource("Animation_v68y4"),
+&"sink_breaking": SubResource("Animation_qp0ed"),
+&"sink_broken": SubResource("Animation_2beq1"),
+&"sink_fixing": SubResource("Animation_5xw4y")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5dj2"]

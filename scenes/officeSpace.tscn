@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=4 uid="uid://f2gp8e478ej2"]
+[gd_scene load_steps=48 format=4 uid="uid://f2gp8e478ej2"]
 
-[ext_resource type="Script" path="res://scenes/office_space.gd" id="1_2kpr1"]
+[ext_resource type="Script" uid="uid://dep0545d2lh6r" path="res://scenes/office_space.gd" id="1_2kpr1"]
 [ext_resource type="TileSet" uid="uid://dy0nuvhpoj4k1" path="res://assets/tilesets/rooms_tile_set.tres" id="1_hiqov"]
 [ext_resource type="TileSet" uid="uid://bj20fap8d0cqh" path="res://assets/tilesets/new_tile_set.tres" id="1_lym04"]
 [ext_resource type="PackedScene" uid="uid://cnjrlb1mvmof6" path="res://characters/kitty/kitty_lord.tscn" id="2_qk15s"]
@@ -147,9 +147,18 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_721eq"]
 _data = {
-"RESET": SubResource("Animation_ox3la"),
-"glow": SubResource("Animation_85yvf")
+&"RESET": SubResource("Animation_ox3la"),
+&"glow": SubResource("Animation_85yvf")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yppek"]
+size = Vector2(545, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnis4"]
+size = Vector2(334, 290)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymvs5"]
+size = Vector2(544, 109)
 
 [node name="OfficeSpace" type="Node2D"]
 y_sort_enabled = true
@@ -1077,7 +1086,7 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="gameUI/startingday1PopUp/Node2D"]
 libraries = {
-"": SubResource("AnimationLibrary_721eq")
+&"": SubResource("AnimationLibrary_721eq")
 }
 
 [node name="aboutText3" type="Label" parent="gameUI/startingday1PopUp"]
@@ -1704,7 +1713,7 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="gameUI/helpPopUp/Node2D"]
 libraries = {
-"": SubResource("AnimationLibrary_721eq")
+&"": SubResource("AnimationLibrary_721eq")
 }
 
 [node name="aboutText3" type="Label" parent="gameUI/helpPopUp"]
@@ -2078,6 +2087,34 @@ one_shot = true
 
 [node name="waitTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="zones" type="Node2D" parent="."]
+
+[node name="zoneOne" type="Area2D" parent="zones"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zones/zoneOne"]
+position = Vector2(543.5, 263)
+shape = SubResource("RectangleShape2D_yppek")
+
+[node name="zoneTwo" type="Area2D" parent="zones"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="zones/zoneTwo"]
+position = Vector2(183, 208)
+shape = SubResource("RectangleShape2D_rnis4")
+debug_color = Color(0.582812, 0.405633, 0.947299, 0.42)
+
+[node name="zoneThree" type="Area2D" parent="zones"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="zones/zoneThree"]
+position = Vector2(543, 117.5)
+shape = SubResource("RectangleShape2D_ymvs5")
+debug_color = Color(0.918224, 0.171448, 0.567855, 0.42)
 
 [connection signal="button_pressed" from="gameUI/startingday1PopUp/startBackButton" to="." method="_on_start_back_button_button_pressed"]
 [connection signal="button_pressed" from="gameUI/startingDayPopUp/startingdayBackButton" to="." method="_on_startingday_back_button_button_pressed"]

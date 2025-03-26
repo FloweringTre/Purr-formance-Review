@@ -1,16 +1,16 @@
 [gd_scene load_steps=44 format=3 uid="uid://cnjrlb1mvmof6"]
 
 [ext_resource type="Texture2D" uid="uid://do22sakoowdtu" path="res://assets/1_assets_from_others/Cat Sprite Sheet_orange.png" id="1_6kyr0"]
-[ext_resource type="Script" path="res://characters/kitty/kitty_lord.gd" id="1_8xtop"]
-[ext_resource type="Script" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="3_qlcgv"]
-[ext_resource type="Script" path="res://characters/kitty/idle_state.gd" id="4_b6j6m"]
-[ext_resource type="Script" path="res://characters/kitty/walk_state.gd" id="5_y5by3"]
-[ext_resource type="Script" path="res://characters/kitty/run_state.gd" id="6_a3gjt"]
-[ext_resource type="Script" path="res://characters/kitty/jump_state.gd" id="7_ndftk"]
+[ext_resource type="Script" uid="uid://d1j5fnulw7esa" path="res://characters/kitty/kitty_lord.gd" id="1_8xtop"]
+[ext_resource type="Script" uid="uid://c6nxxll0utu7c" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="3_qlcgv"]
+[ext_resource type="Script" uid="uid://b6ttfrjihpnkg" path="res://characters/kitty/idle_state.gd" id="4_b6j6m"]
+[ext_resource type="Script" uid="uid://cnnk0uisd2uqq" path="res://characters/kitty/walk_state.gd" id="5_y5by3"]
+[ext_resource type="Script" uid="uid://dm4n2p214alka" path="res://characters/kitty/run_state.gd" id="6_a3gjt"]
+[ext_resource type="Script" uid="uid://cqh6ph4ybboj8" path="res://characters/kitty/jump_state.gd" id="7_ndftk"]
 [ext_resource type="Texture2D" uid="uid://bc26ukyq58k4s" path="res://assets/ui/menuUI.png" id="8_kn2qq"]
-[ext_resource type="Script" path="res://characters/kitty/sleeping_state.gd" id="8_wr22t"]
-[ext_resource type="Script" path="res://characters/kitty/bap_state.gd" id="9_7s42f"]
-[ext_resource type="Script" path="res://characters/kitty/hiss_state.gd" id="10_yy5xl"]
+[ext_resource type="Script" uid="uid://dqbdu5lo0n5u8" path="res://characters/kitty/sleeping_state.gd" id="8_wr22t"]
+[ext_resource type="Script" uid="uid://bf05t78231gdk" path="res://characters/kitty/bap_state.gd" id="9_7s42f"]
+[ext_resource type="Script" uid="uid://bcy3e666n5mlp" path="res://characters/kitty/hiss_state.gd" id="10_yy5xl"]
 [ext_resource type="Texture2D" uid="uid://bgi5w8r3xkuq4" path="res://characters/kitty/blue_progress_bar.tres" id="11_tlvaq"]
 [ext_resource type="Texture2D" uid="uid://nbncib14bn35" path="res://characters/kitty/red_progress_bar.tres" id="11_yyv23"]
 [ext_resource type="AudioStream" uid="uid://cy8evvsa0xfou" path="res://assets/soundbites/meow_1.mp3" id="14_5u11k"]
@@ -233,17 +233,17 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6c3y"]
 _data = {
-"RESET": SubResource("Animation_rv7qj"),
-"bap": SubResource("Animation_tlhis"),
-"clean": SubResource("Animation_jjar4"),
-"clean_2": SubResource("Animation_aikl5"),
-"hiss": SubResource("Animation_eoksp"),
-"idle_1": SubResource("Animation_jr85i"),
-"idle_2": SubResource("Animation_531jj"),
-"jump": SubResource("Animation_en0cu"),
-"run": SubResource("Animation_rvauq"),
-"sleep": SubResource("Animation_dr4m3"),
-"walk": SubResource("Animation_wmi3i")
+&"RESET": SubResource("Animation_rv7qj"),
+&"bap": SubResource("Animation_tlhis"),
+&"clean": SubResource("Animation_jjar4"),
+&"clean_2": SubResource("Animation_aikl5"),
+&"hiss": SubResource("Animation_eoksp"),
+&"idle_1": SubResource("Animation_jr85i"),
+&"idle_2": SubResource("Animation_531jj"),
+&"jump": SubResource("Animation_en0cu"),
+&"run": SubResource("Animation_rvauq"),
+&"sleep": SubResource("Animation_dr4m3"),
+&"walk": SubResource("Animation_wmi3i")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uj1w0"]

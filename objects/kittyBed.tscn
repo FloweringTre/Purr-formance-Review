@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cdnpc6ir2yisu"]
 
-[ext_resource type="Script" path="res://objects/kitty_bed.gd" id="1_yuvvr"]
+[ext_resource type="Script" uid="uid://kd1b8cxmle80" path="res://objects/kitty_bed.gd" id="1_yuvvr"]
 [ext_resource type="Texture2D" uid="uid://bdxptgaihpeln" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/Theme_Sorter_Black_Shadow/2_LivingRoom_Black_Shadow_16x16.png" id="2_7p3gs"]
 [ext_resource type="Texture2D" uid="uid://c5thcpq8y08s0" path="res://assets/1_assets_from_others/moderninteriors-win/1_Interiors/pillows.png" id="2_fipun"]
 [ext_resource type="Texture2D" uid="uid://bf76qwq2m7q5" path="res://assets/1_assets_from_others/moderninteriors-win/UI_16x16.png" id="3_u1o4m"]
@@ -159,9 +159,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mk532"]
 _data = {
-"RESET": SubResource("Animation_e5ta4"),
-"arrow_bounce": SubResource("Animation_wkjj8"),
-"glow": SubResource("Animation_m1031")
+&"RESET": SubResource("Animation_e5ta4"),
+&"arrow_bounce": SubResource("Animation_wkjj8"),
+&"glow": SubResource("Animation_m1031")
 }
 
 [node name="KittyBed" type="Node2D"]

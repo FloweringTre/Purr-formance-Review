@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dj6r28g886xnu"]
 
 [ext_resource type="AudioStream" uid="uid://eap8r1l0rdui" path="res://assets/1_assets_from_others/music/City Sunshine by Kevin MacLeod.mp3" id="1_bdoa0"]
-[ext_resource type="Script" path="res://scripts/globals/music_player.gd" id="1_bu86n"]
+[ext_resource type="Script" uid="uid://cj5sgbfwgwd0n" path="res://scripts/globals/music_player.gd" id="1_bu86n"]
 [ext_resource type="AudioStream" uid="uid://dbadj36u30no1" path="res://assets/1_assets_from_others/music/Inspiration by Rafael Krux-Trimmed.mp3" id="2_sqaup"]
 [ext_resource type="AudioStream" uid="uid://doxqo2gtmced0" path="res://assets/1_assets_from_others/music/Natural Vibes by Kevin MacLeod.mp3" id="4_tkxv1"]
 [ext_resource type="AudioStream" uid="uid://bvpvyory0jpqb" path="res://assets/1_assets_from_others/music/Driving Concern by Kevin MacLeod.mp3" id="5_g7c1q"]

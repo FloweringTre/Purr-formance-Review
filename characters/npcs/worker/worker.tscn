@@ -1,12 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://emlixvyeuhbo"]
 
-[ext_resource type="Script" path="res://characters/npcs/worker/worker.gd" id="1_e62pb"]
+[ext_resource type="Script" uid="uid://c317y6jy7f0n3" path="res://characters/npcs/worker/worker.gd" id="1_e62pb"]
 [ext_resource type="Texture2D" uid="uid://bvfrvj4vnfjut" path="res://assets/1_assets_from_others/characters/worker_2.png" id="2_ede2a"]
-[ext_resource type="Script" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="3_5qmny"]
-[ext_resource type="Script" path="res://characters/npcs/worker/idle_state.gd" id="4_0got8"]
-[ext_resource type="Script" path="res://characters/npcs/worker/distracted_state.gd" id="5_y4a6x"]
-[ext_resource type="Script" path="res://characters/npcs/worker/walk_state.gd" id="6_ks0ds"]
-[ext_resource type="Script" path="res://characters/npcs/worker/fixing_state.gd" id="6_p1ikh"]
+[ext_resource type="Script" uid="uid://c6nxxll0utu7c" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="3_5qmny"]
+[ext_resource type="Script" uid="uid://cay26b0p1i8qo" path="res://characters/npcs/worker/idle_state.gd" id="4_0got8"]
+[ext_resource type="Script" uid="uid://co8qbi0pjvwia" path="res://characters/npcs/worker/distracted_state.gd" id="5_y4a6x"]
+[ext_resource type="Script" uid="uid://bmrh7q0b5515b" path="res://characters/npcs/worker/walk_state.gd" id="6_ks0ds"]
+[ext_resource type="Script" uid="uid://cbhrqtq6wqhc3" path="res://characters/npcs/worker/fixing_state.gd" id="6_p1ikh"]
 [ext_resource type="Texture2D" uid="uid://bf76qwq2m7q5" path="res://assets/1_assets_from_others/moderninteriors-win/UI_16x16.png" id="8_wgdkb"]
 
 [sub_resource type="Animation" id="Animation_7ggap"]
@@ -356,18 +356,18 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ld5oi"]
 _data = {
-"RESET": SubResource("Animation_7ggap"),
-"desk_down": SubResource("Animation_ca17k"),
-"desk_left": SubResource("Animation_b4sh8"),
-"desk_right": SubResource("Animation_ubap0"),
-"desk_up": SubResource("Animation_xrtwo"),
-"distracted": SubResource("Animation_64m48"),
-"fixing_down": SubResource("Animation_ptea6"),
-"fixing_left": SubResource("Animation_isctl"),
-"fixing_right": SubResource("Animation_bi1ob"),
-"fixing_up": SubResource("Animation_jvjq2"),
-"idle": SubResource("Animation_wkwb7"),
-"walk": SubResource("Animation_a7mc8")
+&"RESET": SubResource("Animation_7ggap"),
+&"desk_down": SubResource("Animation_ca17k"),
+&"desk_left": SubResource("Animation_b4sh8"),
+&"desk_right": SubResource("Animation_ubap0"),
+&"desk_up": SubResource("Animation_xrtwo"),
+&"distracted": SubResource("Animation_64m48"),
+&"fixing_down": SubResource("Animation_ptea6"),
+&"fixing_left": SubResource("Animation_isctl"),
+&"fixing_right": SubResource("Animation_bi1ob"),
+&"fixing_up": SubResource("Animation_jvjq2"),
+&"idle": SubResource("Animation_wkwb7"),
+&"walk": SubResource("Animation_a7mc8")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7erqd"]
@@ -461,8 +461,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh4fe"]
 _data = {
-"RESET": SubResource("Animation_0dnxf"),
-"bounce": SubResource("Animation_yebj0")
+&"RESET": SubResource("Animation_0dnxf"),
+&"bounce": SubResource("Animation_yebj0")
 }
 
 [node name="worker" type="CharacterBody2D"]

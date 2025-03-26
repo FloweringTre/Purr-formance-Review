@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://cbo4d3yslerjt"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_120gn"]
+[ext_resource type="Script" uid="uid://cohd28h1utyhn" path="res://scenes/main_menu.gd" id="1_120gn"]
 [ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://components/buttonSMOL2_blue.tscn" id="2_0yrn5"]
 [ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://components/buttonSMOL2.tscn" id="3_vil2u"]
 [ext_resource type="Texture2D" uid="uid://cnxkb4v007iol" path="res://assets/ui/boot_screen.png" id="4_1sw5p"]
@@ -111,8 +111,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kr7ke"]
 _data = {
-"RESET": SubResource("Animation_um453"),
-"fade": SubResource("Animation_hbbw2")
+&"RESET": SubResource("Animation_um453"),
+&"fade": SubResource("Animation_hbbw2")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtvka"]
@@ -264,9 +264,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh4fe"]
 _data = {
-"RESET": SubResource("Animation_0dnxf"),
-"bounce": SubResource("Animation_yebj0"),
-"bounce_loop": SubResource("Animation_x4bsh")
+&"RESET": SubResource("Animation_0dnxf"),
+&"bounce": SubResource("Animation_yebj0"),
+&"bounce_loop": SubResource("Animation_x4bsh")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqn00"]
@@ -481,17 +481,17 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6c3y"]
 _data = {
-"RESET": SubResource("Animation_rv7qj"),
-"bap": SubResource("Animation_tlhis"),
-"clean": SubResource("Animation_jjar4"),
-"clean_2": SubResource("Animation_aikl5"),
-"hiss": SubResource("Animation_eoksp"),
-"idle_1": SubResource("Animation_jr85i"),
-"idle_2": SubResource("Animation_531jj"),
-"jump": SubResource("Animation_en0cu"),
-"run": SubResource("Animation_rvauq"),
-"sleep": SubResource("Animation_dr4m3"),
-"walk": SubResource("Animation_wmi3i")
+&"RESET": SubResource("Animation_rv7qj"),
+&"bap": SubResource("Animation_tlhis"),
+&"clean": SubResource("Animation_jjar4"),
+&"clean_2": SubResource("Animation_aikl5"),
+&"hiss": SubResource("Animation_eoksp"),
+&"idle_1": SubResource("Animation_jr85i"),
+&"idle_2": SubResource("Animation_531jj"),
+&"jump": SubResource("Animation_en0cu"),
+&"run": SubResource("Animation_rvauq"),
+&"sleep": SubResource("Animation_dr4m3"),
+&"walk": SubResource("Animation_wmi3i")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5quk"]
@@ -799,16 +799,16 @@ theme = SubResource("Theme_2w6g3")
 theme_override_colors/font_disabled_color = Color(0.596078, 0.839216, 0.615686, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.596078, 0.839216, 0.615686, 1)
 theme_override_colors/font_hover_color = Color(0.596078, 0.839216, 0.615686, 1)
-theme_override_colors/font_pressed_color = Color(0.596078, 0.839216, 0.615686, 1)
-theme_override_colors/font_focus_color = Color(0.596078, 0.839216, 0.615686, 1)
-theme_override_colors/font_color = Color(0.596078, 0.839216, 0.615686, 1)
-theme_override_colors/font_outline_color = Color(0.596078, 0.839216, 0.615686, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_focus_color = Color(0.596078, 0.839216, 0.615686, 1)
+theme_override_colors/font_pressed_color = Color(0.596078, 0.839216, 0.615686, 1)
 theme_override_font_sizes/font_size = 16
 toggle_mode = true
 text = "Skip Cutscenes"
@@ -832,7 +832,7 @@ button_text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kr7ke")
+&"": SubResource("AnimationLibrary_kr7ke")
 }
 
 [node name="splashTimer" type="Timer" parent="."]
@@ -900,7 +900,7 @@ flip_h = true
 
 [node name="emotionAnimation" type="AnimationPlayer" parent="managerArt/sup"]
 libraries = {
-"": SubResource("AnimationLibrary_bh4fe")
+&"": SubResource("AnimationLibrary_bh4fe")
 }
 autoplay = "bounce_loop"
 
@@ -965,7 +965,7 @@ vframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="kittyArt/kitty"]
 libraries = {
-"": SubResource("AnimationLibrary_t6c3y")
+&"": SubResource("AnimationLibrary_t6c3y")
 }
 autoplay = "idle_2"
 

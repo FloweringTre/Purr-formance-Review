@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://wonyaiea8tn2"]
 
-[ext_resource type="Script" path="res://components/button_SMO_blueL.gd" id="1_1pelp"]
+[ext_resource type="Script" uid="uid://bpfody8kxtkat" path="res://components/button_SMO_blueL.gd" id="1_1pelp"]
 [ext_resource type="Texture2D" uid="uid://p32plita8xnf" path="res://assets/ui/smolButtons_blue.png" id="2_64iuq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bd1ur"]

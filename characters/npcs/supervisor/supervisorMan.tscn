@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://bc3k7dij4dkyd"]
 
-[ext_resource type="Script" path="res://characters/npcs/supervisor/supervisor_man.gd" id="1_l0wv1"]
+[ext_resource type="Script" uid="uid://do3nxxp44h611" path="res://characters/npcs/supervisor/supervisor_man.gd" id="1_l0wv1"]
 [ext_resource type="Texture2D" uid="uid://bboy0qe34n6f3" path="res://assets/1_assets_from_others/characters/sup_1.png" id="2_2mxav"]
-[ext_resource type="Script" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="2_ctrtj"]
-[ext_resource type="Script" path="res://characters/npcs/supervisor/idle_state.gd" id="3_c6syh"]
-[ext_resource type="Script" path="res://characters/npcs/supervisor/distracted_state.gd" id="4_q46r7"]
-[ext_resource type="Script" path="res://characters/npcs/supervisor/walk_state.gd" id="5_jm3ga"]
-[ext_resource type="Script" path="res://characters/npcs/supervisor/run_state.gd" id="7_cjfey"]
+[ext_resource type="Script" uid="uid://c6nxxll0utu7c" path="res://scripts/RapidVector_StateMachine/node_state_machine.gd" id="2_ctrtj"]
+[ext_resource type="Script" uid="uid://c25v4w2xachpo" path="res://characters/npcs/supervisor/idle_state.gd" id="3_c6syh"]
+[ext_resource type="Script" uid="uid://ckkx3tbxxtdu7" path="res://characters/npcs/supervisor/distracted_state.gd" id="4_q46r7"]
+[ext_resource type="Script" uid="uid://dkoq71v5jxaqf" path="res://characters/npcs/supervisor/walk_state.gd" id="5_jm3ga"]
+[ext_resource type="Script" uid="uid://bujynagklaabt" path="res://characters/npcs/supervisor/run_state.gd" id="7_cjfey"]
 [ext_resource type="Texture2D" uid="uid://bf76qwq2m7q5" path="res://assets/1_assets_from_others/moderninteriors-win/UI_16x16.png" id="8_mcsbk"]
 
 [sub_resource type="Animation" id="Animation_7ggap"]
@@ -213,11 +213,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ld5oi"]
 _data = {
-"RESET": SubResource("Animation_7ggap"),
-"distracted": SubResource("Animation_64m48"),
-"idle": SubResource("Animation_wkwb7"),
-"run": SubResource("Animation_0sj4d"),
-"walk": SubResource("Animation_a7mc8")
+&"RESET": SubResource("Animation_7ggap"),
+&"distracted": SubResource("Animation_64m48"),
+&"idle": SubResource("Animation_wkwb7"),
+&"run": SubResource("Animation_0sj4d"),
+&"walk": SubResource("Animation_a7mc8")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7erqd"]
@@ -351,9 +351,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh4fe"]
 _data = {
-"RESET": SubResource("Animation_0dnxf"),
-"bounce": SubResource("Animation_yebj0"),
-"bounce_loop": SubResource("Animation_x4bsh")
+&"RESET": SubResource("Animation_0dnxf"),
+&"bounce": SubResource("Animation_yebj0"),
+&"bounce_loop": SubResource("Animation_x4bsh")
 }
 
 [node name="SupervisorMan" type="CharacterBody2D"]

@@ -14,7 +14,7 @@ config/name="Purr-formance Review"
 config/description="Kitty is seeking a promotion to Cat-astrophe Manager. Destroy the office and cause mayhem!"
 config/version="1.1"
 run/main_scene="res://scenes/mainMenu.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://assets/ui/boot_screen.png"
 config/icon="res://icon.svg"
 
@@ -169,6 +169,7 @@ dialogic_default_action={
 2d_physics/layer_3="kitty capture"
 2d_physics/layer_4="kitty interaction"
 2d_physics/layer_5="perm borders"
+2d_physics/layer_9="zone alerts"
 
 [rendering]
 
